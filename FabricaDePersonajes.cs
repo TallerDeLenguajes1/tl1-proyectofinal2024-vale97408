@@ -1,6 +1,6 @@
 // Implemento clases para poder crear personajes aleatorios
 
-namespace Personajes
+namespace Proyecto
 {
     // using System;
     //using System.Collections.Generic;
