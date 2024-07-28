@@ -5,6 +5,8 @@ namespace Personajes
     // using System;
     //using System.Collections.Generic;
 
+    public class FabricaDePersonajes
+    {
 
     public enum TipoPersonaje
     {
@@ -33,8 +35,6 @@ namespace Personajes
         public int Salud { get; set; }
     }
 
-    public class FabricaDePersonajes
-    {
         private static Random random = new Random();
 
         public List<Personaje> GeneradorDePersonajes(List<string> nombres)
