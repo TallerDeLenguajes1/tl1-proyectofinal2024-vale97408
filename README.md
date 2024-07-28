@@ -16,8 +16,11 @@
 
 
 ## Implementación
- Este proyecto hace uso de la API [Planetas] (https://swapi.dev/api/planets/?format=api)  del sitio [SWAPI] (https://swapi.dev/api/) para crear entornos planetarios aleatorios que añaden una dimensión única a cada duelo.
-  La API elegida genera datos JSON detallados sobre diferentes planetas, proporcionando información  sobre sus características. Entre sus datos incluye: 
+
+### Uso de API en el proyecto
+ Este proyecto hace uso de la API [Planetas] (https://swapi.dev/api/planets/?format=api)  del sitio [SWAPI] (https://swapi.dev/api/) para crear entornos planetarios aleatorios que añaden una dimensión única a cada duelo. 
+  La API elegida genera datos JSON detallados sobre diferentes planetas, proporcionando información  sobre sus características. Sin embargo,  aunque los datos que me proporciona son muy completos, trabajaremos principalmente con las propiedades del clima, terreno y gravedad para modificar las habilidades y estrategias de los hechiceros en cada duelo.
+  Entre sus datos incluye: 
 
   - Nombre del planeta: La denominación única del planeta.
   - Período de rotación: El tiempo que tarda el planeta en girar sobre su propio eje.
@@ -31,7 +34,3 @@
   - Residentes y películas: Referencias a personajes y eventos asociados con el planeta.
   - Tiempos de creación y edición: Registros de cuándo se crearon y actualizaron los datos.
   - URL: Enlace directo a más información sobre el planeta.
-
-  ### Uso en el proyecto
-  Se utiliza la API para obtener un planeta aleatorio, trabajando principalmente con las  características de clima, terreno y garvedad para modificar las habilidades y estrategias de los hechiceros en cada duelo. 
-
