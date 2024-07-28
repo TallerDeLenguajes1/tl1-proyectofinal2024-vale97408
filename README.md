@@ -1,4 +1,4 @@
-# -----Proyecto : Juego de Rol------
+# Proyecto : Juego de Rol
 # ----------ARCANUM: TORNEO DE MAGIA-------------
 
 #### En el legendario Torneo Arcanum hechiceros compiten en duelos mágicos llenos de misterio y desafíos, con un giro cósmico único ¿Quién dominará el arte arcano y ganará el trono del Gran Hechicero?
