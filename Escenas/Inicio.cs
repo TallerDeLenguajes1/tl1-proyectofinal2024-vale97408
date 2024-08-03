@@ -82,7 +82,7 @@ namespace Proyecto
                 Console.WriteLine($"Destreza: {personaje.Caracteristicas.Destreza}");
                 Console.WriteLine($"Fuerza: {personaje.Caracteristicas.Fuerza}");
                 Console.WriteLine($"Nivel: {personaje.Caracteristicas.Nivel}");
-                Console.WriteLine($"Armadura: {personaje.Caracteristicas.Armadura}");
+                Console.WriteLine($"Proteccion: {personaje.Caracteristicas.Proteccion}");
                 Console.WriteLine();
             }
         }

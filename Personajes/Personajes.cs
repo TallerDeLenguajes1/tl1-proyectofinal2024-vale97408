@@ -46,7 +46,7 @@ namespace Personajes
         private int destreza;
         private int fuerza;
         private int nivel;
-        private int armadura;
+        private int proteccion;
         private int salud;
 
         public Caracteristicas()
@@ -56,7 +56,7 @@ namespace Personajes
             Destreza = 0;
             Fuerza = 0;
             Nivel = 0;
-            Armadura = 0;
+            Proteccion = 0;
             Salud = 0;
         }
 
@@ -64,7 +64,7 @@ namespace Personajes
         public int Destreza { get => destreza; set => destreza = value; }
         public int Fuerza { get => fuerza; set => fuerza = value; }
         public int Nivel { get => nivel; set => nivel = value; }
-        public int Armadura { get => armadura; set => armadura = value; }
+        public int Proteccion { get => proteccion; set => proteccion = value; }
         public int Salud { get => salud; set => salud = value; }
     }
     

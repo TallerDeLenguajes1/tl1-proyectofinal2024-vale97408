@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-namespace Proyecto
+namespace Juego
 {
     public class Titulo
     {

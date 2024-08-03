@@ -55,35 +55,35 @@ namespace Fabrica
                     personaje.Caracteristicas.Destreza = random.Next(1, 6);
                     personaje.Caracteristicas.Fuerza = random.Next(5, 11);
                     personaje.Caracteristicas.Nivel = random.Next(1, 11);
-                    personaje.Caracteristicas.Armadura = random.Next(3, 8);
+                    personaje.Caracteristicas.Proteccion = random.Next(3, 8);
                     break;
                 case TipoPersonaje.HechiceroDeHielo:
                     personaje.Caracteristicas.Velocidad = random.Next(1, 8);
                     personaje.Caracteristicas.Destreza = random.Next(4, 6);
                     personaje.Caracteristicas.Fuerza = random.Next(3, 8);
                     personaje.Caracteristicas.Nivel = random.Next(1, 11);
-                    personaje.Caracteristicas.Armadura = random.Next(5, 11);
+                    personaje.Caracteristicas.Proteccion = random.Next(5, 11);
                     break;
                 case TipoPersonaje.HechiceroDeLaNaturaleza:
                     personaje.Caracteristicas.Velocidad = random.Next(3, 10);
                     personaje.Caracteristicas.Destreza = random.Next(2, 6);
                     personaje.Caracteristicas.Fuerza = random.Next(4, 9);
                     personaje.Caracteristicas.Nivel = random.Next(1, 11);
-                    personaje.Caracteristicas.Armadura = random.Next(4, 10);
+                    personaje.Caracteristicas.Proteccion = random.Next(4, 10);
                     break;
                 case TipoPersonaje.HechiceroDeLasSombras:
                     personaje.Caracteristicas.Velocidad = random.Next(4, 10);
                     personaje.Caracteristicas.Destreza = random.Next(3, 6);
                     personaje.Caracteristicas.Fuerza = random.Next(2, 8);
                     personaje.Caracteristicas.Nivel = random.Next(1, 11);
-                    personaje.Caracteristicas.Armadura = random.Next(2, 8);
+                    personaje.Caracteristicas.Proteccion = random.Next(2, 8);
                     break;
                 case TipoPersonaje.HechiceroDeLuz:
                     personaje.Caracteristicas.Velocidad = random.Next(2, 9);
                     personaje.Caracteristicas.Destreza = random.Next(4, 6);
                     personaje.Caracteristicas.Fuerza = random.Next(3, 8);
                     personaje.Caracteristicas.Nivel = random.Next(1, 11);
-                    personaje.Caracteristicas.Armadura = random.Next(6, 11);
+                    personaje.Caracteristicas.Proteccion = random.Next(6, 11);
                     break;
             }
         }
