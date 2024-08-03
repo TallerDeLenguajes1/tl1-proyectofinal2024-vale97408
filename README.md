@@ -15,7 +15,7 @@
  - **Personajes:** Cada personaje tendrá en sus caracteristicas valores aleatorios de vida, velocidad, que a medida de que vayan ganando los duelos, irán avanzando de niveles e incrementando sus habilidades de acuerdo a la dificultad del planeta y la dificultad del enemigo.
 
 
-## Implementación
+## Implementación: Recursos utilizados
 
 ### Uso de API en el proyecto
  Este proyecto hace uso de la API [Planetas] (https://swapi.dev/api/planets/?format=api)  del sitio [SWAPI] (https://swapi.dev/api/) para crear entornos planetarios aleatorios que añaden una dimensión única a cada duelo. 
@@ -34,3 +34,7 @@
   - Residentes y películas: Referencias a personajes y eventos asociados con el planeta.
   - Tiempos de creación y edición: Registros de cuándo se crearon y actualizaron los datos.
   - URL: Enlace directo a más información sobre el planeta.
+
+### Presentación Visual
+ Para mejorar la presentación del proyecto agregué títulos que aparecerán en momentos específicos del juego , todos ellos realizados con texto ASCII de la página: https://www.topster.es/texto-ascii/.
+

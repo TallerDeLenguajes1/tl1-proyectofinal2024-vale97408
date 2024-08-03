@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using static Proyecto.FabricaDePersonajes;
+using Proyecto;
+using Personajes;
 
 namespace Proyecto
 {
