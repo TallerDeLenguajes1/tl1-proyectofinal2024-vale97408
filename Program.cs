@@ -8,7 +8,7 @@ namespace Juego
         static void Main(string[] args)
         {
             // Método para comenzar el juego
-            Inicio.ComenzarJuego();
+            Inicio.InicioJuego();
         }
     }
 }

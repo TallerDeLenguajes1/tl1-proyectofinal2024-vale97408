@@ -8,7 +8,7 @@ namespace Proyecto
 {
     public class Inicio
     {
-        public static void ComenzarJuego()
+        public static void InicioJuego()
         {
             // Mostrar la pantalla de inicio
             Titulo.MostrarTituloDelJuego();
