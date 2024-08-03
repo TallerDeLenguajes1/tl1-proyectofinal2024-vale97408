@@ -1,0 +1,172 @@
+[
+  {
+    "Datos": {
+      "Nombre": "Aegis",
+      "Apodo": "El Destructor",
+      "FechaDeNacimiento": "1901-09-26T00:00:00",
+      "Edad": 300,
+      "Tipo": 1
+    },
+    "Caracteristicas": {
+      "Velocidad": 4,
+      "Destreza": 5,
+      "Fuerza": 5,
+      "Nivel": 5,
+      "Armadura": 5,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Bran",
+      "Apodo": "El Sabio",
+      "FechaDeNacimiento": "1898-03-26T00:00:00",
+      "Edad": 206,
+      "Tipo": 3
+    },
+    "Caracteristicas": {
+      "Velocidad": 6,
+      "Destreza": 3,
+      "Fuerza": 5,
+      "Nivel": 3,
+      "Armadura": 6,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Eldric",
+      "Apodo": "El Sabio",
+      "FechaDeNacimiento": "1843-02-19T00:00:00",
+      "Edad": 152,
+      "Tipo": 4
+    },
+    "Caracteristicas": {
+      "Velocidad": 6,
+      "Destreza": 4,
+      "Fuerza": 5,
+      "Nivel": 2,
+      "Armadura": 10,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Darius",
+      "Apodo": "El Sombra",
+      "FechaDeNacimiento": "1811-06-09T00:00:00",
+      "Edad": 4,
+      "Tipo": 4
+    },
+    "Caracteristicas": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 4,
+      "Nivel": 9,
+      "Armadura": 10,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Fenwick",
+      "Apodo": "El Sombra",
+      "FechaDeNacimiento": "2012-09-16T00:00:00",
+      "Edad": 266,
+      "Tipo": 3
+    },
+    "Caracteristicas": {
+      "Velocidad": 5,
+      "Destreza": 3,
+      "Fuerza": 3,
+      "Nivel": 7,
+      "Armadura": 3,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Fionn",
+      "Apodo": "El Destructor",
+      "FechaDeNacimiento": "2003-10-12T00:00:00",
+      "Edad": 74,
+      "Tipo": 2
+    },
+    "Caracteristicas": {
+      "Velocidad": 5,
+      "Destreza": 3,
+      "Fuerza": 7,
+      "Nivel": 3,
+      "Armadura": 8,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Gwen",
+      "Apodo": "El Sombra",
+      "FechaDeNacimiento": "1886-06-22T00:00:00",
+      "Edad": 45,
+      "Tipo": 4
+    },
+    "Caracteristicas": {
+      "Velocidad": 5,
+      "Destreza": 4,
+      "Fuerza": 7,
+      "Nivel": 3,
+      "Armadura": 6,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Thorne",
+      "Apodo": "El Sanador",
+      "FechaDeNacimiento": "1878-11-20T00:00:00",
+      "Edad": 128,
+      "Tipo": 2
+    },
+    "Caracteristicas": {
+      "Velocidad": 4,
+      "Destreza": 4,
+      "Fuerza": 5,
+      "Nivel": 7,
+      "Armadura": 6,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Ivar",
+      "Apodo": "El Destructor",
+      "FechaDeNacimiento": "1939-08-03T00:00:00",
+      "Edad": 11,
+      "Tipo": 0
+    },
+    "Caracteristicas": {
+      "Velocidad": 9,
+      "Destreza": 2,
+      "Fuerza": 10,
+      "Nivel": 7,
+      "Armadura": 3,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Jasper",
+      "Apodo": "El Sanador",
+      "FechaDeNacimiento": "1878-01-18T00:00:00",
+      "Edad": 204,
+      "Tipo": 2
+    },
+    "Caracteristicas": {
+      "Velocidad": 9,
+      "Destreza": 5,
+      "Fuerza": 5,
+      "Nivel": 5,
+      "Armadura": 7,
+      "Salud": 100
+    }
+  }
+]

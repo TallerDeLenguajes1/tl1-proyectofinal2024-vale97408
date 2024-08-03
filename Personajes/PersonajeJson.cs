@@ -8,11 +8,13 @@ namespace Juego
 {
     public class PersonajesJson
     {
+        // Método para obtener la ruta completa del archivo
         private string ObtenerRuta(string nombreArchivo)
         {
             return Path.Combine("Data", nombreArchivo);
         }
 
+        // Método para guardar una lista de personajes en un archivo JSON
         public void GuardarPersonajes(List<Personaje> listadoDePersonajes, string nombreArchivo)
         {
             string ruta = ObtenerRuta(nombreArchivo);
@@ -38,6 +40,7 @@ namespace Juego
             }
         }
 
+        // Método para leer una lista de personajes desde un archivo JSON
         public List<Personaje> LeerPersonajes(string nombreArchivo)
         {
             string ruta = ObtenerRuta(nombreArchivo);
@@ -68,13 +71,14 @@ namespace Juego
             }
         }
 
+        // Método para verificar si un archivo existe y tiene datos
         public bool Existe(string nombreArchivo)
         {
             string ruta = ObtenerRuta(nombreArchivo);
-            return File.Exists(ruta);
+            return File.Exists(ruta) && new FileInfo(ruta).Length > 0;
         }
 
-        // // Método para eliminar un archivo
+        // Método para eliminar un archivo (comentado, opcional)
         // public void EliminarArchivo(string nombreArchivo)
         // {
         //     string ruta = ObtenerRuta(nombreArchivo);

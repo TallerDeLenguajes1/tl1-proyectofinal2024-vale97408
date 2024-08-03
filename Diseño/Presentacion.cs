@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+
 namespace Proyecto
 {
     public class Titulo
@@ -6,7 +9,7 @@ namespace Proyecto
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            string titulo = @"  
+            string titulo = @"
      ___      .______        ______      ___      .__   __.  __    __  .___  ___. 
     /   \     |   _  \      /      |    /   \     |  \ |  | |  |  |  | |   \/   | 
    /  ^  \    |  |_)  |    |  ,----'   /  ^  \    |   \|  | |  |  |  | |  \  /  | 
@@ -54,25 +57,27 @@ ________$$__$$$$$$$$$$$$$$$$$$____$$
 _________$$$$$$$$$$$$$$$$$$$$$___$$
 ___________$$$$$$$$$$$$$$$$$$$___$$
 ___________$$$$$$$$$$$$$$$$$$$__$$
-___________$$$$$$$$$$$$$$$$$$$__$$
 ___________$$$$$$$$$$$$$$$$$$$_$$
 ____________$$$___$$$$$___$$$__$$
 _______________$$$_____$$$____$$
 
 
- ";           
+ ";
                
             Console.WriteLine(titulo);
             Console.ResetColor();
             Console.WriteLine("\n ----PRESIONE UNA TECLA PARA COMENZAR------");
             Console.ReadKey();
         }
-        public static void MostrarTituloGanadorPerdedor( FabricaDePersonajes personaje, string ganador)
+
+        public static void MostrarTituloGanadorPerdedor(string ganador)
         {
             // SI GANA
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
-            string tituloGanador = @"
+            if (ganador != null)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                string tituloGanador = @"
   _______      ___      .__   __.      ___       _______    ______   .______       __  
  /  _____|    /   \     |  \ |  |     /   \     |       \  /  __  \  |   _  \     |  | 
 |  |  __     /  ^  \    |   \|  |    /  ^  \    |  .--.  ||  |  |  | |  |_)  |    |  | 
@@ -82,23 +87,15 @@ _______________$$$_____$$$____$$
 
 
 ";
-            Console.WriteLine(tituloGanador);
-            Console.ResetColor();
-                   Console.WriteLine("Iniciando pausa de 5 segundos...");
-        Thread.Sleep(5000);  // Pausa de 5 segundos (5000 milisegundos)
-        Console.WriteLine("Pausa terminada.");
-
-        Console.WriteLine("Presione una tecla para continuar...");
-        Console.ReadKey();  // Espera a que el usuario presione una tecla
-        Console.WriteLine("Continuando...");
-        Console.Clear(); 
-
-
-           // si no gana
-
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
-            string tituloPerdedor = @"
+                Console.WriteLine(tituloGanador);
+                Console.ResetColor();
+            }
+            else
+            {
+                // SI NO GANA
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                string tituloPerdedor = @"
 .______    _______ .______       _______   __    ______    __  
 |   _  \  |   ____||   _  \     |       \ |  |  /  __  \  |  | 
 |  |_)  | |  |__   |  |_)  |    |  .--.  ||  | |  |  |  | |  | 
@@ -107,26 +104,22 @@ _______________$$$_____$$$____$$
 | _|      |_______|| _| `._____||_______/ |__|  \______/  (__) 
 
 ";
-            Console.WriteLine(tituloPerdedor);
-            Console.ResetColor();
-                   Console.WriteLine("Iniciando pausa de 5 segundos...");
-        Thread.Sleep(5000);  // Pausa de 5 segundos (5000 milisegundos)
-        Console.WriteLine("Pausa terminada.");
-
-        Console.WriteLine("Presione una tecla para continuar...");
-        Console.ReadKey();  // Espera a que el usuario presione una tecla
-        Console.WriteLine("Continuando...");
-        Console.Clear(); 
+                Console.WriteLine(tituloPerdedor);
+                Console.ResetColor();
+            }
+            Console.WriteLine("Iniciando pausa de 5 segundos...");
+            Thread.Sleep(5000);  // Pausa de 5 segundos (5000 milisegundos)
+            Console.WriteLine("Pausa terminada.");
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadKey();  // Espera a que el usuario presione una tecla
+            Console.WriteLine("Continuando...");
+            Console.Clear();
         }
 
-         public static void Salir()
+        public static void Salir()
         {
             Console.WriteLine("Abandonando el juego...");
             Environment.Exit(0);
         }
-
-
-
     }
 }
-
