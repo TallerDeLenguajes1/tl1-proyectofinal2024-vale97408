@@ -230,23 +230,126 @@ namespace Proyecto
               Console.WriteLine(new string('-', 80));
             }
 
+            // FUNCION QUE CADA AUMENTA EL NIVEL DEL PERSONAJE- Se usa cuando el jugador gana una ronda. Devuelve el personaje modificado 
+            public static Personaje AumentarNivel(Personaje personaje)
+           {
+              if (personaje == null)
+               {
+                  throw new ArgumentNullException(nameof(personaje), "El personaje no puede ser nulo.");
+               }
+
+               // Obtener las características actuales del personaje
+               var caracteristicas = personaje.Caracteristicas;
+
+               // Definir el aumento por nivel
+               int aumentoVelocidad = 2;
+               int aumentoDestreza = 2;
+               int aumentoFuerza = 3;
+               int aumentoNivel = 1;
+               int aumentoProteccion = 2;
+               int aumentoSalud = 5;
+
+               // Aumentar las características del personaje
+               caracteristicas.Velocidad += aumentoVelocidad;
+               caracteristicas.Destreza += aumentoDestreza;
+               caracteristicas.Fuerza += aumentoFuerza;
+               caracteristicas.Nivel += aumentoNivel;
+               caracteristicas.Proteccion += aumentoProteccion;
+               caracteristicas.Salud += aumentoSalud;
+
+               // Actualizar las características del personaje
+               personaje.Caracteristicas = caracteristicas;
+
+               return personaje;
+             }
+         
+         // FUNCION A APLICAR ENTRE EL ATAQUE DE TURNOS 
+          private static void Atacar(Personaje atacante, Personaje defensor)
+        {
+            Random random = new Random();
+            // Calcular daño
+            int ataque = atacante.Caracteristicas.Destreza * atacante.Caracteristicas.Fuerza * atacante.Caracteristicas.Nivel;
+            int efectividad = random.Next(1, 101); // Valor aleatorio entre 1 y 100
+            int defensa = defensor.Caracteristicas.Proteccion * defensor.Caracteristicas.Velocidad;
+            int constanteAjuste = 500;
+            int danoProvocado = (ataque * efectividad - defensa) / constanteAjuste;
+
+            // Aplicar daño
+            defensor.Caracteristicas.Salud -= danoProvocado;
+
+            // Muestro mensajes 
+            // Mostrar mensaje de ataque
+            Console.WriteLine("____________________________________________________");
+           Console.WriteLine($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre}.");
+           Console.WriteLine($"{atacante.Datos.Nombre} inflige {danoProvocado} de daño a {defensor.Datos.Nombre}.");
+           Console.WriteLine("____________________________________________________");
+            Thread.Sleep(2000); // Esperar 2 segundos para que el jugador lea el mensaje
+
+        }
 
 
-           
+        // FUNCION PARA IR MOSTRANDO LA SALUD DE MI PERSONAJE
+        private static void MostrarSalud(Personaje jugador, Personaje rival)
+         {
+            Console.Clear(); // Limpiar consola
+            Console.WriteLine($"{"Nombre", -20} | {"Salud", -10}");
+            Console.WriteLine(new string('-', 30));
+            Console.WriteLine($"{jugador.Datos.Nombre, -20}(Tú) | {jugador.Caracteristicas.Salud, -10}");
+            Console.WriteLine($"{rival.Datos.Nombre, -20} | {rival.Caracteristicas.Salud, -10}");
+         }
 
 
 
+         // FUNCION QUE REALIZA TODO EL COMBATE DE UNA RONDA- UNO SALE VICTORIOSO
+         private static bool RealizarCombate(Personaje jugador, Personaje rival)
+          {
+            while (jugador.Caracteristicas.Salud > 0 && rival.Caracteristicas.Salud > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                // Turno del jugador
+                Atacar(jugador, rival);
+                Console.ResetColor();
+                // Mostrar la salud actualizada
+                MostrarSalud(jugador, rival);
         
+                // Verificar si el rival está derrotado
+                if (rival.Caracteristicas.Salud <= 0)
+                {
+                    Console.Clear(); // Limpiar consola para mostrar el mensaje final
+                    Console.WriteLine($"{jugador.Datos.Nombre} ha ganado la ronda!");
+                    return true;
+                }
+                
+                 Console.ForegroundColor = ConsoleColor.DarkRed;
+                  // Turno del rival
+                 Atacar(rival, jugador);
+                 Console.ResetColor();
+        
+                // Mostrar la salud actualizada
+                MostrarSalud(jugador, rival);
+
+                // Verificar si el jugador está derrotado
+                if (jugador.Caracteristicas.Salud <= 0)
+                {
+                    Console.Clear(); // Limpiar consola para mostrar el mensaje final
+                    Console.WriteLine($"{rival.Datos.Nombre} ha ganado la ronda!");
+                    return false;
+                }
+            }
+
+            return false;
+        } 
 
 
-
-
-
-         // Funcion que recibe el jugador elegido y la lista de enemigos para trabajar la pelea y devuelve el ganador del torneo 
+         // Funcion que recibe el jugador elegido y la lista de enemigos para trabajar la pelea con las rondas, maneja el control de toda la partida
          public static Personaje desarrolloCombate (Personaje jugadorElegido, List<Personaje> listaEnemigos)
          {
           // La cantidad de rondas seran de acuerdo a la cantidad de enemigos que tenga a vencer de la lista enemigos
           int cantidadRondas = listaEnemigos.Count;
+
+          // Los competidores pelearan en aleatorio hasta el jugador elegido se quede sin vida o le gane la batalla a todos los competidores. Cada vez que le gane a un competidor pasara de ronda(peleara con el otro personaje de los que queden en la lista, no con el mismo ) y sus caracteristicas mejoraran.
+          
+
           Personaje ganador;
           ganador= jugadorElegido;
         // Trabajo logica

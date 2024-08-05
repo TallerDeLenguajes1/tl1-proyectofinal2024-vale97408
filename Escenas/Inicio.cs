@@ -336,7 +336,7 @@ namespace Proyecto
             listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
 
             // Desarrollo de combate
-            Combate.desarrolloCombate(jugadorElegido,listaEnemigos); 
+            //Combate.desarrolloCombate(jugadorElegido,listaEnemigos); 
             
             
             break;
