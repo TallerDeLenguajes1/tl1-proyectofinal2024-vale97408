@@ -59,7 +59,46 @@ namespace Proyecto
           return  ganador;
        }
 
-       public 
+       // Funcion que obtenga un planeta aleatorio de mi API , muestre sus caracteristicas y me devuelva el planeta generado
+       public  async Task<Result> ObtenerYMostrarPlanetaAsync()
+        {
+            // Obtener datos de planetas
+            Planetas planetaElegido = await PlanetasAPI.GetWeatherAsync();
+            if (planetaElegido != null && planetaElegido.Results.Count > 0)
+            {
+                // Mostrar un planeta aleatorio de la API
+                Random random = new Random();
+                Result planeta = planetaElegido.Results[random.Next(planetaElegido.Results.Count)];
+                MostrarCaracteristicasPlaneta(planeta);
+                return planeta; 
+
+            }
+            else
+            {
+                Console.WriteLine("\nNo se pudieron obtener los datos de los planetas.");
+                return null; // Si no encontro un planeta
+            }
+        
+        }
+
+        
+
+        // Función para mostrar las características del planeta
+         private static void MostrarCaracteristicasPlaneta(Result planeta)
+        {
+            Inicio.CentrarTexto($"-------PLANETA {planeta.Name}--------");
+            Console.WriteLine($"Clima: {planeta.Climate}");
+            Console.WriteLine($"Terreno: {planeta.Terrain}");
+            Console.WriteLine($"Gravedad: {planeta.Gravity}");
+            Console.WriteLine($"Creación: {planeta.Created}");
+            Console.WriteLine(); // Línea en blanco para separación
+        }
+
+        
+
+
+
+
 
 
         
