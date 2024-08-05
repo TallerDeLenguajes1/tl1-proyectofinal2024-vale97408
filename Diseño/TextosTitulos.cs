@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-namespace Juego
+namespace Proyecto
 {
     public class Titulo
     {
@@ -66,8 +66,8 @@ _______________$$$_____$$$____$$
                
             Console.WriteLine(titulo);
             Console.ResetColor();
-            Console.WriteLine("\n ----PRESIONE UNA TECLA PARA COMENZAR------");
-            Console.ReadKey();
+           // Console.WriteLine("\n ----PRESIONE UNA TECLA PARA COMENZAR------");
+            //Console.ReadKey();
         }
 
         public static void MostrarTituloGanadorPerdedor(string ganador)
@@ -121,5 +121,30 @@ _______________$$$_____$$$____$$
             Console.WriteLine("Abandonando el juego...");
             Environment.Exit(0);
         }
+     public static void LimpiarBuffer()
+        {
+            while (Console.KeyAvailable)
+            {
+                Console.ReadKey(true);
+            }
+        }
+
+     public static void ContadorPelea()
+        {
+            for (int i = 3; i > 0; i--)
+            {
+                Console.Clear();
+                Console.WriteLine("Que el poder se acumule y la magia se despierte. PREPARATE!");
+                Console.WriteLine($" La batalla comienza en {i}");
+                Thread.Sleep(1500);
+            }
+
+            Console.Clear();
+            Console.WriteLine("Que los hechizo hablen ¡COMIENZA LA BATALLA!");
+            LimpiarBuffer(); 
+        }
     }
+
+    
 }
+

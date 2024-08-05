@@ -75,7 +75,13 @@ namespace Juego
         public bool Existe(string nombreArchivo)
         {
             string ruta = ObtenerRuta(nombreArchivo);
-            return File.Exists(ruta) && new FileInfo(ruta).Length > 0;
+              if(File.Exists(ruta))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
         }
 
         // Método para eliminar un archivo (comentado, opcional)

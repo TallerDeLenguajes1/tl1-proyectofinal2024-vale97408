@@ -7,7 +7,16 @@ namespace Proyecto
 {
     public class MenuPrincipal
     {
-        public static void MostrarMenu()
+        string [] opciones; 
+        int eleccion;
+        public MenuPrincipal(string [] Opciones)
+        {
+            opciones = Opciones;
+            eleccion=0; 
+        }
+
+
+        /* public static void MostrarMenu()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             string titulo = @"
@@ -53,15 +62,51 @@ namespace Proyecto
                         return; // Salir del bucle y terminar el programa
                 }
             }
+        } */
+
+        private  void MostrarOpciones(string[] opciones)
+        {
+             Console.ResetColor();
+             for (int i = 0; i < opciones.Length; i++)
+             {
+                if(i == eleccion)
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                }else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+
+                Console.WriteLine($"{i + 1}. {opciones[i]}");
+             }
+             Console.ResetColor();
+        }
+         public int Display()
+        {
+            ConsoleKeyInfo teclaPresionada;
+            do
+            {
+                Console.Clear();
+                MostrarOpciones(opciones);
+                teclaPresionada = Console.ReadKey(true);
+
+                switch (teclaPresionada.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        eleccion = eleccion == opciones.Length-1 ? 0: eleccion+1;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        eleccion = eleccion == 0 ? opciones.Length-1: eleccion-1;
+                        break;
+                }
+
+            } while (teclaPresionada.Key != ConsoleKey.Enter);
+            return eleccion;
         }
 
-        private static void MostrarOpciones(string[] opciones)
-        {
-            foreach (var opcion in opciones)
-            {
-                Console.WriteLine(opcion);
-            }
-        }
+
 
         private static void ComenzarJuego()
         {

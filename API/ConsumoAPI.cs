@@ -28,6 +28,12 @@ namespace Proyecto
             }
 
         }
+
+        public static Planetas PlanetaObtenidoDeApi()
+        {
+            var planeta= GetWeatherAsync().Result;
+            return planeta;
+        }
     }     
 
 

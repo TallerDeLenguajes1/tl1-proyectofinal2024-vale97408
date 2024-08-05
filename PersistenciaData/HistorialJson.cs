@@ -87,5 +87,53 @@ namespace Juego
             string ruta = ObtenerRuta(nombreArchivo);
             return File.Exists(ruta) && new FileInfo(ruta).Length > 0;
         }
+
+         // Método para mostrar el historial de ganadores desde archivos JSON en la carpeta "Data"
+        /*public static void MostrarHistorialGanadores()
+        {
+            string carpetaDatos = "Data";
+            var archivos = Directory.GetFiles(carpetaDatos, "*.json");
+
+            if (archivos.Length == 0)
+            {
+                Console.WriteLine("No hay historial de ganadores disponible.");
+                return;
+            }
+
+            foreach (var archivo in archivos)
+            {
+                try
+                {
+                    // Leer y deserializar el archivo JSON
+                    string contenidoJson = File.ReadAllText(archivo);
+                    var datosGanador = JsonSerializer.Deserialize<JsonElement>(contenidoJson);
+
+                    // Obtener información del ganador
+                    var ganador = JsonSerializer.Deserialize<Personaje>(datosGanador.GetProperty("Ganador").GetRawText());
+                    var infoPartida = datosGanador.GetProperty("InfoPartida").GetString();
+
+                    // Mostrar la información
+                    Console.WriteLine("Nombre del Ganador: " + ganador.Nombre);
+                    Console.WriteLine("Tipo de Hechicero: " + ganador.TipoHechicero); // Asegúrate de que esta propiedad exista en la clase Personaje
+                    Console.WriteLine("Características:");
+                    Console.WriteLine($"  Salud: {ganador.Salud}");
+                    Console.WriteLine($"  Destreza: {ganador.Destreza}");
+                    Console.WriteLine($"  Fuerza: {ganador.Fuerza}");
+                    Console.WriteLine($"  Nivel: {ganador.Nivel}");
+                    Console.WriteLine($"  Armadura: {ganador.Armadura}");
+                    Console.WriteLine($"  Velocidad: {ganador.Velocidad}");
+                    Console.WriteLine("Detalles de la Partida: " + infoPartida);
+                    Console.WriteLine();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al leer el archivo " + archivo + ": " + ex.Message);
+                }
+            }
+
+            Console.WriteLine("Presione una tecla para regresar al menú.");
+            Console.ReadKey();
+        } */
+    
     }
 }
