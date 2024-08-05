@@ -48,16 +48,8 @@ namespace Proyecto
           return enemigos;
        }
 
-       // Funcion que recibe el jugador elegido y la lista de enemigos para trabajar la pelea y devuelve el ganador del torneo 
+       
 
-       public static Personaje desarrolloCombate (Personaje jugadorElegido, List<Personaje> listaEnemigos)
-       {
-        Personaje ganador;
-        ganador= jugadorElegido;
-        // Trabajo logica
-
-          return  ganador;
-       }
 
        // Funcion que obtenga un planeta aleatorio de mi API , muestre sus caracteristicas y me devuelva el planeta generado
        public  async Task<Result> ObtenerYMostrarPlanetaAsync()
@@ -71,14 +63,12 @@ namespace Proyecto
                 Result planeta = planetaElegido.Results[random.Next(planetaElegido.Results.Count)];
                 MostrarCaracteristicasPlaneta(planeta);
                 return planeta; 
-
             }
             else
             {
                 Console.WriteLine("\nNo se pudieron obtener los datos de los planetas.");
                 return null; // Si no encontro un planeta
             }
-        
         }
 
         
@@ -94,6 +84,175 @@ namespace Proyecto
             Console.WriteLine(); // Línea en blanco para separación
         }
 
+           // Modifica caracteristicas de acuerdo al planeta seleccionado en la ronda-chat
+          public static void ModificarCaracteristicasPorPlaneta(Result planeta, Personaje personaje)
+          {
+          // Ajustes basados en el clima del planeta
+            if (planeta.Climate.Contains("arid") || planeta.Climate.Contains("desert"))
+             {
+            // Clima árido o desértico
+            switch (personaje.Datos.Tipo)
+            {  
+            case TipoPersonaje.HechiceroDeFuego:
+                personaje.Caracteristicas.Fuerza += 10; // Ejemplo de aumento
+                break;
+            case TipoPersonaje.HechiceroDeHielo:
+                personaje.Caracteristicas.Salud -= 10; // Ejemplo de decremento
+                break;
+            case TipoPersonaje.HechiceroDeLaNaturaleza:
+                personaje.Caracteristicas.Velocidad -= 5; // Ejemplo de decremento
+                break;
+            case TipoPersonaje.HechiceroDeLasSombras:
+                personaje.Caracteristicas.Proteccion -= 5; // Ejemplo de decremento
+                break;
+            case TipoPersonaje.HechiceroDeLuz:
+                personaje.Caracteristicas.Destreza += 5; // Ejemplo de aumento
+                break;
+            }
+           }
+              else if (planeta.Climate.Contains("temperate") || planeta.Climate.Contains("tropical"))
+                 {
+                  // Clima templado o tropical
+                  switch (personaje.Datos.Tipo)
+                 {
+                 case TipoPersonaje.HechiceroDeFuego:
+                 personaje.Caracteristicas.Salud -= 10; // Ejemplo de decremento
+                  break;
+                 case TipoPersonaje.HechiceroDeHielo:
+                 personaje.Caracteristicas.Fuerza += 10; // Ejemplo de aumento
+                  break;
+                 case TipoPersonaje.HechiceroDeLaNaturaleza:
+                  personaje.Caracteristicas.Destreza += 5; // Ejemplo de aumento
+                  break;
+                 case TipoPersonaje.HechiceroDeLasSombras:
+                  personaje.Caracteristicas.Velocidad += 5; // Ejemplo de aumento
+                 break;
+                 case TipoPersonaje.HechiceroDeLuz:
+                 personaje.Caracteristicas.Proteccion += 10; // Ejemplo de aumento
+                 break;
+                  }
+                }
+                else if (planeta.Climate.Contains("frozen") || planeta.Climate.Contains("murky"))
+                  {
+                    // Clima congelado o turbio
+                   switch (personaje.Datos.Tipo)
+                  {
+                  case TipoPersonaje.HechiceroDeFuego:
+                   personaje.Caracteristicas.Fuerza -= 10; // Ejemplo de decremento
+                   break;
+                  case TipoPersonaje.HechiceroDeHielo:
+                    personaje.Caracteristicas.Salud += 10; // Ejemplo de aumento
+                   break;
+                   case TipoPersonaje.HechiceroDeLaNaturaleza:
+                   personaje.Caracteristicas.Proteccion += 5; // Ejemplo de aumento
+                   break;
+                   case TipoPersonaje.HechiceroDeLasSombras:
+                    personaje.Caracteristicas.Velocidad -= 5; // Ejemplo de decremento
+                    break;
+                   case TipoPersonaje.HechiceroDeLuz:
+                    personaje.Caracteristicas.Destreza -= 5; // Ejemplo de decremento
+                     break;
+                }
+                 }
+    
+                // Ajustes basados en el terreno del planeta
+                if (planeta.Terrain.Contains("desert") || planeta.Terrain.Contains("tundra"))
+                   {
+                      // Terreno desértico o tundra
+                       switch (personaje.Datos.Tipo)
+                      {
+                          case TipoPersonaje.HechiceroDeFuego:
+                          personaje.Caracteristicas.Velocidad += 5; // Ejemplo de aumento
+                          break;
+                          case TipoPersonaje.HechiceroDeHielo:
+                          personaje.Caracteristicas.Fuerza -= 5; // Ejemplo de decremento
+                          break;
+                          case TipoPersonaje.HechiceroDeLaNaturaleza:
+                           personaje.Caracteristicas.Salud -= 5; // Ejemplo de decremento
+                           break;
+                          case TipoPersonaje.HechiceroDeLasSombras:
+                           personaje.Caracteristicas.Destreza -= 5; // Ejemplo de decremento
+                          break;
+                          case TipoPersonaje.HechiceroDeLuz:
+                            personaje.Caracteristicas.Proteccion += 5; // Ejemplo de aumento
+                           break;
+                        }
+                         }
+                             else if (planeta.Terrain.Contains("jungle") || planeta.Terrain.Contains("swamp"))
+                                {
+                                    // Terreno de jungla o pantano
+                                    switch (personaje.Datos.Tipo)
+                                    {
+                                        case TipoPersonaje.HechiceroDeFuego:
+                                         personaje.Caracteristicas.Proteccion -= 5; // Ejemplo de decremento
+                                         break;
+                                      case TipoPersonaje.HechiceroDeHielo:
+                                          personaje.Caracteristicas.Velocidad += 5; // Ejemplo de aumento
+                                          break;
+                                      case TipoPersonaje.HechiceroDeLaNaturaleza:
+                                          personaje.Caracteristicas.Fuerza += 5; // Ejemplo de aumento
+                                          break;
+                                      case TipoPersonaje.HechiceroDeLasSombras:
+                                          personaje.Caracteristicas.Salud += 5; // Ejemplo de aumento
+                                          break;
+                                      case TipoPersonaje.HechiceroDeLuz:
+                                          personaje.Caracteristicas.Destreza += 5; // Ejemplo de aumento
+                                          break;
+                                      }
+                                     }
+
+    
+           }
+
+           // FUNCION QUE MUESTRA LAS CARACTERISTICAS MODIFICADAS, comparando al jugador y al rival
+         
+          public static void MostrarComparacionPersonajes(Personaje personaje1, Personaje personaje2)
+          {
+             // Inicio.CentrarTexto("---- CARACTERISTICAS DE COMPETIDORES-----:");
+
+              // Formato del versus
+              Inicio.CentrarTexto("  " + personaje1.Datos.Nombre + " VS" +  personaje2.Datos.Nombre + "  ");
+
+              Console.WriteLine(new string('-', 80));
+
+              // Encabezados
+              Console.WriteLine($"{ "Característica",-15} | {personaje1.Datos.Nombre,-25} | {personaje2.Datos.Nombre,-25}");
+              Console.WriteLine(new string('-', 80));
+
+              // Mostrar características
+              Console.WriteLine($"{ "Velocidad",-15} | {personaje1.Caracteristicas.Velocidad,-25} | {personaje2.Caracteristicas.Velocidad,-25}");
+              Console.WriteLine($"{ "Destreza",-15} | {personaje1.Caracteristicas.Destreza,-25} | {personaje2.Caracteristicas.Destreza,-25}");
+              Console.WriteLine($"{ "Fuerza",-15} | {personaje1.Caracteristicas.Fuerza,-25} | {personaje2.Caracteristicas.Fuerza,-25}");
+              Console.WriteLine($"{ "Nivel",-15} | {personaje1.Caracteristicas.Nivel,-25} | {personaje2.Caracteristicas.Nivel,-25}");
+              Console.WriteLine($"{ "Protección",-15} | {personaje1.Caracteristicas.Proteccion,-25} | {personaje2.Caracteristicas.Proteccion,-25}");
+              Console.WriteLine($"{ "Salud",-15} | {personaje1.Caracteristicas.Salud,-25} | {personaje2.Caracteristicas.Salud,-25}");
+
+              Console.WriteLine(new string('-', 80));
+            }
+
+
+
+           
+
+
+
+        
+
+
+
+
+
+         // Funcion que recibe el jugador elegido y la lista de enemigos para trabajar la pelea y devuelve el ganador del torneo 
+         public static Personaje desarrolloCombate (Personaje jugadorElegido, List<Personaje> listaEnemigos)
+         {
+          // La cantidad de rondas seran de acuerdo a la cantidad de enemigos que tenga a vencer de la lista enemigos
+          int cantidadRondas = listaEnemigos.Count;
+          Personaje ganador;
+          ganador= jugadorElegido;
+        // Trabajo logica
+
+          return  ganador;
+         }
         
 
 

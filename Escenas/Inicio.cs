@@ -334,6 +334,9 @@ namespace Proyecto
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
             // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
             listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
+
+            // Desarrollo de combate
+            Combate.desarrolloCombate(jugadorElegido,listaEnemigos); 
             
             
             break;
