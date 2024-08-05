@@ -45,6 +45,7 @@ namespace Proyecto
            string nombreArchivoGanadores= "ganadores.json";
 
             List<Personaje> personajes; // Lista ya generada de la FABRICA DE PERSONAJES
+            
 
             // Verificar si el archivo de personajes existe
             if (persistHistJson.Existe(nombreArchivoPersonajes))
@@ -107,7 +108,7 @@ namespace Proyecto
                  if(persistHistJson.Existe(nombreArchivoGanadores))
                  {
                     // Leer los ganadores del archivo
-                    //MostrarGanadores(persistHistJson.LeerGanadores(nombreArchivoGanadores));
+                  //  MostrarGanadores(persistHistJson.LeerGanadores(nombreArchivoGanadores));
                  } else
                  {
                     Console.WriteLine("No hay ganadores registrados.");
@@ -306,13 +307,43 @@ namespace Proyecto
 
         // Intro antes de comenzar la batalla 
          Console.Clear();
-        Titulo.ContadorPelea();
+         Titulo.ContadorPelea();
+
+         // Se disputa la pelea aleatoriamente , trabajo con las funciones de COMBATE
 
 
+         // De acuerdo a los resultados obtenidos Si es ganador, lo guardo en el archivo de ganadores del Json
 
-
-
+         // Vuelvo al menu principal
+         Console.Clear();
 
         }
+
+        // Falta trabajar con la opcion del json del historil de ganadores
+        /*private static void MostrarGanadores(HistorialJson persistHistJson, string nombreArchivoGanadores )
+        {
+             //Leo la lista de gandores desde el archivo Json.
+        List<Personaje> ganadoresjson = persistHistJson.LeerGanadores(nombreArchivoGanadores);
+
+        if (ganadoresjson.Count == 0 || ganadoresjson == null)
+        {
+            Console.WriteLine("\nNo hay ganadores registrados aun.\n");
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            CentrarTexto("\n-----HISTORIAL DE GANADORES-------:\n");
+            Console.ResetColor();
+        
+             
+            foreach (var ganador in ganadoresjson)
+            {
+                Console.WriteLine("NOMBRE | TIPO | VELOCIDAD| PROTECCION| DESTREZA | FUERZA ");
+                Console.WriteLine($" {ganadoresjson.Datos.Nombre}| {ganadoresjson.Datos.Tipo}| {ganadoresjson.Caracteristicas.Velocidad}|{ganadoresjson.Caracteristicas.Proteccion}| {ganadoresjson.Caracteristicas.Destreza}|{ganadoresjson.Caracteristicas.Fuerza}");
+                Console.WriteLine("\n--------------------\n");
+            }
+          }
+
+        }*/
     }
 }
