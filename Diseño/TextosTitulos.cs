@@ -134,13 +134,13 @@ _______________$$$_____$$$____$$
             for (int i = 3; i > 0; i--)
             {
                 Console.Clear();
-                Console.WriteLine("Que el poder se acumule y la magia se despierte. PREPARATE!");
-                Console.WriteLine($" La batalla comienza en {i}");
+                Inicio.CentrarTexto("Que el poder se acumule y la magia se despierte. PREPARATE!");
+                Inicio.CentrarTexto($" La batalla comienza en {i}");
                 Thread.Sleep(1500);
             }
 
             Console.Clear();
-            Console.WriteLine("Que los hechizo hablen ¡COMIENZA LA BATALLA!");
+            Inicio.CentrarTexto("Que los hechizo hablen ¡COMIENZA LA BATALLA!");
             LimpiarBuffer(); 
         }
     }

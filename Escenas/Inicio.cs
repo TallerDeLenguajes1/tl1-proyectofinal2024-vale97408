@@ -94,12 +94,12 @@ namespace Proyecto
                 case 0: 
                  // JUGAR
                   Console.Clear();
-                personajes.Clear();  // Limpio la lista antes de generar nuevos personajes
+                 personajes.Clear();  // Limpio la lista antes de generar nuevos personajes
                  // Generar personajes
         
-                // genero los 10 personajes (10 por la cantidad de nombres que tengo )
-                personajes = GenerarPersonajes(fabrica);
-                persistPerJson.GuardarPersonajes(personajes, nombreArchivoPersonajes);
+                 // genero los 10 personajes (10 por la cantidad de nombres que tengo )
+                 personajes = GenerarPersonajes(fabrica);
+                 persistPerJson.GuardarPersonajes(personajes, nombreArchivoPersonajes);
 
                  Juego(personajes);
                   break;
@@ -126,7 +126,7 @@ namespace Proyecto
                 CentrarTexto("\n ------¡Hasta la proxima!  ------\n");
                 Console.ResetColor();
                   break;
-                case 4: 
+                default: 
                  //Opcion no valida 
                 Console.WriteLine("\n OPCION INVALIDA. ELIGE UNA DEL MENU. \n");
                
@@ -272,7 +272,7 @@ namespace Proyecto
              }
           // Una vez elegido el jugador limpio la consola para  Mostrar al jugador seleccionado y  sus caracteristicas 
          Console.Clear();
-        CentrarTexto($"--Elegiste  a: {jugadorElegido.Datos.Nombre}, {jugadorElegido.Datos.Tipo}");
+        CentrarTexto($"--Elegiste  a: {jugadorElegido.Datos.Nombre}, {jugadorElegido.Datos.Tipo}. Tambien llamado '{jugadorElegido.Datos.Apodo}'");
          Console.ForegroundColor = ConsoleColor.DarkMagenta;
         CentrarTexto("Caracteristicas");
         Console.WriteLine("DESTREZA | FUERZA | VELOCIDAD| PROTECCION|SALUD|NIVEL");
@@ -303,7 +303,41 @@ namespace Proyecto
 
         // UNA VEZ EELEGIDA LA DIFICULTAD EMPIEZA EL JUEGO
          Console.Clear();
-         // Segun la dificultad elegida mostrara la cantidad de enemigos a combatir y sus caracteristicas
+        // Segun la dificultad elegida mostrara la cantidad de enemigos a combatir y sus caracteristicas
+
+        List<Personaje> listaEnemigos;
+        switch (dificultad)
+        {
+            case 1:// FÁCIL
+            Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [FÁCIL]");
+            Console.WriteLine("-- Cantidad de hechiceros a derrotar: 2 enemigos");
+            CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
+            // Uso de funcion que genera, muestra y devuelve la lista con los enemigos generados
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(2,personajesAleatorios,jugadorElegido );            
+
+
+            
+            break;
+
+            case 2:// MEDIO
+            Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [MEDIO]");
+            Console.WriteLine("-- Cantidad de hechiceros a derrotar: 4 ENEMIGOS");
+            CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
+            // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
+            
+            
+            break;
+            case 3:// DIFICIL
+            Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [DIFICIL]");
+            Console.WriteLine("-- Cantidad de hechiceros a derrotar: 6 ENEMIGOS");
+            CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
+            // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
+            
+            
+            break;
+        }
 
         // Intro antes de comenzar la batalla 
          Console.Clear();
