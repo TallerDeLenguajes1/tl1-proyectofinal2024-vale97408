@@ -29,10 +29,10 @@ namespace Proyecto
             Console.WriteLine("");
             Thread.Sleep(1000);
             CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             CentrarTexto(" ¿Estás al nivel de este desafío interplanetario?");
 
-             Thread.Sleep(2000);
+             Thread.Sleep(1000);
             Console.Write("\nPresiona cualquier tecla para empezar");
             Console.ReadKey();
 
@@ -113,7 +113,7 @@ namespace Proyecto
                         {
                             opcionValida = true;
                              if (opcionJuego == 1)
-                                 {
+                                 {   Console.Clear();
                                      Juego(personajes);
                                  }
                                  else 
@@ -124,6 +124,7 @@ namespace Proyecto
                                      // Genero los 10 personajes (10 por la cantidad de nombres que tengo)
                                      personajes = GenerarPersonajes(fabrica);
                                      persistPerJson.GuardarPersonajes(personajes, nombreArchivoPersonajes);
+                                     Console.Clear();
                                      Juego(personajes);
                                    }
                                  }
@@ -158,8 +159,12 @@ namespace Proyecto
                 case 3: 
                  // salir
                  continuar = false;
-                CentrarTexto("\n ------¡Hasta la proxima!  ------\n");
-                Console.ResetColor();
+                 CentrarTexto("_____________________       .        _________________________");
+                 Console.WriteLine("");
+                 CentrarTexto("Te despedimos con gratitud por haber sido parte del Torneo Arcanum. ¡Que tus futuros caminos estén llenos de magia y éxito!");
+                 CentrarTexto("\n ------¡Hasta la proxima!  ------\n");
+                  CentrarTexto("_____________________       .        _________________________");
+                 //Console.ResetColor();
                   break;
                 default: 
                  //Opcion no valida 
@@ -267,41 +272,11 @@ namespace Proyecto
             Console.ResetColor();
         } 
 
-        // Obtener datos de planetas
-       /* private static void MostrarPlanetas()
-        {
-            try
-            {
-                Planetas planetas = await PlanetasAPI.GetWeatherAsync();
-                if (planetas != null && planetas.Results.Count > 0)
-                {
-                    // Mostrar un planeta aleatorio de la API
-                    Random random = new Random();
-                    Result planeta = planetas.Results[random.Next(planetas.Results.Count)];
-
-                    Console.WriteLine("\nPlaneta de combate:");
-                    Console.WriteLine($"Nombre: {planeta.Name}");
-                    Console.WriteLine($"Clima: {planeta.Climate}");
-                    Console.WriteLine($"Gravedad: {planeta.Gravity}");
-                    Console.WriteLine($"Terreno: {planeta.Terrain}");
-                }
-                else
-                {
-                    Console.WriteLine("\nNo se pudieron obtener los datos de los planetas.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al obtener los datos del planeta: " + ex.Message);
-            }
-        }*/
-
-         
-
+      
         public  void Juego (List<Personaje> personajes)
         {
-             Console.ForegroundColor = ConsoleColor.DarkCyan;
             CentrarTexto("---SELECCIONE UN PERSONAJE---");
+             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("");
             
             // De la lista de personajes cargada muestro solo 5 aleatorios para que elija el jugador con cual quedarse
@@ -314,6 +289,7 @@ namespace Proyecto
                 Console.WriteLine("");
                 Thread.Sleep(1500);
             }
+             Console.ResetColor();
 
             // Controlo que elija un personaje dentro del rango 
              Personaje jugadorElegido=null;
@@ -331,26 +307,52 @@ namespace Proyecto
 
           // Una vez elegido el jugador limpio la consola para  Mostrar al jugador seleccionado y  sus caracteristicas 
           Console.Clear();
-
+           CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
            CentrarTexto($"--Elegiste  a: {jugadorElegido.Datos.Nombre}, {jugadorElegido.Datos.Tipo}. Tambien llamado '{jugadorElegido.Datos.Apodo}'");
-           Console.ForegroundColor = ConsoleColor.DarkMagenta;
-          CentrarTexto("Caracteristicas");
+            Console.WriteLine("");
+            CentrarTexto("_____________________    .    ______________________");
+
+          /*CentrarTexto("Caracteristicas");
+          Console.Write("");
            CentrarTexto("DESTREZA | FUERZA | VELOCIDAD| PROTECCION|SALUD|NIVEL");
            CentrarTexto($" {jugadorElegido.Caracteristicas.Destreza}| {jugadorElegido.Caracteristicas.Fuerza}| {jugadorElegido.Caracteristicas.Velocidad}|{jugadorElegido.Caracteristicas.Proteccion}| {jugadorElegido.Caracteristicas.Salud}|{jugadorElegido.Caracteristicas.Nivel}");
-            Console.ResetColor();
-            Thread.Sleep(5000);
+            Console.ResetColor(); */
+
+            // Define el ancho de cada columna
+          int anchoColumna = 15; // Puedes ajustar este valor según el tamaño de tus datos
+           Console.ForegroundColor = ConsoleColor.DarkMagenta;
+          // Imprime el encabezado de la tabla
+          Console.WriteLine("");
+          CentrarTexto("Características");
+          Console.WriteLine("");
+          CentrarTexto($"{"DESTREZA".PadRight(anchoColumna)}| {"FUERZA".PadRight(anchoColumna)}| {"VELOCIDAD".PadRight(anchoColumna)}| {"PROTECCIÓN".PadRight(anchoColumna)}| {"SALUD".PadRight(anchoColumna)}| {"NIVEL".PadRight(anchoColumna)}");
+          // Imprime los datos del jugador
+          CentrarTexto($"{jugadorElegido.Caracteristicas.Destreza.ToString().PadRight(anchoColumna)}| {jugadorElegido.Caracteristicas.Fuerza.ToString().PadRight(anchoColumna)}| {jugadorElegido.Caracteristicas.Velocidad.ToString().PadRight(anchoColumna)}| {jugadorElegido.Caracteristicas.Proteccion.ToString().PadRight(anchoColumna)}| {jugadorElegido.Caracteristicas.Salud.ToString().PadRight(anchoColumna)}| {jugadorElegido.Caracteristicas.Nivel.ToString().PadRight(anchoColumna)}");
+          // Restablece el color de la consola
+           Console.ResetColor();
+            Thread.Sleep(4000);
             Console.Write("\nPresiona cualquier tecla para continuar");
             Console.ReadKey();
-
 
         // ANALIZO nivel de dificultad para crear la cantidad de contricantes/ Rondas a jugar
         // Limpio consola y pregunto 
         Console.Clear();
         int dificultad = 0, opcionD=0;
+         CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
         CentrarTexto("SELECCIONE EL NIVEL DE DIFICULTAD");
-        Console.WriteLine("1. FÁCIL"); // 3 enemigos
-        Console.WriteLine("2. MEDIO"); // 6 enemigos
-        Console.WriteLine("3. DIFICIL"); // 9 enemigos
+          Console.WriteLine("");
+        CentrarTexto("_____________________    .    ______________________");
+        Console.WriteLine("");
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        CentrarTexto("1. FÁCIL"); // 3 enemigos
+        Console.WriteLine("");
+        CentrarTexto("2. MEDIO"); // 6 enemigos
+        Console.WriteLine("");
+        CentrarTexto("3. DIFICIL"); // 9 enemigos
+        Console.ResetColor();
+
         // Guardo la respuesta en una variable y controlo que esa respuesta  este dentro del rango dado
         while (dificultad < 1 || dificultad > 3)
         {
@@ -360,12 +362,13 @@ namespace Proyecto
                 dificultad = opcionD;
             }
              else
-             {
+             {  Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\n OPCION INVALIDA! ELIJA UN NUMERO ENTRE 1 Y 3.\n");   
+                Console.ResetColor();
              }
         }
 
-        // UNA VEZ EELEGIDA LA DIFICULTAD EMPIEZA EL JUEGO
+        // UNA VEZ ELEGIDA LA DIFICULTAD EMPIEZA EL JUEGO
         
         // Segun la dificultad elegida mostrara la cantidad de enemigos a combatir y sus caracteristicas
 
@@ -377,35 +380,64 @@ namespace Proyecto
         {
             case 1:// FÁCIL
              Console.Clear();
-            Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [FÁCIL]");
-            Console.WriteLine("-- Cantidad de hechiceros a derrotar: 2 enemigos");
+             CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+            CentrarTexto("SELECCIONASTE EL NIVEL DE DIFICULTAD [FÁCIL]");
+            CentrarTexto("-- Cantidad de hechiceros a derrotar: 2 enemigos");
+          Console.WriteLine("");
+            CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
+            Console.WriteLine("");
             // Uso de funcion que genera, muestra y devuelve la lista con los enemigos generados
             listaEnemigos= Combate.GenerarEnemigosYMostrar(2,personajesAleatorios,jugadorElegido );
-             ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);            
+            Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.ReadKey();
+             ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);    
+             Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.ReadKey();        
             
             break;
 
             case 2:// MEDIO
              Console.Clear();
-            Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [MEDIO]");
-            Console.WriteLine("-- Cantidad de hechiceros a derrotar: 4 ENEMIGOS");
+              CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+            CentrarTexto("SELECCIONASTE EL NIVEL DE DIFICULTAD [MEDIO]");
+            CentrarTexto("-- Cantidad de hechiceros a derrotar: 4 ENEMIGOS");
+             Console.WriteLine("");
+            CentrarTexto("_____________________    .    ______________________");
+             Console.WriteLine("");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
+              Console.WriteLine("");
             // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
             listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
+            Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.ReadKey();
              ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);
+             Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.ReadKey();     
             
             
             break;
             case 3:// DIFICIL
              Console.Clear();
-            Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [DIFICIL]");
-            Console.WriteLine("-- Cantidad de hechiceros a derrotar: 6 ENEMIGOS");
+             CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+            CentrarTexto("SELECCIONASTE EL NIVEL DE DIFICULTAD [DIFICIL]");
+            CentrarTexto("-- Cantidad de hechiceros a derrotar: 6 ENEMIGOS");
+             Console.WriteLine("");
+            CentrarTexto("_____________________    .    ______________________");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
+             Console.WriteLine("");
             // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
             listaEnemigos= Combate.GenerarEnemigosYMostrar(6,personajesAleatorios,jugadorElegido ); 
+             Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.ReadKey();
             // Desarrollo de combate
              ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);
+              Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.ReadKey();
              
             break;
         }

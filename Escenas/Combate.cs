@@ -37,9 +37,28 @@ namespace Proyecto
           enemigos.Add(personajeSeleccionado);
 
            // Mostrar las características del enemigo
+           Console.WriteLine("");
+           Console.ForegroundColor = ConsoleColor.Blue;
           Inicio.CentrarTexto($"-ENEMIGO {i + 1}: {personajeSeleccionado.Datos.Nombre}, {personajeSeleccionado.Datos.Tipo}. Conocido como '{personajeSeleccionado.Datos.Apodo}'");
-          Console.WriteLine("DESTREZA | FUERZA | VELOCIDAD | PROTECCION | SALUD | NIVEL");
-          Console.WriteLine($" {personajeSeleccionado.Caracteristicas.Destreza} | {personajeSeleccionado.Caracteristicas.Fuerza} | {personajeSeleccionado.Caracteristicas.Velocidad} | {personajeSeleccionado.Caracteristicas.Proteccion} | {personajeSeleccionado.Caracteristicas.Salud} | {personajeSeleccionado.Caracteristicas.Nivel}");
+          Console.WriteLine("");
+           Console.ResetColor();
+
+          // Define el ancho de cada columna
+         int anchoColumna = 15; // Ajusta este valor según el tamaño máximo de tus datos
+
+         // Alinea el encabezado de la tabla
+         Inicio.CentrarTexto($"{"DESTREZA".PadRight(anchoColumna)}| {"FUERZA".PadRight(anchoColumna)}| {"VELOCIDAD".PadRight(anchoColumna)}| {"PROTECCIÓN".PadRight(anchoColumna)}| {"SALUD".PadRight(anchoColumna)}| {"NIVEL".PadRight(anchoColumna)}");
+
+         // Alinea los datos del personaje seleccionado
+         Inicio.CentrarTexto($"{personajeSeleccionado.Caracteristicas.Destreza.ToString().PadRight(anchoColumna)}| {personajeSeleccionado.Caracteristicas.Fuerza.ToString().PadRight(anchoColumna)}| {personajeSeleccionado.Caracteristicas.Velocidad.ToString().PadRight(anchoColumna)}| {personajeSeleccionado.Caracteristicas.Proteccion.ToString().PadRight(anchoColumna)}| {personajeSeleccionado.Caracteristicas.Salud.ToString().PadRight(anchoColumna)}| {personajeSeleccionado.Caracteristicas.Nivel.ToString().PadRight(anchoColumna)}");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+
+         /* Inicio.CentrarTexto("DESTREZA | FUERZA | VELOCIDAD | PROTECCION | SALUD | NIVEL");
+          Inicio.CentrarTexto($" {personajeSeleccionado.Caracteristicas.Destreza} | {personajeSeleccionado.Caracteristicas.Fuerza} | {personajeSeleccionado.Caracteristicas.Velocidad} | {personajeSeleccionado.Caracteristicas.Proteccion} | {personajeSeleccionado.Caracteristicas.Salud} | {personajeSeleccionado.Caracteristicas.Nivel}");
+          */
+           Thread.Sleep(1000);
 
           // Eliminar el personaje seleccionado de la lista para evitar duplicados
           listaSinJugador.Remove(personajeSeleccionado);
