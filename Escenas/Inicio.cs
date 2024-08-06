@@ -6,11 +6,12 @@ using Fabrica;
 using Juego;
 using Personajes;
 
+
 namespace Proyecto
 {
     public class Inicio
     {
-        public static void InicioJuego()
+        public  void InicioJuego()
         {
             // Mostrar la pantalla de inicio
             Titulo.MostrarTituloDelJuego();
@@ -24,11 +25,13 @@ namespace Proyecto
             // Dar la bienvenida al jugador y contexto del juego
             CentrarTexto($"\n¡Bienvenido, {nombreJugador}, a ARCANUM: TORNEO DE MAGIA!");
             Thread.Sleep(1000);
-            CentrarTexto("Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
-            Thread.Sleep(3000);
+            CentrarTexto("______________________   .    _____________________");
+            Thread.Sleep(1000);
+            CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
+            Thread.Sleep(4000);
             CentrarTexto(" ¿Estás al nivel de este desafío interplanetario?");
 
-             Thread.Sleep(3000);
+             Thread.Sleep(2000);
             Console.Write("\nPresiona cualquier tecla para empezar");
             Console.ReadKey();
 
@@ -80,13 +83,14 @@ namespace Proyecto
             //await MostrarPlanetas();
 
         // ------------------MENU DEL JUEGO--------------------
-        bool continuar= true; 
+        bool continuar= true;
         
         while (continuar)
         {
             // REPITE EL MENU HASTA EL JUGADOR DECIDA SALIR 
 
             string[] opciones= ["Jugar", "Historial de Ganadores",  "Info Personajes", "Salir"];
+             CentrarTexto("   ___________________MENU PRINCIPAL____________________");
             MenuPrincipal menu= new MenuPrincipal(opciones);
             int opcionElegida= menu.Display(); 
             switch (opcionElegida)
@@ -178,7 +182,7 @@ namespace Proyecto
             Console.ResetColor();
         }   
 
-        public static void CentrarTexto(string texto)
+       /* public static void CentrarTexto(string texto)
         {
             string[] lineas = texto.Split("\n");
             foreach (var linea in lineas)
@@ -187,7 +191,28 @@ namespace Proyecto
                 Console.SetCursorPosition(padding, Console.CursorTop);
                 Console.WriteLine(linea);
             }
+        } */
+         public static void CentrarTexto(string texto)
+      {
+         string[] lineas = texto.Split("\n");
+         int consoleWidth = Console.BufferWidth;
+    
+         foreach (var linea in lineas)
+         {
+             int padding = (consoleWidth - linea.Length) / 2;
+        
+             // Asegúrate de que el padding no sea negativo
+             if (padding < 0)
+             {
+                 padding = 0;
+             }
+        
+             Console.SetCursorPosition(padding, Console.CursorTop);
+             Console.WriteLine(linea);
+         }
         }
+
+        
 
          private static void MostrarGanadores(List<Personaje> personajes)
         {
@@ -244,7 +269,7 @@ namespace Proyecto
 
          
 
-        private static void Juego (List<Personaje> personajes)
+        public  void Juego (List<Personaje> personajes)
         {
             CentrarTexto("---SELECCIONE UN PERSONAJE---");
             
@@ -306,6 +331,9 @@ namespace Proyecto
         // Segun la dificultad elegida mostrara la cantidad de enemigos a combatir y sus caracteristicas
 
         List<Personaje> listaEnemigos;
+         // Crear una instancia de la clase Combate
+          Combate combate = new Combate();
+          Personaje ganadorFinal;
         switch (dificultad)
         {
             case 1:// FÁCIL
@@ -313,9 +341,8 @@ namespace Proyecto
             Console.WriteLine("-- Cantidad de hechiceros a derrotar: 2 enemigos");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
             // Uso de funcion que genera, muestra y devuelve la lista con los enemigos generados
-            listaEnemigos= Combate.GenerarEnemigosYMostrar(2,personajesAleatorios,jugadorElegido );            
-
-
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(2,personajesAleatorios,jugadorElegido );
+             ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);            
             
             break;
 
@@ -325,6 +352,7 @@ namespace Proyecto
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
             // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
             listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
+             ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);
             
             
             break;
@@ -333,18 +361,12 @@ namespace Proyecto
             Console.WriteLine("-- Cantidad de hechiceros a derrotar: 6 ENEMIGOS");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
             // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
-            listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
-
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(6,personajesAleatorios,jugadorElegido ); 
             // Desarrollo de combate
-            //Combate.desarrolloCombate(jugadorElegido,listaEnemigos); 
-            
-            
+             ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);
+             
             break;
         }
-
-        // Intro antes de comenzar la batalla 
-         Console.Clear();
-         Titulo.ContadorPelea();
 
          // Se disputa la pelea aleatoriamente , trabajo con las funciones de COMBATE
 

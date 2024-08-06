@@ -380,7 +380,15 @@ namespace Proyecto
           ModificarCaracteristicasPorPlaneta(planeta, enemigo);
           Inicio.CentrarTexto("-------CARACTERISTICAS DE PERSONAJES MODIFICADAS--------");
           MostrarComparacionPersonajes(jugadorElegido, enemigo);
+         Thread.Sleep(4000); // Esperar para que el jugador lea el mensaje
+  
+         Console.Clear();
+         Titulo.ContadorPelea();
+         Thread.Sleep(1000);
+         Console.Clear();
 
+         Inicio.CentrarTexto($"----------RONDA NRO {i}/ {cantidadRondas}--------");
+         Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre} VS {enemigo.Datos.Nombre} ---");
         // Realizar el combate entre el jugador y el enemigo
         bool jugadorGano = RealizarCombate(jugadorElegido, enemigo);
 

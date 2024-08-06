@@ -140,7 +140,7 @@ _______________$$$_____$$$____$$
             }
 
             Console.Clear();
-            Inicio.CentrarTexto("Que los hechizo hablen ¡COMIENZA LA BATALLA!");
+            Inicio.CentrarTexto("Que los hechizos hablen ¡COMIENZA LA BATALLA!");
             LimpiarBuffer(); 
         }
     }
