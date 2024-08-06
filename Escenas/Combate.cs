@@ -104,14 +104,19 @@ namespace Proyecto
          private static void MostrarCaracteristicasPlaneta(Result planeta)
         {
              Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("");
             Inicio.CentrarTexto($"   PLANETA {planeta.Name}    ");
           Console.WriteLine("");
+            Console.ResetColor();
              Inicio. CentrarTexto("_____________________    .    ______________________");
-            Console.WriteLine($"Clima: {planeta.Climate}");
-            Console.WriteLine($"Terreno: {planeta.Terrain}");
-            Console.WriteLine($"Gravedad: {planeta.Gravity}");
-            Console.WriteLine($"Creación: {planeta.Created}");
+             Console.WriteLine("");
+            //  Console.ForegroundColor = ConsoleColor.Blue;
+            Inicio.CentrarTexto($"CLIMA : {planeta.Climate}");
+            Inicio.CentrarTexto($"TERRENO: {planeta.Terrain}");
+            Inicio.CentrarTexto($"GRAVEDAD: {planeta.Gravity}");
+            Inicio.CentrarTexto($"CREACION: {planeta.Created}");
+            //  Console.ResetColor();
             Console.WriteLine(); // Línea en blanco para separación
         }
 
@@ -244,21 +249,22 @@ namespace Proyecto
               // Formato del versus
              // Inicio.CentrarTexto("  " + personaje1.Datos.Nombre + " VS" +  personaje2.Datos.Nombre + "  ");
 
-              Console.WriteLine(new string('-', 80));
+              Inicio.CentrarTexto(new string('-', 80));
 
               // Encabezados
-              Console.WriteLine($"{ "Característica",-15} | {personaje1.Datos.Nombre,-25} | {personaje2.Datos.Nombre,-25}");
-              Console.WriteLine(new string('-', 80));
+               Inicio.CentrarTexto($"{ "Característica",-15} | {personaje1.Datos.Nombre,-25} | {personaje2.Datos.Nombre,-25}");
+               Inicio.CentrarTexto(new string('-', 80));
 
               // Mostrar características
-              Console.WriteLine($"{ "Velocidad",-15} | {personaje1.Caracteristicas.Velocidad,-25} | {personaje2.Caracteristicas.Velocidad,-25}");
-              Console.WriteLine($"{ "Destreza",-15} | {personaje1.Caracteristicas.Destreza,-25} | {personaje2.Caracteristicas.Destreza,-25}");
-              Console.WriteLine($"{ "Fuerza",-15} | {personaje1.Caracteristicas.Fuerza,-25} | {personaje2.Caracteristicas.Fuerza,-25}");
-              Console.WriteLine($"{ "Nivel",-15} | {personaje1.Caracteristicas.Nivel,-25} | {personaje2.Caracteristicas.Nivel,-25}");
-              Console.WriteLine($"{ "Protección",-15} | {personaje1.Caracteristicas.Proteccion,-25} | {personaje2.Caracteristicas.Proteccion,-25}");
-              Console.WriteLine($"{ "Salud",-15} | {personaje1.Caracteristicas.Salud,-25} | {personaje2.Caracteristicas.Salud,-25}");
+              Inicio.CentrarTexto($"{ "Tipo",-15} | {personaje1.Datos.Tipo,-25} | {personaje2.Datos.Tipo,-25}");
+              Inicio.CentrarTexto($"{ "Velocidad",-15} | {personaje1.Caracteristicas.Velocidad,-25} | {personaje2.Caracteristicas.Velocidad,-25}");
+              Inicio.CentrarTexto($"{ "Destreza",-15} | {personaje1.Caracteristicas.Destreza,-25} | {personaje2.Caracteristicas.Destreza,-25}");
+              Inicio.CentrarTexto($"{ "Fuerza",-15} | {personaje1.Caracteristicas.Fuerza,-25} | {personaje2.Caracteristicas.Fuerza,-25}");
+              Inicio.CentrarTexto($"{ "Nivel",-15} | {personaje1.Caracteristicas.Nivel,-25} | {personaje2.Caracteristicas.Nivel,-25}");
+              Inicio.CentrarTexto($"{ "Protección",-15} | {personaje1.Caracteristicas.Proteccion,-25} | {personaje2.Caracteristicas.Proteccion,-25}");
+              Inicio.CentrarTexto($"{ "Salud",-15} | {personaje1.Caracteristicas.Salud,-25} | {personaje2.Caracteristicas.Salud,-25}");
 
-              Console.WriteLine(new string('-', 80));
+              Inicio.CentrarTexto(new string('-', 80));
             }
 
             // FUNCION QUE CADA AUMENTA EL NIVEL DEL PERSONAJE- Se usa cuando el jugador gana una ronda. Devuelve el personaje modificado 
@@ -320,34 +326,78 @@ namespace Proyecto
 
 
         // FUNCION PARA IR MOSTRANDO LA SALUD DE MI PERSONAJE
-        private  void MostrarSalud(Personaje jugador, Personaje rival)
+        private  void MostrarSalud(Personaje jugador, Personaje rival, int cantRonda, int nro)
          {
-            Console.Clear(); // Limpiar consola
+               // Muestra la salud de cada personaje alineada
+              int nombreLength = 20; // Ajusta este valor según el largo máximo de los nombres
+             int saludLength = 10;  // Ajusta este valor según el largo máximo de los valores de salud
+    
+              // Espacios entre columnas para alineación
+            string espacioNombre = new string(' ', nombreLength);
+              string espacioSalud = new string(' ', saludLength);
+             Console.Clear(); // Limpiar consola
+            // Muestra encabezado de la pelea
+            
+         Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+          Console.ForegroundColor = ConsoleColor.DarkYellow;
+          Inicio.CentrarTexto($"RONDA NRO {nro}/ {cantRonda}");
+          Console.WriteLine("");
+          Console.ResetColor();
+          Inicio. CentrarTexto("_____________________    .    ______________________");
+         
+          // Console.WriteLine("");
+          //  Inicio.CentrarTexto($"--- { jugador.Datos.Nombre}         VS         {rival.Datos.Nombre} ---");
+          //  Console.WriteLine("");
+          //   Inicio. CentrarTexto("_____________________    .    ______________________");
+           
+    // Encabezado de la tabla
+    Console.WriteLine("");
+      Console.WriteLine("");
+        Console.WriteLine("");
+
+    Inicio.CentrarTexto("SALUD");
+    Inicio. CentrarTexto("_____________________    .    ______________________");
+    Inicio.CentrarTexto($"{jugador.Datos.Nombre,-20} | {rival.Datos.Nombre,-20}");
+    Inicio.CentrarTexto(new string('-', nombreLength + 3 + nombreLength));
+      //Inicio. CentrarTexto("___________________________________________");
+    // Valores de salud
+    Inicio.CentrarTexto($"{jugador.Caracteristicas.Salud,-20} | {rival.Caracteristicas.Salud,-20}");
+            
+           /* Console.Clear(); // Limpiar consola
             Console.WriteLine($"{"Nombre", -20} | {"Salud", -10}");
             Console.WriteLine(new string('-', 30));
             Console.WriteLine($"{jugador.Datos.Nombre, -20}(Tú) | {jugador.Caracteristicas.Salud, -10}");
-            Console.WriteLine($"{rival.Datos.Nombre, -20} | {rival.Caracteristicas.Salud, -10}");
+            Console.WriteLine($"{rival.Datos.Nombre, -20} | {rival.Caracteristicas.Salud, -10}");*/
          }
 
 
 
          // FUNCION QUE REALIZA TODO EL COMBATE DE UNA RONDA- UNO SALE VICTORIOSO
-         private  bool RealizarCombate(Personaje jugador, Personaje rival)
+         private  bool RealizarCombate(Personaje jugador, Personaje rival, int cantRonda, int nro)
           {
             while (jugador.Caracteristicas.Salud > 0 && rival.Caracteristicas.Salud > 0)
             {
+               Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+          Console.ForegroundColor = ConsoleColor.DarkYellow;
+          Inicio.CentrarTexto($"RONDA NRO {nro}/ {cantRonda}");
+          Console.WriteLine("");
+          Console.ResetColor();
+          Inicio. CentrarTexto("_____________________    .    ______________________");
+
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 // Turno del jugador
                 Atacar(jugador, rival);
                 Console.ResetColor();
                 // Mostrar la salud actualizada
-                MostrarSalud(jugador, rival);
+                MostrarSalud(jugador, rival, cantRonda, nro);
         
                 // Verificar si el rival está derrotado
                 if (rival.Caracteristicas.Salud <= 0)
                 {
                     Console.Clear(); // Limpiar consola para mostrar el mensaje final
-                    Console.WriteLine($"{jugador.Datos.Nombre} ha ganado la ronda!");
+                    Inicio.CentrarTexto($"{jugador.Datos.Nombre} ha ganado la ronda!");
                     return true;
                 }
                 
@@ -357,13 +407,13 @@ namespace Proyecto
                  Console.ResetColor();
         
                 // Mostrar la salud actualizada
-                MostrarSalud(jugador, rival);
+                MostrarSalud(jugador, rival, cantRonda,nro);
 
                 // Verificar si el jugador está derrotado
                 if (jugador.Caracteristicas.Salud <= 0)
                 {
                     Console.Clear(); // Limpiar consola para mostrar el mensaje final
-                    Console.WriteLine($"{rival.Datos.Nombre} ha ganado la ronda!");
+                    Inicio.CentrarTexto($"{rival.Datos.Nombre} ha ganado la ronda!");
                     return false;
                 }
             }
@@ -394,11 +444,14 @@ namespace Proyecto
             Inicio. CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
             Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
-            Console.WriteLine("");
+            //Console.WriteLine("");
              Inicio. CentrarTexto("_____________________    .    ______________________");
               Console.WriteLine("");
+               Console.WriteLine("");
+              Inicio.CentrarTexto("-------CARACTERISTICAS DE PERSONAJES --------");
+              Console.WriteLine("");
             MostrarComparacionPersonajes(jugadorElegido, enemigo);
-            Thread.Sleep(4000);
+            Thread.Sleep(7000);
 
             // Limpio consola 
             Console.Clear();
@@ -417,12 +470,12 @@ namespace Proyecto
 
             Inicio.CentrarTexto(" Cargando el planeta de combate... ¡Prepárate para descubrir el escenario de tu próximo enfrentamiento!"); 
             Console.WriteLine("");
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
             
            // Obtener un planeta aleatorio y mostrar sus características
            Result planeta = ObtenerYMostrarPlanetaAsync().Result;
            // Muestro el planeta 
-           MostrarCaracteristicasPlaneta(planeta);
+           //MostrarCaracteristicasPlaneta(planeta);
            Thread.Sleep(2000);
 
            Console.Write("\nPresiona cualquier tecla para CONTINUAR");
@@ -445,13 +498,12 @@ namespace Proyecto
           // Modificar las características del jugador y el enemigo según el planeta
           ModificarCaracteristicasPorPlaneta(planeta, jugadorElegido);
           ModificarCaracteristicasPorPlaneta(planeta, enemigo);
-           Inicio. CentrarTexto("_____________________    .    ______________________");
+        
           Console.WriteLine("");
           Console.ForegroundColor = ConsoleColor.DarkRed;
           Inicio.CentrarTexto("-------CARACTERISTICAS DE PERSONAJES MODIFICADAS--------");
-            Console.WriteLine("");
              Console.ResetColor();
-            Inicio. CentrarTexto("_____________________    .    ______________________");
+            
 
           MostrarComparacionPersonajes(jugadorElegido, enemigo);
            Console.WriteLine("");
@@ -466,21 +518,9 @@ namespace Proyecto
          Console.Clear();
 
         
-         Inicio. CentrarTexto("_____________________    .    ______________________");
-          Console.WriteLine("");
-          Console.ForegroundColor = ConsoleColor.DarkYellow;
-          Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
-          Console.WriteLine("");
-          Console.ResetColor();
-          Inicio. CentrarTexto("_____________________    .    ______________________");
-          Console.WriteLine("");
-           Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
-           Console.WriteLine("");
-            Inicio. CentrarTexto("_____________________    .    ______________________");
-            Console.WriteLine("");
 
         // Realizar el combate entre el jugador y el enemigo
-        bool jugadorGano = RealizarCombate(jugadorElegido, enemigo);
+        bool jugadorGano = RealizarCombate(jugadorElegido, enemigo,cantidadRondas,i );
 
         if (jugadorGano ) // Siempre que haya ganado 
         {    Console.ForegroundColor = ConsoleColor.DarkYellow;

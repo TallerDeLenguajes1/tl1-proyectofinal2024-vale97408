@@ -287,7 +287,7 @@ namespace Proyecto
                 CentrarTexto($"{i + 1}. HECHICERO {personajesAleatorios[i].Datos.Nombre}");
                 CentrarTexto($"-- Tipo: {personajesAleatorios[i].Datos.Tipo}");
                 Console.WriteLine("");
-                Thread.Sleep(1500);
+                Thread.Sleep(1000);
             }
              Console.ResetColor();
 
@@ -383,7 +383,7 @@ namespace Proyecto
              CentrarTexto("_____________________    .    ______________________");
           Console.WriteLine("");
             CentrarTexto("SELECCIONASTE EL NIVEL DE DIFICULTAD [FÁCIL]");
-            CentrarTexto("-- Cantidad de hechiceros a derrotar: 2 enemigos");
+            CentrarTexto(" 2 ENEMIGOS A DERROTAR");
           Console.WriteLine("");
             CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
@@ -404,7 +404,7 @@ namespace Proyecto
               CentrarTexto("_____________________    .    ______________________");
           Console.WriteLine("");
             CentrarTexto("SELECCIONASTE EL NIVEL DE DIFICULTAD [MEDIO]");
-            CentrarTexto("-- Cantidad de hechiceros a derrotar: 4 ENEMIGOS");
+            CentrarTexto(" 4 ENEMIGOS A DERROTAR");
              Console.WriteLine("");
             CentrarTexto("_____________________    .    ______________________");
              Console.WriteLine("");
@@ -425,7 +425,7 @@ namespace Proyecto
              CentrarTexto("_____________________    .    ______________________");
           Console.WriteLine("");
             CentrarTexto("SELECCIONASTE EL NIVEL DE DIFICULTAD [DIFICIL]");
-            CentrarTexto("-- Cantidad de hechiceros a derrotar: 6 ENEMIGOS");
+            CentrarTexto("  6 ENEMIGOS A DERROTAR");
              Console.WriteLine("");
             CentrarTexto("_____________________    .    ______________________");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");

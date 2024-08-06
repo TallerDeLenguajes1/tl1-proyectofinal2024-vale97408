@@ -124,16 +124,29 @@ namespace Proyecto
 
      public static void ContadorPelea()
         {
+          
             for (int i = 3; i > 0; i--)
             {
                 Console.Clear();
+                Inicio. CentrarTexto("_____________________    .    ______________________");
+                Console.WriteLine("");
                 Inicio.CentrarTexto("Que el poder se acumule y la magia se despierte. PREPARATE!");
+                 Console.WriteLine("");
+                 Console.WriteLine("");
+                  Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Inicio.CentrarTexto($" La batalla comienza en {i}");
                 Thread.Sleep(1500);
+                 Console.ResetColor();
+                
             }
 
             Console.Clear();
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
             Inicio.CentrarTexto("Que los hechizos hablen ¡COMIENZA LA BATALLA!");
+            Console.WriteLine("");
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+            Thread.Sleep(1500);
             LimpiarBuffer(); 
         }
           
