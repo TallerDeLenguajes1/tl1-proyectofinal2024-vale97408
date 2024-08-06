@@ -66,6 +66,8 @@ namespace Proyecto
 
         private  void MostrarOpciones(string[] opciones)
         {
+            Inicio.CentrarTexto(" ___________________MENU PRINCIPAL____________________");
+
              Console.ResetColor();
              for (int i = 0; i < opciones.Length; i++)
              {
@@ -79,7 +81,7 @@ namespace Proyecto
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
 
-                Console.WriteLine($"{i + 1}. {opciones[i]}");
+                Inicio.CentrarTexto($" {opciones[i]}");
              }
              Console.ResetColor();
         }

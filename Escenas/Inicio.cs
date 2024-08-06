@@ -26,6 +26,7 @@ namespace Proyecto
             CentrarTexto($"\n¡Bienvenido, {nombreJugador}, a ARCANUM: TORNEO DE MAGIA!");
             Thread.Sleep(1000);
             CentrarTexto("______________________   .    _____________________");
+            Console.WriteLine("");
             Thread.Sleep(1000);
             CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
             Thread.Sleep(4000);
@@ -90,7 +91,7 @@ namespace Proyecto
             // REPITE EL MENU HASTA EL JUGADOR DECIDA SALIR 
 
             string[] opciones= ["Jugar", "Historial de Ganadores",  "Info Personajes", "Salir"];
-             CentrarTexto("   ___________________MENU PRINCIPAL____________________");
+           
             MenuPrincipal menu= new MenuPrincipal(opciones);
             int opcionElegida= menu.Display(); 
             switch (opcionElegida)
@@ -98,15 +99,43 @@ namespace Proyecto
                 case 0: 
                  // JUGAR
                   Console.Clear();
-                 personajes.Clear();  // Limpio la lista antes de generar nuevos personajes
-                 // Generar personajes
-        
-                 // genero los 10 personajes (10 por la cantidad de nombres que tengo )
-                 personajes = GenerarPersonajes(fabrica);
-                 persistPerJson.GuardarPersonajes(personajes, nombreArchivoPersonajes);
+                  int opcionJuego;
+                   bool opcionValida = false;
+                    while (!opcionValida)
+                    {
+                        CentrarTexto("¿DESEA JUGAR CON PERSONAJES PRECARGADOS O GENERAR NUEVOS?");
+                        Console.WriteLine("1. Jugar con personajes precargados");
+                        Console.WriteLine("2. Generar nuevos personajes");
+                        Console.WriteLine("- Cualquier otra tecla: Volver al MENU PRINCIPAL");
 
-                 Juego(personajes);
-                  break;
+                        string entrada = Console.ReadLine();
+                        if (int.TryParse(entrada, out opcionJuego) && (opcionJuego == 1 || opcionJuego == 2))
+                        {
+                            opcionValida = true;
+                             if (opcionJuego == 1)
+                                 {
+                                     Juego(personajes);
+                                 }
+                                 else 
+                                 {  
+                                    if (opcionJuego == 2)
+                                   {
+                                     personajes.Clear();  // Limpio la lista antes de generar nuevos personajes
+                                     // Genero los 10 personajes (10 por la cantidad de nombres que tengo)
+                                     personajes = GenerarPersonajes(fabrica);
+                                     persistPerJson.GuardarPersonajes(personajes, nombreArchivoPersonajes);
+                                     Juego(personajes);
+                                   }
+                                 }
+                              
+                         }
+                         else
+                         {
+                            break;// Vuelve al menu principal
+                         }   
+                    }
+                 break;
+
                 case 1: 
                  // Historial Json
                  if(persistHistJson.Existe(nombreArchivoGanadores))
@@ -122,6 +151,8 @@ namespace Proyecto
                 case 2: 
                  // Info personajes
                   MostrarPersonajes(personajes);
+                  Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
+                 Console.ReadKey();
                   //InicioJuego();
                   break;
                 case 3: 
@@ -136,13 +167,8 @@ namespace Proyecto
                
                   break;
             }
-
         }
-
-
         }
-
-
 
         //------------FUNCIONES UTILIZADAS------------------
 
@@ -160,24 +186,27 @@ namespace Proyecto
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"-----------LISTA DE HECHICEROS -----------");
+            CentrarTexto($"----------- HECHICEROS PRECARGADOS -----------");
+            Console.WriteLine("");
             foreach (var personaje in personajes)
             {
                 // Mostrar características del personaje
-                Console.WriteLine($"----------------HECHICERO {personaje.Datos.Nombre} -------------------");
-                Console.WriteLine($"Apodo: {personaje.Datos.Apodo}");
-                Console.WriteLine($"Fecha de Nacimiento: {personaje.Datos.FechaDeNacimiento.ToShortDateString()}");
-                Console.WriteLine($"Edad: {personaje.Datos.Edad}");
-                Console.WriteLine($"Tipo: {personaje.Datos.Tipo}");
-                Console.WriteLine($"------Características------");
-                Console.WriteLine($"Salud: {personaje.Caracteristicas.Salud}");
-                Console.WriteLine($"Velocidad: {personaje.Caracteristicas.Velocidad}");
-                Console.WriteLine($"Destreza: {personaje.Caracteristicas.Destreza}");
-                Console.WriteLine($"Fuerza: {personaje.Caracteristicas.Fuerza}");
-                Console.WriteLine($"Nivel: {personaje.Caracteristicas.Nivel}");
-                Console.WriteLine($"Protección: {personaje.Caracteristicas.Proteccion}");
-                Console.WriteLine($"-------------------------------------------------------");
+                CentrarTexto($"----------------HECHICERO {personaje.Datos.Nombre} -------------------");
+                CentrarTexto($"Apodo: {personaje.Datos.Apodo}");
+                CentrarTexto($"Fecha de Nacimiento: {personaje.Datos.FechaDeNacimiento.ToShortDateString()}");
+                CentrarTexto($"Edad: {personaje.Datos.Edad}");
+                CentrarTexto($"Tipo: {personaje.Datos.Tipo}");
+                Console.WriteLine("");
+                CentrarTexto($"------Características------");
+                CentrarTexto($"Salud: {personaje.Caracteristicas.Salud}");
+                CentrarTexto($"Velocidad: {personaje.Caracteristicas.Velocidad}");
+                CentrarTexto($"Destreza: {personaje.Caracteristicas.Destreza}");
+                CentrarTexto($"Fuerza: {personaje.Caracteristicas.Fuerza}");
+                CentrarTexto($"Nivel: {personaje.Caracteristicas.Nivel}");
+                CentrarTexto($"Protección: {personaje.Caracteristicas.Proteccion}");
+                CentrarTexto($"-------------------------------------------------------");
                 Console.WriteLine();
+                Thread.Sleep(1000);
             }
             Console.ResetColor();
         }   
@@ -271,15 +300,19 @@ namespace Proyecto
 
         public  void Juego (List<Personaje> personajes)
         {
+             Console.ForegroundColor = ConsoleColor.DarkCyan;
             CentrarTexto("---SELECCIONE UN PERSONAJE---");
+            Console.WriteLine("");
             
             // De la lista de personajes cargada muestro solo 5 aleatorios para que elija el jugador con cual quedarse
             Random random = new Random();
             List<Personaje> personajesAleatorios = personajes.OrderBy(x => random.Next()).Take(5).ToList();
             for (int i = 0; i < personajesAleatorios.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. HECHICERO {personajesAleatorios[i].Datos.Nombre}");
-                Console.WriteLine($"-- Tipo: {personajesAleatorios[i].Datos.Tipo}");
+                CentrarTexto($"{i + 1}. HECHICERO {personajesAleatorios[i].Datos.Nombre}");
+                CentrarTexto($"-- Tipo: {personajesAleatorios[i].Datos.Tipo}");
+                Console.WriteLine("");
+                Thread.Sleep(1500);
             }
 
             // Controlo que elija un personaje dentro del rango 
@@ -295,14 +328,20 @@ namespace Proyecto
                 Console.WriteLine("\n OPCION INVALIDA! ELIJA UN NUMERO ENTRE 1 Y 5.\n");   
              }
              }
+
           // Una vez elegido el jugador limpio la consola para  Mostrar al jugador seleccionado y  sus caracteristicas 
-         Console.Clear();
-        CentrarTexto($"--Elegiste  a: {jugadorElegido.Datos.Nombre}, {jugadorElegido.Datos.Tipo}. Tambien llamado '{jugadorElegido.Datos.Apodo}'");
-         Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        CentrarTexto("Caracteristicas");
-        Console.WriteLine("DESTREZA | FUERZA | VELOCIDAD| PROTECCION|SALUD|NIVEL");
-        Console.WriteLine($" {jugadorElegido.Caracteristicas.Destreza}| {jugadorElegido.Caracteristicas.Fuerza}| {jugadorElegido.Caracteristicas.Velocidad}|{jugadorElegido.Caracteristicas.Proteccion}| {jugadorElegido.Caracteristicas.Salud}|{jugadorElegido.Caracteristicas.Nivel}");
-        Console.ResetColor();
+          Console.Clear();
+
+           CentrarTexto($"--Elegiste  a: {jugadorElegido.Datos.Nombre}, {jugadorElegido.Datos.Tipo}. Tambien llamado '{jugadorElegido.Datos.Apodo}'");
+           Console.ForegroundColor = ConsoleColor.DarkMagenta;
+          CentrarTexto("Caracteristicas");
+           CentrarTexto("DESTREZA | FUERZA | VELOCIDAD| PROTECCION|SALUD|NIVEL");
+           CentrarTexto($" {jugadorElegido.Caracteristicas.Destreza}| {jugadorElegido.Caracteristicas.Fuerza}| {jugadorElegido.Caracteristicas.Velocidad}|{jugadorElegido.Caracteristicas.Proteccion}| {jugadorElegido.Caracteristicas.Salud}|{jugadorElegido.Caracteristicas.Nivel}");
+            Console.ResetColor();
+            Thread.Sleep(5000);
+            Console.Write("\nPresiona cualquier tecla para continuar");
+            Console.ReadKey();
+
 
         // ANALIZO nivel de dificultad para crear la cantidad de contricantes/ Rondas a jugar
         // Limpio consola y pregunto 
@@ -327,7 +366,7 @@ namespace Proyecto
         }
 
         // UNA VEZ EELEGIDA LA DIFICULTAD EMPIEZA EL JUEGO
-         Console.Clear();
+        
         // Segun la dificultad elegida mostrara la cantidad de enemigos a combatir y sus caracteristicas
 
         List<Personaje> listaEnemigos;
@@ -337,6 +376,7 @@ namespace Proyecto
         switch (dificultad)
         {
             case 1:// FÁCIL
+             Console.Clear();
             Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [FÁCIL]");
             Console.WriteLine("-- Cantidad de hechiceros a derrotar: 2 enemigos");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
@@ -347,6 +387,7 @@ namespace Proyecto
             break;
 
             case 2:// MEDIO
+             Console.Clear();
             Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [MEDIO]");
             Console.WriteLine("-- Cantidad de hechiceros a derrotar: 4 ENEMIGOS");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
@@ -357,6 +398,7 @@ namespace Proyecto
             
             break;
             case 3:// DIFICIL
+             Console.Clear();
             Console.WriteLine("SELECCIONASTE EL NIVEL DE DIFICULTAD [DIFICIL]");
             Console.WriteLine("-- Cantidad de hechiceros a derrotar: 6 ENEMIGOS");
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
