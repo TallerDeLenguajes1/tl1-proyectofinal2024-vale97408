@@ -24,12 +24,12 @@ namespace Proyecto
               Console.Clear();
             // Dar la bienvenida al jugador y contexto del juego
             CentrarTexto($"\n¡Bienvenido, {nombreJugador}, a ARCANUM: TORNEO DE MAGIA!");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             CentrarTexto("______________________   .    _____________________");
             Console.WriteLine("");
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
             CentrarTexto(" ¿Estás al nivel de este desafío interplanetario?");
 
              Thread.Sleep(1000);
@@ -40,7 +40,7 @@ namespace Proyecto
   // ------CONTROL DE PERSISTENCIA DE PERSONAJES 
 
             // Crear instancias necesarias
-            var fabrica = new FabricaDePersonajes();
+            FabricaDePersonajes fabrica = new FabricaDePersonajes();
             PersonajesJson persistPerJson = new PersonajesJson();
             HistorialJson persistHistJson= new HistorialJson();
 
@@ -390,7 +390,7 @@ namespace Proyecto
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
             Console.WriteLine("");
             // Uso de funcion que genera, muestra y devuelve la lista con los enemigos generados
-            listaEnemigos= Combate.GenerarEnemigosYMostrar(2,personajesAleatorios,jugadorElegido );
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(2,personajes,jugadorElegido );
             Console.Write("\nPresiona cualquier tecla para CONTINUAR");
             Console.ReadKey();
              ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);    
@@ -411,7 +411,7 @@ namespace Proyecto
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
               Console.WriteLine("");
             // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
-            listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajesAleatorios,jugadorElegido ); 
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(4,personajes,jugadorElegido ); 
             Console.Write("\nPresiona cualquier tecla para CONTINUAR");
             Console.ReadKey();
              ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);
@@ -431,7 +431,7 @@ namespace Proyecto
             CentrarTexto("---- CARACTERISTICAS DE SUS ENEMIGOS---- ");
              Console.WriteLine("");
             // Uso de funcion para mostrar los enemigos generados aleatoriomente en combate 
-            listaEnemigos= Combate.GenerarEnemigosYMostrar(6,personajesAleatorios,jugadorElegido ); 
+            listaEnemigos= Combate.GenerarEnemigosYMostrar(6,personajes,jugadorElegido ); 
              Console.Write("\nPresiona cualquier tecla para CONTINUAR");
             Console.ReadKey();
             // Desarrollo de combate

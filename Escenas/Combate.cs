@@ -14,14 +14,22 @@ namespace Proyecto
 
           // Crear una lista sin el personaje del jugador
           List<Personaje> listaSinJugador = listaPersonajes.Where(p => p != personajeJugador).ToList();
+          ////////////////////////////////////////
+          // Verificar si hay suficientes personajes para cumplir con la cantidad requerida
+          if (listaSinJugador.Count < cantidad)
+           {
+           Console.WriteLine($"No hay suficientes personajes para generar la cantidad deseada de enemigos.{listaSinJugador.Count}");
+           return enemigos; // Retornar lista vacía si no hay suficientes personajes
+          }
+          ////////////////////////////////////////
 
           for (int i = 0; i < cantidad; i++)
          {
-           if (listaSinJugador.Count == 0)
+            /*if (listaSinJugador.Count == 0)
            {
-            Console.WriteLine("No hay suficientes personajes para generar enemigos.");
+            Console.WriteLine("No hay suficientes personajes para generar enemigos");
             break;
-           }
+           }*/
 
            Personaje personajeSeleccionado;
 
@@ -95,7 +103,11 @@ namespace Proyecto
         // Función para mostrar las características del planeta
          private static void MostrarCaracteristicasPlaneta(Result planeta)
         {
-            Inicio.CentrarTexto($"-------PLANETA {planeta.Name}--------");
+             Inicio. CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
+            Inicio.CentrarTexto($"   PLANETA {planeta.Name}    ");
+          Console.WriteLine("");
+             Inicio. CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine($"Clima: {planeta.Climate}");
             Console.WriteLine($"Terreno: {planeta.Terrain}");
             Console.WriteLine($"Gravedad: {planeta.Gravity}");
@@ -298,10 +310,10 @@ namespace Proyecto
 
             // Muestro mensajes 
             // Mostrar mensaje de ataque
-            Console.WriteLine("____________________________________________________");
-           Console.WriteLine($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre}.");
-           Console.WriteLine($"{atacante.Datos.Nombre} inflige {danoProvocado} de daño a {defensor.Datos.Nombre}.");
-           Console.WriteLine("____________________________________________________");
+            Inicio.CentrarTexto("____________________________________________________");
+           Inicio.CentrarTexto($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre}.");
+           Inicio.CentrarTexto($"{atacante.Datos.Nombre} inflige {danoProvocado} de daño a {defensor.Datos.Nombre}.");
+           Inicio.CentrarTexto("____________________________________________________");
             Thread.Sleep(2000); // Esperar 2 segundos para que el jugador lea el mensaje
 
         }
@@ -373,41 +385,100 @@ namespace Proyecto
           // Iterar a través de cada enemigo en la lista
          { i++; 
             Console.Clear();
-            Inicio.CentrarTexto($"----------RONDA NRO {i}/ {cantidadRondas}--------");
-            Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre} VS {enemigo.Datos.Nombre} ---");
+           Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
+             Console.ResetColor();
+            Console.WriteLine("");
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
+            Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
+            Console.WriteLine("");
+             Inicio. CentrarTexto("_____________________    .    ______________________");
+              Console.WriteLine("");
             MostrarComparacionPersonajes(jugadorElegido, enemigo);
             Thread.Sleep(4000);
 
             // Limpio consola 
             Console.Clear();
-            Inicio.CentrarTexto($"----------RONDA NRO {i}/ {cantidadRondas}--------");
-            Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre} VS {enemigo.Datos.Nombre} ---");
-            Console.WriteLine(" Cargando el planeta de combate... ¡Prepárate para descubrir el escenario de tu próximo enfrentamiento!"); 
-            Thread.Sleep(2000);
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+           Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
+             Console.ResetColor();
+            Console.WriteLine("");
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
+            Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
+            Console.WriteLine("");
+             Inicio. CentrarTexto("_____________________    .    ______________________");
+              Console.WriteLine("");
+
+            Inicio.CentrarTexto(" Cargando el planeta de combate... ¡Prepárate para descubrir el escenario de tu próximo enfrentamiento!"); 
+            Console.WriteLine("");
+            Thread.Sleep(3000);
             
            // Obtener un planeta aleatorio y mostrar sus características
            Result planeta = ObtenerYMostrarPlanetaAsync().Result;
            // Muestro el planeta 
            MostrarCaracteristicasPlaneta(planeta);
            Thread.Sleep(2000);
+
+           Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.ReadKey();   
          
-         Console.Clear();
-         Inicio.CentrarTexto($"----------RONDA NRO {i}/ {cantidadRondas}--------");
-         Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre} VS {enemigo.Datos.Nombre} ---");
+          Console.Clear();
+         Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+          Console.ForegroundColor = ConsoleColor.DarkYellow;
+          Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
+            Console.WriteLine("");
+             Console.ResetColor();
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
+            Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
+            Console.WriteLine("");
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
+
           // Modificar las características del jugador y el enemigo según el planeta
           ModificarCaracteristicasPorPlaneta(planeta, jugadorElegido);
           ModificarCaracteristicasPorPlaneta(planeta, enemigo);
+           Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+          Console.ForegroundColor = ConsoleColor.DarkRed;
           Inicio.CentrarTexto("-------CARACTERISTICAS DE PERSONAJES MODIFICADAS--------");
+            Console.WriteLine("");
+             Console.ResetColor();
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+
           MostrarComparacionPersonajes(jugadorElegido, enemigo);
+           Console.WriteLine("");
          Thread.Sleep(4000); // Esperar para que el jugador lea el mensaje
+           Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+           Console.ReadKey();   
+         
   
          Console.Clear();
          Titulo.ContadorPelea();
          Thread.Sleep(1000);
          Console.Clear();
 
-         Inicio.CentrarTexto($"----------RONDA NRO {i}/ {cantidadRondas}--------");
-         Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre} VS {enemigo.Datos.Nombre} ---");
+        
+         Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+          Console.ForegroundColor = ConsoleColor.DarkYellow;
+          Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
+          Console.WriteLine("");
+          Console.ResetColor();
+          Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
+           Inicio.CentrarTexto($"--- { jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
+           Console.WriteLine("");
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+            Console.WriteLine("");
+
         // Realizar el combate entre el jugador y el enemigo
         bool jugadorGano = RealizarCombate(jugadorElegido, enemigo);
 
@@ -415,13 +486,21 @@ namespace Proyecto
         {    Console.ForegroundColor = ConsoleColor.DarkYellow;
             // El jugador gana la ronda, aumenta su nivel
             jugadorElegido = AumentarNivel(jugadorElegido);
+            Inicio. CentrarTexto("_____________________    .    ______________________");
+          Console.WriteLine("");
             Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} ha ganado la ronda!");
+             Console.WriteLine("");
+            Inicio. CentrarTexto("_____________________    .    ______________________");
 
             if( cantidadRondas!=i) //siempre que no sea su ultima ronda
             {
+            Inicio. CentrarTexto(".....................................................");
+             Console.WriteLine("");
             Inicio.CentrarTexto("TU MAGIA HA EVOLUCIONADO. ¡Estás preparado para enfrentarte a tu próximo oponente con habilidades mejoradas!");
+             Console.WriteLine("");
+            Inicio. CentrarTexto(".....................................................");
             }
-            Thread.Sleep(2000); // Esperar para que el jugador lea el mensaje
+            Thread.Sleep(5000); // Esperar para que el jugador lea el mensaje
             Console.ResetColor();
             
         }
@@ -431,12 +510,16 @@ namespace Proyecto
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"{enemigo.Datos.Nombre} ha ganado la ronda. Fin del combate.");
             Console.ResetColor();
+              Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+           Console.ReadKey();  
             return enemigo; // El enemigo gana y se convierte en el ganador
         }
       }
 
          // El jugador gana todas las rondas
          Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} HA GANADO LA BATALLA!");
+         Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+          Console.ReadKey();  
           return  ganador;
          }
 
