@@ -15,7 +15,7 @@ namespace Proyecto
         {
             // Mostrar la pantalla de inicio
             Titulo.MostrarTituloDelJuego();
-
+            
             // Solicitar nombre del jugador
             Console.WriteLine("Por favor, ingrese su nombre:");
             string nombreJugador = Console.ReadLine();
@@ -396,7 +396,13 @@ namespace Proyecto
             Console.ReadKey();
              ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);    
              Console.Write("\nPresiona cualquier tecla para CONTINUAR");
-            Console.ReadKey();        
+            Console.ReadKey();       
+
+            Console.Clear();
+             Titulo.MostrarResultadoLetras(jugadorElegido, ganadorFinal);
+                
+            Console.Write("\nPresiona cualquier tecla para REGRESAR AL MENU PRINCIPAL");
+            Console.ReadKey(); 
             
             break;
 
@@ -418,6 +424,12 @@ namespace Proyecto
              ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);
              Console.Write("\nPresiona cualquier tecla para CONTINUAR");
             Console.ReadKey();     
+
+            Console.Clear();
+             Titulo.MostrarResultadoLetras(jugadorElegido, ganadorFinal);
+                
+            Console.Write("\nPresiona cualquier tecla para REGRESAR AL MENU PRINCIPAL");
+            Console.ReadKey();
             
             
             break;
@@ -437,9 +449,14 @@ namespace Proyecto
             Console.ReadKey();
             // Desarrollo de combate
              ganadorFinal= combate.desarrolloCombate(jugadorElegido, listaEnemigos);
-              Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+            Console.Write("\nPresiona cualquier tecla para CONTINUAR");
+           Console.ReadKey();  
+
+             Console.Clear();
+             Titulo.MostrarResultadoLetras(jugadorElegido, ganadorFinal);
+                
+            Console.Write("\nPresiona cualquier tecla para REGRESAR AL MENU PRINCIPAL");
             Console.ReadKey();
-             
             break;
         }
 

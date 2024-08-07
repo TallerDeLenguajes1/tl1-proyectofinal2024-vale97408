@@ -1,5 +1,7 @@
 using System;
 using System.Threading;
+using Fabrica;
+using Personajes;
 
 namespace Proyecto
 {
@@ -22,6 +24,7 @@ namespace Proyecto
                                   * * *     /  _____  \  |  |\  \----.|  `----. /  _____  \  |  |\   | |  `--'  | |  |  |  |    * * * 
                                     *      /__/     \__\ | _| `._____| \______|/__/     \__\ |__| \__|  \______/  |__|  |__|      *
                                  
+ 
                                    *       _____                                   ______        ___  ___               _           *     
                                  * * *    |_   _|                                  |  _  \       |  \/  |              (_)        * * *
                                    *        | |    ___   _ __  _ __    ___   ___   | | | |  ___  | .  . |  __ _   __ _  _   __ _    *
@@ -63,57 +66,111 @@ namespace Proyecto
            // Console.ReadKey();
         }
 
-        public static void MostrarTituloGanadorPerdedor(string ganador)
+        public static void TituloGanador()
         {
-            // SI GANA
-            if (ganador != null)
-            {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Green;
+           
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 string tituloGanador = @"
-  _______      ___      .__   __.      ___       _______    ______   .______       __  
- /  _____|    /   \     |  \ |  |     /   \     |       \  /  __  \  |   _  \     |  | 
-|  |  __     /  ^  \    |   \|  |    /  ^  \    |  .--.  ||  |  |  | |  |_)  |    |  | 
-|  | |_ |   /  /_\  \   |  . `  |   /  /_\  \   |  |  |  ||  |  |  | |      /     |  | 
-|  |__| |  /  _____  \  |  |\   |  /  _____  \  |  '--'  ||  `--'  | |  |\  \----.|__| 
- \______| /__/     \__\ |__| \__| /__/     \__\ |_______/  \______/  | _| `._____|(__) 
+                
+ •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆  
 
-
+       _______      ___      .__   __.      ___           _______..___________. _______  __  
+      /  _____|    /   \     |  \ |  |     /   \         /       ||           ||   ____||  | 
+     |  |  __     /  ^  \    |   \|  |    /  ^  \       |   (----``---|  |----`|  |__   |  | 
+     |  | |_ |   /  /_\  \   |  . `  |   /  /_\  \       \   \        |  |     |   __|  |  | 
+     |  |__| |  /  _____  \  |  |\   |  /  _____  \  .----)   |       |  |     |  |____ |__| 
+      \______|  /__/     \__\ |__| \__| /__/     \__\ |_______/       |__|     |_______|(__)   
+    
 ";
-                Console.WriteLine(tituloGanador);
-                Console.ResetColor();
-            }
-            else
-            {
-                // SI NO GANA
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                string tituloPerdedor = @"
-.______    _______ .______       _______   __    ______    __  
-|   _  \  |   ____||   _  \     |       \ |  |  /  __  \  |  | 
-|  |_)  | |  |__   |  |_)  |    |  .--.  ||  | |  |  |  | |  | 
-|   ___/  |   __|  |      /     |  |  |  ||  | |  |  |  | |  | 
-|  |      |  |____ |  |\  \----.|  '--'  ||  | |  `--'  | |__| 
-| _|      |_______|| _| `._____||_______/ |__|  \______/  (__) 
+                Inicio.CentrarTexto(tituloGanador);
+                Thread.Sleep(3000);
 
-";
-                Console.WriteLine(tituloPerdedor);
-                Console.ResetColor();
-            }
-            Console.WriteLine("Iniciando pausa de 5 segundos...");
-            Thread.Sleep(5000);  // Pausa de 5 segundos (5000 milisegundos)
-            Console.WriteLine("Pausa terminada.");
-            Console.WriteLine("Presione una tecla para continuar...");
-            Console.ReadKey();  // Espera a que el usuario presione una tecla
-            Console.WriteLine("Continuando...");
-            Console.Clear();
-        }
+                string textoTrono= @"
+  _____   _                                   _     _____                                 _         _ 
+ |_   _| (_)  ___   _ _    ___   ___    ___  | |   |_   _|  _ _   ___   _ _    ___     __| |  ___  | |
+   | |   | | / -_) | ' \  / -_) (_-<   / -_) | |     | |   | '_| / _ \ | ' \  / _ \   / _` | / -_) | |
+   |_|   |_| \___| |_||_| \___| /__/   \___| |_|     |_|   |_|   \___/ |_||_| \___/   \__,_| \___| |_|
+                                                                                                          
+            ";
+                Inicio.CentrarTexto(textoTrono);
+                Thread.Sleep(1000);
 
-        public static void Salir()
+                string textoTrono2 =@"
+   ___   ___     _     _  _     _  _   ___    ___   _  _   ___    ___   ___   ___    ___  
+  / __| | _ \   /_\   | \| |   | || | | __|  / __| | || | |_ _|  / __| | __| | _ \  / _ \ 
+ | (_ | |   /  / _ \  | .` |   | __ | | _|  | (__  | __ |  | |  | (__  | _|  |   / | (_) |
+  \___| |_|_\ /_/ \_\ |_|\_|   |_||_| |___|  \___| |_||_| |___|  \___| |___| |_|_\  \___/ 
+
+ •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆  
+                ";
+                Inicio.CentrarTexto(textoTrono2);
+                Thread.Sleep(1000);
+    // TRABAJO EFECTO DE TITILEO
+        int titilarDuracion = 700; // Tiempo en milisegundos para titilar
+        int totalTitilaciones = 10; // Cantidad de veces que se titilará
+
+        for (int i = 0; i < totalTitilaciones; i++)
         {
-            Console.WriteLine("Abandonando el juego...");
-            Environment.Exit(0);
+            Console.Clear(); // Limpia la consola para mostrar el título en un nuevo estado
+            Console.ForegroundColor = (i % 2 == 0) ? ConsoleColor.Cyan : ConsoleColor.Gray;
+            Inicio.CentrarTexto(tituloGanador);
+            Inicio.CentrarTexto(textoTrono);
+            Inicio.CentrarTexto(textoTrono2);
+            Thread.Sleep(titilarDuracion); // Espera antes de cambiar el estado
         }
+
+        // Restablecer el color de la consola y mostrar el título de forma estática
+        
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Inicio.CentrarTexto(tituloGanador);
+        Inicio.CentrarTexto(textoTrono);
+        Inicio.CentrarTexto(textoTrono2);
+
+
+                Console.ResetColor();
+            
+        }
+        public static void TituloPerdedor( )
+        {
+          Console.ForegroundColor = ConsoleColor.Red;
+                string tituloPerdedor = @"
+ •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆ 
+ 
+.______    _______ .______       _______   __       _______..___________. _______  __  
+|   _  \  |   ____||   _  \     |       \ |  |     /       ||           ||   ____||  | 
+|  |_)  | |  |__   |  |_)  |    |  .--.  ||  |    |   (----``---|  |----`|  |__   |  | 
+|   ___/  |   __|  |      /     |  |  |  ||  |     \   \        |  |     |   __|  |  | 
+|  |      |  |____ |  |\  \----.|  '--'  ||  | .----)   |       |  |     |  |____ |__| 
+| _|      |_______|| _| `._____||_______/ |__| |_______/        |__|     |_______|(__) 
+                                                                                       
+ •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆ 
+";
+                Inicio.CentrarTexto(tituloPerdedor);
+                Thread.Sleep(1000);
+
+                 // TRABAJO EFECTO DE TITILEO
+        int titilarDuracion = 700; // Tiempo en milisegundos para titilar
+        int totalTitilaciones = 10; // Cantidad de veces que se titilará
+
+        for (int i = 0; i < totalTitilaciones; i++)
+        {
+            Console.Clear(); // Limpia la consola para mostrar el título en un nuevo estado
+            Console.ForegroundColor = (i % 2 == 0) ? ConsoleColor.Gray : ConsoleColor.Gray;
+            Inicio.CentrarTexto(tituloPerdedor);
+       
+            Thread.Sleep(titilarDuracion); // Espera antes de cambiar el estado
+        }
+
+        // Restablecer el color de la consola y mostrar el título de forma estática
+        
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Inicio.CentrarTexto(tituloPerdedor);
+                Console.ResetColor();
+
+        }
+
      public static void LimpiarBuffer()
         {
             while (Console.KeyAvailable)
@@ -149,6 +206,24 @@ namespace Proyecto
             Thread.Sleep(1500);
             LimpiarBuffer(); 
         }   
+
+        public static void MostrarResultadoLetras(Personaje jugador, Personaje ganador )
+        {
+             Console.WriteLine($"Nombre del Jugador: {jugador.Datos.Nombre}");
+               Console.WriteLine($"Nombre del Ganador: {ganador.Datos.Nombre}");
+
+          Console.Clear();
+           if(jugador.Datos.Nombre==ganador.Datos.Nombre)
+           {
+            TituloGanador();
+           }
+           else
+           {
+            TituloPerdedor();
+           }
+           Thread.Sleep(2000);
+        
+        }
     }
 }
 

@@ -312,7 +312,7 @@ namespace Proyecto
             Random random = new Random();
             // Calcular daño
             int ataque = atacante.Caracteristicas.Destreza * atacante.Caracteristicas.Fuerza * atacante.Caracteristicas.Nivel;
-            int efectividad = random.Next(1, 101); // Valor aleatorio entre 1 y 100
+            int efectividad = random.Next(6, 101); // Valor aleatorio entre 1 y 100-- al 1 lo cmabie por 6
             int defensa = defensor.Caracteristicas.Proteccion * defensor.Caracteristicas.Velocidad;
             int constanteAjuste = 500;
             int danoProvocado = (ataque * efectividad - defensa) / constanteAjuste;
@@ -364,8 +364,9 @@ namespace Proyecto
 
     Inicio.CentrarTexto("SALUD");
     Inicio. CentrarTexto("_____________________    .    ______________________");
+   
     Console.WriteLine("");
-    Inicio.CentrarTexto($"       {jugador.Datos.Nombre,-20} | {rival.Datos.Nombre,-20}");
+    Inicio.CentrarTexto($"     {jugador.Datos.Nombre,-20}  (Tu)   |         {rival.Datos.Nombre,-20}");
     Inicio.CentrarTexto(new string('-', nombreLength + 3 + nombreLength));
       //Inicio. CentrarTexto("___________________________________________");
     // Valores de salud
@@ -376,9 +377,9 @@ namespace Proyecto
             Console.WriteLine(new string('-', 30));
             Console.WriteLine($"{jugador.Datos.Nombre, -20}(Tú) | {jugador.Caracteristicas.Salud, -10}");
             Console.WriteLine($"{rival.Datos.Nombre, -20} | {rival.Caracteristicas.Salud, -10}");*/
+            Console.WriteLine("");
+            Console.WriteLine("");
          }
-
-
 
          // FUNCION QUE REALIZA TODO EL COMBATE DE UNA RONDA- UNO SALE VICTORIOSO
          private  bool RealizarCombate(Personaje jugador, Personaje rival, int cantRonda, int nro)
@@ -390,6 +391,7 @@ namespace Proyecto
            Console.WriteLine("");
            Console.ResetColor();
            Inicio. CentrarTexto("_____________________    .    ______________________");
+
             while (jugador.Caracteristicas.Salud > 0 && rival.Caracteristicas.Salud > 0)
             {
                 // Mostrar la salud actualizada
@@ -406,7 +408,7 @@ namespace Proyecto
                 if (rival.Caracteristicas.Salud <= 0)
                 {
                     Console.Clear(); // Limpiar consola para mostrar el mensaje final
-                    Inicio.CentrarTexto($"{jugador.Datos.Nombre} ha ganado la ronda!");
+                   // Inicio.CentrarTexto($"{jugador.Datos.Nombre} ha ganado la ronda!");
                     return true;
                 }
                 
@@ -422,13 +424,21 @@ namespace Proyecto
                 if (jugador.Caracteristicas.Salud <= 0)
                 {
                     Console.Clear(); // Limpiar consola para mostrar el mensaje final
-                    Inicio.CentrarTexto($"{rival.Datos.Nombre} ha ganado la ronda!");
+                  //  Inicio.CentrarTexto($"{rival.Datos.Nombre} ha ganado la ronda!");
                     return false;
                 }
             }
 
             return false;
         } 
+       // FUNCION PARA RESTAURAR LA SALUD DEL JUGADOR DESPUES DE CADA RONDA 
+        public void RestaurarSalud(Personaje personaje)
+        { 
+          if (personaje != null)
+          {
+            personaje.Caracteristicas.Salud = 100; // Restaurar salud a 100
+          }
+         }
 
 
          // Funcion que recibe el jugador elegido y la lista de enemigos para trabajar la pelea con las rondas, maneja el control de toda la partida
@@ -543,32 +553,32 @@ namespace Proyecto
 
             if( cantidadRondas!=i) //siempre que no sea su ultima ronda
             {
+              RestaurarSalud(jugadorElegido); // Se restauara siempre que no sea su ultima ronda jugada
+             Console.WriteLine("");
             Inicio. CentrarTexto(".....................................................");
              Console.WriteLine("");
             Inicio.CentrarTexto("TU MAGIA HA EVOLUCIONADO. ¡Estás preparado para enfrentarte a tu próximo oponente con habilidades mejoradas!");
              Console.WriteLine("");
             Inicio. CentrarTexto(".....................................................");
             }
-            Thread.Sleep(5000); // Esperar para que el jugador lea el mensaje
+            Thread.Sleep(6000); // Esperar para que el jugador lea el mensaje
             Console.ResetColor();
             
         }
         else
         {
             // El jugador pierde la ronda
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+           
             Console.WriteLine($"{enemigo.Datos.Nombre} ha ganado la ronda. Fin del combate.");
             Console.ResetColor();
-              Console.Write("\nPresiona cualquier tecla para CONTINUAR");
-           Console.ReadKey();  
             return enemigo; // El enemigo gana y se convierte en el ganador
         }
       }
 
          // El jugador gana todas las rondas
-         Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} HA GANADO LA BATALLA!");
-         Console.Write("\nPresiona cualquier tecla para CONTINUAR");
-          Console.ReadKey();  
+         Console.WriteLine("");
+         Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} HA GANADO EL TRONO DEL GRAN HECHICERO!");
           return  ganador;
          }
 
