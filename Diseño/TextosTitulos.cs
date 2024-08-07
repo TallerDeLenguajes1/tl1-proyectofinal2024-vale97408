@@ -229,14 +229,14 @@ namespace Proyecto
 
     public static void TextoDespedida()
     {
-      Console.Clear();
+     
       Inicio.CentrarTexto("_____________________       .        _________________________");
       Console.WriteLine("");
       
       Inicio.CentrarTexto("  ★ ¸ . • ☆ • . ¸ ★    Te despedimos con gratitud por haber sido parte del Torneo Arcanum. ¡Que tus futuros caminos estén llenos de magia y éxito!     ★ ¸ . • ☆ • . ¸ ★ ");
       Console.WriteLine("");
       Inicio.CentrarTexto("_____________________       .        _________________________");
-       Thread.Sleep(1000);
+       Thread.Sleep(2000);
 
       Console.ForegroundColor = ConsoleColor.Cyan;
       Inicio.CentrarTexto(" •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆  •   ☆   ★ ⡀   .  •  ☆ ");

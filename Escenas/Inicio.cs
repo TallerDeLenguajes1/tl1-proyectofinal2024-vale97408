@@ -161,6 +161,7 @@ namespace Proyecto
                     case 3:
                         // salir
                         continuar = false;
+                        Console.Clear();
                        Titulo.TextoDespedida();
                         //Console.ResetColor();
                         break;

@@ -1,139 +1,151 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
+using System.ComponentModel;
 using System.Text.Json;
 using Personajes;
+using Proyecto;
 
 namespace Juego
 {
     public class HistorialJson
     {
+        // Datos de los ganadores 
         // Método para obtener la ruta completa del archivo
-        private string ObtenerRuta(string nombreArchivo)
+        private string obtenerRuta(string nombreArchivo)
         {
-            return Path.Combine("Data", nombreArchivo);
+            return "Data/"+nombreArchivo;
+        }
+
+        
+        // Método para verificar si un archivo existe y tiene datos
+        public bool Existe(string nombreArchivo)
+        {
+            string ruta = obtenerRuta(nombreArchivo);
+            
+            return File.Exists(ruta) && new FileInfo(ruta).Length > 0;
         }
 
         // Método para guardar la información de los ganadores en un archivo JSON
-        public void GuardarGanador(Personaje ganador, string infoPartida, string nombreArchivo)
+        public void GuardarGanador(Personaje ganador, string nombreArchivo, string nombreJugador, int dificultad)
         {
-            string ruta = ObtenerRuta(nombreArchivo);
-            // Asegúrate de que la carpeta "Data" exista
+            string ruta = obtenerRuta(nombreArchivo);
+            // Asegúrate de que la carpeta "Data" donde se guardara el archivo Json exista 
             Directory.CreateDirectory(Path.GetDirectoryName(ruta));
 
-            var datosGanador = new
-            {
-                Ganador = ganador,
-                InfoPartida = infoPartida
-            };
+            InfoGanadores infoGanador= new InfoGanadores(ganador, nombreJugador, dificultad);
 
-            string ganadorJson = JsonSerializer.Serialize(datosGanador, new JsonSerializerOptions { WriteIndented = true });
+           // Mi lista de ganadores
+           List<InfoGanadores> historialGanadores= new List<InfoGanadores>();
 
-            try
+           // Como quiero mostrar determinadas caracteristicas
+            //creo el objeto ganador con las caractersticas que quiero guardar. 
+              InfoGanadores ganadorCaracteristicas = new InfoGanadores(nombreJugador,ganador.Datos.Nombre,
+                                            ganador.Datos.Tipo,
+                                            ganador.Caracteristicas.Salud, dificultad
+                                            );
+
+           
+           if (Existe(nombreArchivo))
+           {
+            // Si existe, leo el archivo de los ganadores que ya tenia almacenados 
+             historialGanadores = LeerGanadores(nombreArchivo);
+           }
+           // Agrego el ganador a mi lista de ganadores (ya sea la que ya tenia o si estba vacia)
+           historialGanadores.Add(infoGanador);
+
+           // Guardo la lista de ganadores en el archivo Json, serializo, muestro mensajes de si se guardo o no
+           string  historialG = JsonSerializer.Serialize(historialGanadores); 
+          
+          try
             {
-                using (var archivo = new FileStream(ruta, FileMode.Create, FileAccess.Write))
-                {
-                    using (var strWriter = new StreamWriter(archivo))
-                    {
-                        strWriter.Write(ganadorJson);
-                    }
-                }
-                Console.WriteLine("Ganador y detalles de la partida guardados exitosamente en " + ruta);
-            }
-            catch (Exception ex)
+           using (var archivo = new FileStream(ruta, FileMode.OpenOrCreate))
+           {
+              using (var strWriter =new StreamWriter(archivo))
+              {
+                  strWriter.WriteLine("{0}", historialG);
+                    strWriter.Close();
+              }
+           }
+           Console.WriteLine("Ganador y detalles de la partida guardados exitosamente en " + ruta);
+           } catch (Exception ex)
             {
                 Console.WriteLine("Error al guardar el ganador: " + ex.Message);
             }
         }
 
         // Método para leer la información de los ganadores desde un archivo JSON
-        public (Personaje Ganador, string InfoPartida) LeerGanadores(string nombreArchivo)
+        public List<InfoGanadores> LeerGanadores(string nombreArchivo)
         {
-            string ruta = ObtenerRuta(nombreArchivo);
+            string ruta = obtenerRuta(nombreArchivo);
 
             if (!Existe(nombreArchivo))
             {
                 Console.WriteLine("El archivo no existe.");
-                return (null, string.Empty);
+                return null;
             }
-
+           
+           // Control para corroborar que si fue leido
             try
             {
-                string cadenaGanador;
-                using (var archivoOpen = new FileStream(ruta, FileMode.Open, FileAccess.Read))
+                string textoGanadores;
+                List<InfoGanadores> historialGanadores;
+
+
+
+                
+                using (var archivoOpen = new FileStream(ruta, FileMode.Open))
                 {
                     using (var strReader = new StreamReader(archivoOpen))
                     {
-                        cadenaGanador = strReader.ReadToEnd();
+                        textoGanadores = strReader.ReadToEnd();
+                        archivoOpen.Close();
                     }
                 }
 
-                var datosGanador = JsonSerializer.Deserialize<dynamic>(cadenaGanador);
-                var ganador = JsonSerializer.Deserialize<Personaje>(datosGanador["Ganador"].ToString());
-                var infoPartida = datosGanador["InfoPartida"].ToString();
+                historialGanadores= JsonSerializer.Deserialize<List<InfoGanadores>>(textoGanadores);
 
-                return (ganador, infoPartida);
+                return historialGanadores;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error al leer el ganador: " + ex.Message);
-                return (null, string.Empty);
+                return null;
             }
         }
-
-        // Método para verificar si un archivo existe y tiene datos
-        public bool Existe(string nombreArchivo)
-        {
-            string ruta = ObtenerRuta(nombreArchivo);
-            return File.Exists(ruta) && new FileInfo(ruta).Length > 0;
-        }
-
-         // Método para mostrar el historial de ganadores desde archivos JSON en la carpeta "Data"
-        /*public static void MostrarHistorialGanadores()
-        {
-            string carpetaDatos = "Data";
-            var archivos = Directory.GetFiles(carpetaDatos, "*.json");
-
-            if (archivos.Length == 0)
-            {
-                Console.WriteLine("No hay historial de ganadores disponible.");
-                return;
-            }
-
-            foreach (var archivo in archivos)
-            {
-                try
-                {
-                    // Leer y deserializar el archivo JSON
-                    string contenidoJson = File.ReadAllText(archivo);
-                    var datosGanador = JsonSerializer.Deserialize<JsonElement>(contenidoJson);
-
-                    // Obtener información del ganador
-                    var ganador = JsonSerializer.Deserialize<Personaje>(datosGanador.GetProperty("Ganador").GetRawText());
-                    var infoPartida = datosGanador.GetProperty("InfoPartida").GetString();
-
-                    // Mostrar la información
-                    Console.WriteLine("Nombre del Ganador: " + ganador.Nombre);
-                    Console.WriteLine("Tipo de Hechicero: " + ganador.TipoHechicero); // Asegúrate de que esta propiedad exista en la clase Personaje
-                    Console.WriteLine("Características:");
-                    Console.WriteLine($"  Salud: {ganador.Salud}");
-                    Console.WriteLine($"  Destreza: {ganador.Destreza}");
-                    Console.WriteLine($"  Fuerza: {ganador.Fuerza}");
-                    Console.WriteLine($"  Nivel: {ganador.Nivel}");
-                    Console.WriteLine($"  Armadura: {ganador.Armadura}");
-                    Console.WriteLine($"  Velocidad: {ganador.Velocidad}");
-                    Console.WriteLine("Detalles de la Partida: " + infoPartida);
-                    Console.WriteLine();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error al leer el archivo " + archivo + ": " + ex.Message);
-                }
-            }
-
-            Console.WriteLine("Presione una tecla para regresar al menú.");
-            Console.ReadKey();
-        } */
     
+    }
+
+    // Como trabajo con lo mismo, hago la clase con los datos aca 
+    public class InfoGanadores
+    {
+        private string nombreJugador;
+        private string nombrePersonaje;
+        private TipoPersonaje tipo;
+        private int salud;
+        private int dificultad;
+        //private int ataquesRealizados;
+        //private int mejorAtaque;
+
+
+        public string NombreJugador { get => nombreJugador; set => nombreJugador = value; }
+        public string NombrePersonaje { get => nombrePersonaje; set => nombrePersonaje = value; }
+        public TipoPersonaje Tipo { get => tipo; set => tipo = value; }
+        public int Salud { get => salud; set => salud = value; }
+        public int Dificultad { get => dificultad; set => dificultad = value; }
+        
+        public InfoGanadores (Personaje ganador, string nombreJugador, int dificultad)
+        { NombreJugador=nombreJugador;
+          NombrePersonaje=ganador.Datos.Nombre;
+          Tipo=ganador.Datos.Tipo;
+          Salud=ganador.Caracteristicas.Salud;
+          Dificultad=dificultad;
+        }
+
+        public InfoGanadores(string nombreJugador, string nombrePersonaje, TipoPersonaje tipo, int salud, int dificultad)
+        {
+            this.nombreJugador = nombreJugador;
+            this.nombrePersonaje = nombrePersonaje;
+            this.tipo = tipo;
+            this.salud = salud;
+            this.dificultad = dificultad;
+        }
     }
 }

@@ -329,7 +329,6 @@ namespace Proyecto
             Console.WriteLine("");
             Inicio.CentrarTexto("____________________________________________________");
             Thread.Sleep(2000); // Esperar 2 segundos para que el jugador lea el mensaje
-
         }
 
 
@@ -351,14 +350,12 @@ namespace Proyecto
             // Mostrar las barras de salud
             Inicio.CentrarTexto($"  [{DiseñoCombate.MostrarBarraDeSalud(jugador.Caracteristicas.Salud)}]  [{jugador.Caracteristicas.Salud}]  |      [ {DiseñoCombate.MostrarBarraDeSalud(rival.Caracteristicas.Salud)}]      [{rival.Caracteristicas.Salud}]");
 
-
             Console.WriteLine("");
             Console.WriteLine("");
-
         }
 
         // FUNCION QUE REALIZA TODO EL COMBATE DE UNA RONDA- UNO SALE VICTORIOSO
-        private bool RealizarCombate(Personaje jugador, Personaje rival, int cantRonda, int nro)
+        public bool RealizarCombate(Personaje jugador, Personaje rival, int cantRonda, int nro)
         {
             Inicio.CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
@@ -367,7 +364,7 @@ namespace Proyecto
             Console.WriteLine("");
             Console.ResetColor();
             Inicio.CentrarTexto("_____________________    .    ______________________");
-
+          
             while (jugador.Caracteristicas.Salud > 0 && rival.Caracteristicas.Salud > 0)
             {
                 // Mostrar la salud actualizada
@@ -382,7 +379,7 @@ namespace Proyecto
 
                 // Verificar si el rival está derrotado
                 if (rival.Caracteristicas.Salud <= 0)
-                {
+                {  Thread.Sleep(1500);
                     Console.Clear(); // Limpiar consola para mostrar el mensaje final
                                      // Inicio.CentrarTexto($"{jugador.Datos.Nombre} ha ganado la ronda!");
                     return true;
@@ -398,7 +395,7 @@ namespace Proyecto
 
                 // Verificar si el jugador está derrotado
                 if (jugador.Caracteristicas.Salud <= 0)
-                {
+                {  Thread.Sleep(1500);
                     Console.Clear(); // Limpiar consola para mostrar el mensaje final
                                      //  Inicio.CentrarTexto($"{rival.Datos.Nombre} ha ganado la ronda!");
                     return false;
@@ -450,8 +447,8 @@ namespace Proyecto
                 Thread.Sleep(7000);
 
                 // Uso funcion de copiar personaje
-                Personaje jugadorSinModificaciones= DiseñoCombate.CopiarPersonaje(jugadorElegido);
-                Personaje enemigoSinModificaciones= DiseñoCombate.CopiarPersonaje(enemigo);
+                Personaje jugadorSinModificaciones = DiseñoCombate.CopiarPersonaje(jugadorElegido);
+                Personaje enemigoSinModificaciones = DiseñoCombate.CopiarPersonaje(enemigo);
 
                 // Limpio consola 
                 Console.Clear();
@@ -526,7 +523,7 @@ namespace Proyecto
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
 
-                    Personaje jugadorFinRonda= DiseñoCombate.CopiarPersonaje(jugadorElegido);
+                    Personaje jugadorFinRonda = DiseñoCombate.CopiarPersonaje(jugadorElegido);
                     // El jugador gana la ronda, aumenta su nivel
                     jugadorElegido = AumentarNivel(jugadorElegido);
                     Inicio.CentrarTexto("_____________________    .    ______________________");

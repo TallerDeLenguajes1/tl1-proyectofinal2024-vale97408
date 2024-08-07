@@ -84,27 +84,6 @@ namespace Juego
             }
         }
 
-        // Método para eliminar un archivo (comentado, opcional)
-        // public void EliminarArchivo(string nombreArchivo)
-        // {
-        //     string ruta = ObtenerRuta(nombreArchivo);
-
-        //     if (File.Exists(ruta))
-        //     {
-        //         try
-        //         {
-        //             File.Delete(ruta);
-        //             Console.WriteLine("Archivo eliminado exitosamente: " + ruta);
-        //         }
-        //         catch (Exception ex)
-        //         {
-        //             Console.WriteLine("Error al eliminar el archivo: " + ex.Message);
-        //         }
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("El archivo no existe.");
-        //     }
-        // }
+        
     }
 }
