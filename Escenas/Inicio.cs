@@ -161,12 +161,7 @@ namespace Proyecto
                     case 3:
                         // salir
                         continuar = false;
-                        Console.Clear();
-                        CentrarTexto("_____________________       .        _________________________");
-                        Console.WriteLine("");
-                        CentrarTexto("  ★¸.•☆•.¸★    Te despedimos con gratitud por haber sido parte del Torneo Arcanum. ¡Que tus futuros caminos estén llenos de magia y éxito!     ★¸.•☆•.¸★ ");
-                        CentrarTexto("\n ------¡Hasta la proxima!  ------\n");
-                        CentrarTexto("_____________________       .        _________________________");
+                       Titulo.TextoDespedida();
                         //Console.ResetColor();
                         break;
                     default:

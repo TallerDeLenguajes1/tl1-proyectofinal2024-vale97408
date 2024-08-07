@@ -342,7 +342,7 @@ namespace Proyecto
             Console.WriteLine("");
             Console.WriteLine("");
 
-            Inicio.CentrarTexto($"  {jugador.Datos.Nombre,-20}  (Tu)     VS          {rival.Datos.Nombre,-20}");
+            Inicio.CentrarTexto($"  {jugador.Datos.Nombre,-10}  (Tu)     VS          {rival.Datos.Nombre,-20}");
             Inicio.CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
             // Inicio.CentrarTexto(new string('-', 50)); // Línea divisoria
@@ -525,6 +525,8 @@ namespace Proyecto
                 if (jugadorGano) // Siempre que haya ganado 
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+                    Personaje jugadorFinRonda= DiseñoCombate.CopiarPersonaje(jugadorElegido);
                     // El jugador gana la ronda, aumenta su nivel
                     jugadorElegido = AumentarNivel(jugadorElegido);
                     Inicio.CentrarTexto("_____________________    .    ______________________");
@@ -532,20 +534,23 @@ namespace Proyecto
                     Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} ha ganado la ronda!");
                     Console.WriteLine("");
                     Inicio.CentrarTexto("_____________________    .    ______________________");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
 
                     if (cantidadRondas != i) //siempre que no sea su ultima ronda
                     {
                         RestaurarSalud(jugadorElegido); // Se restauara siempre que no sea su ultima ronda jugada
-                        Console.WriteLine("");
-                        Console.WriteLine("");
-                        Console.WriteLine("");
                         Console.Clear();
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        Console.WriteLine("");
                         Inicio.CentrarTexto("✬  ✬  ✬  ✬  ✬  ✬   ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬");
                         Console.WriteLine("");
                         Inicio.CentrarTexto("TU MAGIA HA EVOLUCIONADO. ¡Estás preparado para enfrentarte a tu próximo oponente con habilidades mejoradas!");
                         Console.WriteLine("");
                         Inicio.CentrarTexto("✬  ✬  ✬  ✬  ✬  ✬   ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬");
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+                        DiseñoCombate.MostrarMejoraPersonaje(jugadorFinRonda, jugadorElegido);
                     }
                     Thread.Sleep(6000); // Esperar para que el jugador lea el mensaje
                     Console.ResetColor();
@@ -565,6 +570,8 @@ namespace Proyecto
             // El jugador gana todas las rondas
             Console.WriteLine("");
             Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} HA GANADO EL TRONO DEL GRAN HECHICERO!");
+            Console.WriteLine("");
+            Inicio.CentrarTexto("_____________________    .    ______________________");
             return ganador;
         }
 

@@ -68,17 +68,18 @@ namespace Proyecto
             {
                 return $"+{cambio}";
             }
-               else{
-                      if (cambio < 0)
-                 {
-                  return $"{cambio}"; // el signo negativo se incluye automáticamente
-                 }
-                   else
-                     {
-                     return "0"; // Sin cambio
-                     }
+            else
+            {
+                if (cambio < 0)
+                {
+                    return $"{cambio}"; // el signo negativo se incluye automáticamente
                 }
-                
+                else
+                {
+                    return "0"; // Sin cambio
+                }
+            }
+
         }
 
         public static void MostrarComparacionPersonajesCambios(Personaje jugadorOriginal, Personaje jugadorModificado, Personaje rivalOriginal, Personaje rivalModificado)
@@ -114,6 +115,41 @@ namespace Proyecto
             // Imprimir línea divisoria final
             Inicio.CentrarTexto(new string('-', anchoTotal + 10));
         }
+
+
+        public static void MostrarMejoraPersonaje(Personaje personajeOriginal, Personaje personajeMejorado)
+        {
+            // Definir los anchos fijos para las columnas
+            const int anchoCaracteristica = 20;
+            const int anchoValor = 25;
+            const int anchoCambio = 15;
+
+            // Determinar el ancho total de la tabla
+            int anchoTotal = anchoCaracteristica + anchoValor * 2 + anchoCambio + 10; // Espacios adicionales para separadores
+
+            // Imprimir encabezado de la tabla
+            Inicio.CentrarTexto(new string('-', anchoTotal + 10));
+
+            // Encabezados
+            Inicio.CentrarTexto($"{"Característica".PadRight(anchoCaracteristica)} | {personajeMejorado.Datos.Nombre.PadRight(anchoValor)} | {"Cambio".PadRight(anchoCambio)}");
+            Inicio.CentrarTexto(new string('-', anchoTotal + 10));
+
+            // Mostrar características con mejoras para el personaje
+            // Alineación para el tipo de hechicero
+            string tipo = personajeMejorado.Datos.Tipo.ToString().PadRight(anchoValor);
+
+            Inicio.CentrarTexto($"{"Tipo".PadRight(anchoCaracteristica)} | {tipo} | {"-".PadLeft(anchoCambio)}"); // Tipo no cambia
+            Inicio.CentrarTexto($"{"Velocidad".PadRight(anchoCaracteristica)} | {personajeMejorado.Caracteristicas.Velocidad.ToString().PadRight(anchoValor)} | {CalcularCambio(personajeOriginal.Caracteristicas.Velocidad, personajeMejorado.Caracteristicas.Velocidad).PadLeft(anchoCambio)}");
+            Inicio.CentrarTexto($"{"Destreza".PadRight(anchoCaracteristica)} | {personajeMejorado.Caracteristicas.Destreza.ToString().PadRight(anchoValor)} | {CalcularCambio(personajeOriginal.Caracteristicas.Destreza, personajeMejorado.Caracteristicas.Destreza).PadLeft(anchoCambio)}");
+            Inicio.CentrarTexto($"{"Fuerza".PadRight(anchoCaracteristica)} | {personajeMejorado.Caracteristicas.Fuerza.ToString().PadRight(anchoValor)} | {CalcularCambio(personajeOriginal.Caracteristicas.Fuerza, personajeMejorado.Caracteristicas.Fuerza).PadLeft(anchoCambio)}");
+            Inicio.CentrarTexto($"{"Nivel".PadRight(anchoCaracteristica)} | {personajeMejorado.Caracteristicas.Nivel.ToString().PadRight(anchoValor)} | {CalcularCambio(personajeOriginal.Caracteristicas.Nivel, personajeMejorado.Caracteristicas.Nivel).PadLeft(anchoCambio)}");
+            Inicio.CentrarTexto($"{"Protección".PadRight(anchoCaracteristica)} | {personajeMejorado.Caracteristicas.Proteccion.ToString().PadRight(anchoValor)} | {CalcularCambio(personajeOriginal.Caracteristicas.Proteccion, personajeMejorado.Caracteristicas.Proteccion).PadLeft(anchoCambio)}");
+            Inicio.CentrarTexto($"{"Salud".PadRight(anchoCaracteristica)} | {personajeMejorado.Caracteristicas.Salud.ToString().PadRight(anchoValor)} | {CalcularCambio(personajeOriginal.Caracteristicas.Salud, personajeMejorado.Caracteristicas.Salud).PadLeft(anchoCambio)}");
+
+            // Imprimir línea divisoria final
+            Inicio.CentrarTexto(new string('-', anchoTotal + 10));
+        }
+
 
 
 

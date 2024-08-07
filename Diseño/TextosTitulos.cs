@@ -226,6 +226,86 @@ namespace Proyecto
       Thread.Sleep(2000);
 
     }
+
+    public static void TextoDespedida()
+    {
+      Console.Clear();
+      Inicio.CentrarTexto("_____________________       .        _________________________");
+      Console.WriteLine("");
+      
+      Inicio.CentrarTexto("  ★ ¸ . • ☆ • . ¸ ★    Te despedimos con gratitud por haber sido parte del Torneo Arcanum. ¡Que tus futuros caminos estén llenos de magia y éxito!     ★ ¸ . • ☆ • . ¸ ★ ");
+      Console.WriteLine("");
+      Inicio.CentrarTexto("_____________________       .        _________________________");
+       Thread.Sleep(1000);
+
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Inicio.CentrarTexto(" •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆  •   ☆   ★ ⡀   .  •  ☆ ");
+      string dibujoMago = @"
+                    $
+                   $$$                         *                                                                                            *
+                  $$$$$                      * * *                         _  _               _                _                          * * * 
+                 $$$$$$$                       *                          | || |  __ _   ___ | |_             | |  __ _                     * 
+                $$$$$$$$$                                                 | __ | / _` | (_-< |  _| / _` |     | | / _` |
+               $$$$$$$$$$$                                                |_||_| \__,_| /__/  \__| \__,_|     |_| \__,_| 
+              $$$$$$$$$$$$$
+             $$$$$$$$$$$$$$$  
+            $$$$$$$$$$$$$$$$$                   *                                                  _                  _                                  *
+           $$$$$$$$$$$$$$$$$$$                * * *                       _ __   _ _   ___  __ __ (_)  _ __    __ _  | |                               * * *
+         $$$$$$$$$$$$$$$$$$$$$$$                *                        | '_ \ | '_| / _ \ \ \ / | | | '  \  / _` | |_|                                 *
+        $                       $                                        | .__/ |_|   \___/ /_\_\ |_| |_|_|_| \__,_| (_)
+       $_________________________$                                       |_|                                        
+       $                          $
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+     $$$$$$__$$___________$$__$$$$$
+    $$$$$___$$$$_________$$$$__$$$$_ $_$_$_$_$_$                                                         *                                             *
+    $$$$$____$$___________$$____$$$_ $$$$$$$$$$                              *                         * * *                                         * * *
+     $$$$_______________________$$$ _$_$__$__$                             * * *                         *                                         * * * * *
+      $$$$____$$______$$______$$$__  $_$_$__$                            * * * * *                                                               * * * * * * *  
+          $$$____$$$$$$$_____$$______$_$$_$                                * * *                                        *                          * * * * *   
+             $$$___________$$$_______$$$$                                    *                                        * * *                          * * *
+            $$$$$$$$$$$$$$$$$$______$$$$                                                        *                       *                              *
+          $$$$$$$$$$$$$$$$$$$$$$$___$$$              *                                        * * *
+        $$$$$$$$$$$$$$$$$$$$$$$$$$$$$              * * *                                    * * * * *
+       $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                *                                    * * * * * * *                 
+       $$$$$$$$$$$$$$$$$$$$$$ $$  $$$                                                       * * * * *   
+       $   $$$$$$$$$$$$$$$$$$   $$$$                                                          * * *                                            *
+        $$  $$$$$$$$$$$$$$$$$$   $$                                    *                        *                                            * * *
+         $$$$$$$$$$$$$$$$$$$$$   $$                                  * * *                                           *                         *
+           $$$$$$$$$$$$$$$$$$$   $$                                    *                                           * * * 
+           $$$$$$$$$$$$$$$$$$$  $$                                                                               * * * * *
+            $$$$$$$$$$$$$$$$$$$_$$                                                                                 * * *
+            $$$___$$$$$___$$$__$$                                                                                    *
+               $$$     $$$    $$
+";
+      Console.WriteLine(dibujoMago);
+      Inicio.CentrarTexto(" •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆ •   ☆   ★ ⡀   .  •  ☆  ");
+      Thread.Sleep(3000);
+
+
+      
+      int titilarDuracion = 700; // Tiempo en milisegundos para titilar
+      int totalTitilaciones = 10; // Cantidad de veces que se titilará
+
+      for (int i = 0; i < totalTitilaciones; i++)
+      {
+        Console.Clear(); // Limpia la consola para mostrar el título en un nuevo estado
+        Console.ForegroundColor = (i % 2 == 0) ? ConsoleColor.Cyan : ConsoleColor.Black;
+        Console.WriteLine(dibujoMago);
+        Thread.Sleep(titilarDuracion); // Espera antes de cambiar el estado
+      }
+
+      // Restablecer el color de la consola y mostrar el título de forma estática
+
+      Console.Clear();
+      Console.ForegroundColor = ConsoleColor.Cyan;
+      Console.WriteLine(dibujoMago);
+
+      Console.ResetColor();
+
+
+
+
+    }
   }
 }
 
