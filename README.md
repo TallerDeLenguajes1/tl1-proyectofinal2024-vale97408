@@ -38,3 +38,4 @@
 ### Presentación Visual
  Para mejorar la presentación del proyecto agregué títulos que aparecerán en momentos específicos del juego , todos ellos realizados con texto ASCII de la página: https://www.topster.es/texto-ascii/.
 
+**Alumna** : Cano Arce, María Valentina.
