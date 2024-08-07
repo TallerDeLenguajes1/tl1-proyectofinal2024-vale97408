@@ -148,14 +148,7 @@ namespace Proyecto
             Inicio. CentrarTexto("_____________________    .    ______________________");
             Thread.Sleep(1500);
             LimpiarBuffer(); 
-        }
-          
-          // ---------FUNCIONES CHAT--------
-        
-        
-   
+        }   
     }
-
-    
 }
 

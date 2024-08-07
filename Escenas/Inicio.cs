@@ -30,7 +30,7 @@ namespace Proyecto
             Thread.Sleep(500);
             CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
             Thread.Sleep(1000);
-            CentrarTexto(" ¿Estás al nivel de este desafío interplanetario?");
+            CentrarTexto("  ★ ⡀ . • ☆ • . ★  ¿Estás al nivel de este desafío interplanetario?  ★ ⡀ . • ☆ • . ★ ");
 
              Thread.Sleep(1000);
             Console.Write("\nPresiona cualquier tecla para empezar");
@@ -159,9 +159,10 @@ namespace Proyecto
                 case 3: 
                  // salir
                  continuar = false;
+                 Console.Clear();
                  CentrarTexto("_____________________       .        _________________________");
                  Console.WriteLine("");
-                 CentrarTexto("Te despedimos con gratitud por haber sido parte del Torneo Arcanum. ¡Que tus futuros caminos estén llenos de magia y éxito!");
+                 CentrarTexto("  ★¸.•☆•.¸★    Te despedimos con gratitud por haber sido parte del Torneo Arcanum. ¡Que tus futuros caminos estén llenos de magia y éxito!     ★¸.•☆•.¸★ ");
                  CentrarTexto("\n ------¡Hasta la proxima!  ------\n");
                   CentrarTexto("_____________________       .        _________________________");
                  //Console.ResetColor();

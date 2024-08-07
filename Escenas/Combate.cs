@@ -87,6 +87,7 @@ namespace Proyecto
             {
                 // Mostrar un planeta aleatorio de la API
                 Random random = new Random();
+
                 Result planeta = planetaElegido.Results[random.Next(planetaElegido.Results.Count)];
                 MostrarCaracteristicasPlaneta(planeta);
                 return planeta; 
@@ -338,13 +339,13 @@ namespace Proyecto
              Console.Clear(); // Limpiar consola
             // Muestra encabezado de la pelea
             
-         Inicio. CentrarTexto("_____________________    .    ______________________");
-          Console.WriteLine("");
-          Console.ForegroundColor = ConsoleColor.DarkYellow;
-          Inicio.CentrarTexto($"RONDA NRO {nro}/ {cantRonda}");
-          Console.WriteLine("");
-          Console.ResetColor();
-          Inicio. CentrarTexto("_____________________    .    ______________________");
+        //  Inicio. CentrarTexto("_____________________    .    ______________________");
+        //   Console.WriteLine("");
+        //   Console.ForegroundColor = ConsoleColor.DarkYellow;
+        //   Inicio.CentrarTexto($"RONDA NRO {nro}/ {cantRonda}");
+        //   Console.WriteLine("");
+        //   Console.ResetColor();
+        //   Inicio. CentrarTexto("_____________________    .    ______________________");
          
           // Console.WriteLine("");
           //  Inicio.CentrarTexto($"--- { jugador.Datos.Nombre}         VS         {rival.Datos.Nombre} ---");
@@ -358,11 +359,11 @@ namespace Proyecto
 
     Inicio.CentrarTexto("SALUD");
     Inicio. CentrarTexto("_____________________    .    ______________________");
-    Inicio.CentrarTexto($"{jugador.Datos.Nombre,-20} | {rival.Datos.Nombre,-20}");
+    Inicio.CentrarTexto($"       {jugador.Datos.Nombre,-20} | {rival.Datos.Nombre,-20}");
     Inicio.CentrarTexto(new string('-', nombreLength + 3 + nombreLength));
       //Inicio. CentrarTexto("___________________________________________");
     // Valores de salud
-    Inicio.CentrarTexto($"{jugador.Caracteristicas.Salud,-20} | {rival.Caracteristicas.Salud,-20}");
+    Inicio.CentrarTexto($"       {jugador.Caracteristicas.Salud,-20} | {rival.Caracteristicas.Salud,-20}");
             
            /* Console.Clear(); // Limpiar consola
             Console.WriteLine($"{"Nombre", -20} | {"Salud", -10}");
@@ -376,16 +377,18 @@ namespace Proyecto
          // FUNCION QUE REALIZA TODO EL COMBATE DE UNA RONDA- UNO SALE VICTORIOSO
          private  bool RealizarCombate(Personaje jugador, Personaje rival, int cantRonda, int nro)
           {
+                Inicio. CentrarTexto("_____________________    .    ______________________");
+           Console.WriteLine("");
+           Console.ForegroundColor = ConsoleColor.DarkYellow;
+           Inicio.CentrarTexto($"RONDA NRO {nro}/ {cantRonda}");
+           Console.WriteLine("");
+           Console.ResetColor();
+           Inicio. CentrarTexto("_____________________    .    ______________________");
             while (jugador.Caracteristicas.Salud > 0 && rival.Caracteristicas.Salud > 0)
             {
-               Inicio. CentrarTexto("_____________________    .    ______________________");
-          Console.WriteLine("");
-          Console.ForegroundColor = ConsoleColor.DarkYellow;
-          Inicio.CentrarTexto($"RONDA NRO {nro}/ {cantRonda}");
-          Console.WriteLine("");
-          Console.ResetColor();
-          Inicio. CentrarTexto("_____________________    .    ______________________");
-
+                // Mostrar la salud actualizada
+                MostrarSalud(jugador, rival, cantRonda, nro);
+        
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 // Turno del jugador
                 Atacar(jugador, rival);
