@@ -2,150 +2,31 @@
   {
     "Datos": {
       "Nombre": "Aegis",
-      "Apodo": "El Sanador",
-      "FechaDeNacimiento": "1845-01-09T00:00:00",
-      "Edad": 22,
-      "Tipo": 2
+      "Apodo": "El Fulgor",
+      "FechaDeNacimiento": "1944-07-22T00:00:00",
+      "Edad": 204,
+      "Tipo": 1
     },
     "Caracteristicas": {
-      "Velocidad": 7,
-      "Destreza": 5,
-      "Fuerza": 5,
+      "Velocidad": 3,
+      "Destreza": 4,
+      "Fuerza": 4,
       "Nivel": 9,
-      "Proteccion": 8,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Bran",
-      "Apodo": "El Fulgor",
-      "FechaDeNacimiento": "1734-02-10T00:00:00",
-      "Edad": 35,
-      "Tipo": 1
-    },
-    "Caracteristicas": {
-      "Velocidad": 1,
-      "Destreza": 4,
-      "Fuerza": 6,
-      "Nivel": 3,
-      "Proteccion": 6,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Eldric",
-      "Apodo": "El Fulgor",
-      "FechaDeNacimiento": "1763-01-29T00:00:00",
-      "Edad": 110,
-      "Tipo": 1
-    },
-    "Caracteristicas": {
-      "Velocidad": 1,
-      "Destreza": 5,
-      "Fuerza": 7,
-      "Nivel": 1,
-      "Proteccion": 5,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Darius",
-      "Apodo": "El Sanador",
-      "FechaDeNacimiento": "1798-10-20T00:00:00",
-      "Edad": 161,
-      "Tipo": 1
-    },
-    "Caracteristicas": {
-      "Velocidad": 7,
-      "Destreza": 4,
-      "Fuerza": 5,
-      "Nivel": 7,
-      "Proteccion": 7,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Fenwick",
-      "Apodo": "El Fulgor",
-      "FechaDeNacimiento": "1798-01-26T00:00:00",
-      "Edad": 10,
-      "Tipo": 3
-    },
-    "Caracteristicas": {
-      "Velocidad": 8,
-      "Destreza": 5,
-      "Fuerza": 5,
-      "Nivel": 4,
-      "Proteccion": 7,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Fionn",
-      "Apodo": "El Sombra",
-      "FechaDeNacimiento": "2013-02-11T00:00:00",
-      "Edad": 21,
-      "Tipo": 1
-    },
-    "Caracteristicas": {
-      "Velocidad": 4,
-      "Destreza": 5,
-      "Fuerza": 5,
-      "Nivel": 6,
-      "Proteccion": 6,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Gwen",
-      "Apodo": "El Fulgor",
-      "FechaDeNacimiento": "1730-02-13T00:00:00",
-      "Edad": 139,
-      "Tipo": 4
-    },
-    "Caracteristicas": {
-      "Velocidad": 2,
-      "Destreza": 4,
-      "Fuerza": 6,
-      "Nivel": 1,
       "Proteccion": 10,
       "Salud": 100
     }
   },
   {
     "Datos": {
-      "Nombre": "Thorne",
+      "Nombre": "Bran",
       "Apodo": "El Sanador",
-      "FechaDeNacimiento": "1776-02-03T00:00:00",
-      "Edad": 130,
-      "Tipo": 1
-    },
-    "Caracteristicas": {
-      "Velocidad": 3,
-      "Destreza": 5,
-      "Fuerza": 5,
-      "Nivel": 4,
-      "Proteccion": 7,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Ivar",
-      "Apodo": "El Sanador",
-      "FechaDeNacimiento": "1784-08-19T00:00:00",
-      "Edad": 261,
+      "FechaDeNacimiento": "1764-02-02T00:00:00",
+      "Edad": 18,
       "Tipo": 3
     },
     "Caracteristicas": {
-      "Velocidad": 4,
-      "Destreza": 5,
+      "Velocidad": 6,
+      "Destreza": 3,
       "Fuerza": 3,
       "Nivel": 6,
       "Proteccion": 4,
@@ -154,18 +35,137 @@
   },
   {
     "Datos": {
-      "Nombre": "Jasper",
+      "Nombre": "Eldric",
+      "Apodo": "El Fulgor",
+      "FechaDeNacimiento": "1933-06-22T00:00:00",
+      "Edad": 193,
+      "Tipo": 3
+    },
+    "Caracteristicas": {
+      "Velocidad": 6,
+      "Destreza": 4,
+      "Fuerza": 2,
+      "Nivel": 3,
+      "Proteccion": 7,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Darius",
       "Apodo": "El Sabio",
-      "FechaDeNacimiento": "1932-07-12T00:00:00",
-      "Edad": 244,
+      "FechaDeNacimiento": "2007-02-14T00:00:00",
+      "Edad": 152,
+      "Tipo": 2
+    },
+    "Caracteristicas": {
+      "Velocidad": 7,
+      "Destreza": 2,
+      "Fuerza": 5,
+      "Nivel": 9,
+      "Proteccion": 9,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Fenwick",
+      "Apodo": "El Sanador",
+      "FechaDeNacimiento": "2001-08-01T00:00:00",
+      "Edad": 102,
       "Tipo": 1
     },
     "Caracteristicas": {
-      "Velocidad": 5,
+      "Velocidad": 4,
+      "Destreza": 5,
+      "Fuerza": 3,
+      "Nivel": 1,
+      "Proteccion": 5,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Fionn",
+      "Apodo": "El Destructor",
+      "FechaDeNacimiento": "1755-06-04T00:00:00",
+      "Edad": 154,
+      "Tipo": 3
+    },
+    "Caracteristicas": {
+      "Velocidad": 7,
       "Destreza": 4,
+      "Fuerza": 5,
+      "Nivel": 5,
+      "Proteccion": 4,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Gwen",
+      "Apodo": "El Sabio",
+      "FechaDeNacimiento": "1853-08-20T00:00:00",
+      "Edad": 28,
+      "Tipo": 3
+    },
+    "Caracteristicas": {
+      "Velocidad": 8,
+      "Destreza": 5,
+      "Fuerza": 5,
+      "Nivel": 8,
+      "Proteccion": 3,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Thorne",
+      "Apodo": "El Sanador",
+      "FechaDeNacimiento": "1874-05-08T00:00:00",
+      "Edad": 104,
+      "Tipo": 0
+    },
+    "Caracteristicas": {
+      "Velocidad": 7,
+      "Destreza": 1,
+      "Fuerza": 5,
+      "Nivel": 7,
+      "Proteccion": 7,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Ivar",
+      "Apodo": "El Sabio",
+      "FechaDeNacimiento": "1949-09-14T00:00:00",
+      "Edad": 137,
+      "Tipo": 2
+    },
+    "Caracteristicas": {
+      "Velocidad": 6,
+      "Destreza": 3,
       "Fuerza": 4,
-      "Nivel": 4,
-      "Proteccion": 6,
+      "Nivel": 8,
+      "Proteccion": 4,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Jasper",
+      "Apodo": "El Sanador",
+      "FechaDeNacimiento": "1826-01-12T00:00:00",
+      "Edad": 146,
+      "Tipo": 3
+    },
+    "Caracteristicas": {
+      "Velocidad": 4,
+      "Destreza": 3,
+      "Fuerza": 6,
+      "Nivel": 6,
+      "Proteccion": 2,
       "Salud": 100
     }
   }

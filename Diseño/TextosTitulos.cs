@@ -71,7 +71,7 @@ namespace Proyecto
            
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 string tituloGanador = @"
-                
+
  •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆  
 
        _______      ___      .__   __.      ___           _______..___________. _______  __  
@@ -150,7 +150,7 @@ namespace Proyecto
                 Thread.Sleep(1000);
 
                  // TRABAJO EFECTO DE TITILEO
-        int titilarDuracion = 700; // Tiempo en milisegundos para titilar
+        int titilarDuracion = 400; // Tiempo en milisegundos para titilar
         int totalTitilaciones = 10; // Cantidad de veces que se titilará
 
         for (int i = 0; i < totalTitilaciones; i++)
@@ -165,7 +165,7 @@ namespace Proyecto
         // Restablecer el color de la consola y mostrar el título de forma estática
         
         Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.ForegroundColor = ConsoleColor.DarkRed;
         Inicio.CentrarTexto(tituloPerdedor);
                 Console.ResetColor();
 
@@ -185,6 +185,8 @@ namespace Proyecto
             for (int i = 3; i > 0; i--)
             {
                 Console.Clear();
+                Console.WriteLine("");
+              
                 Inicio. CentrarTexto("_____________________    .    ______________________");
                 Console.WriteLine("");
                 Inicio.CentrarTexto("Que el poder se acumule y la magia se despierte. PREPARATE!");

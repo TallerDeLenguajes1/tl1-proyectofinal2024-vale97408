@@ -317,14 +317,20 @@ namespace Proyecto
             int constanteAjuste = 500;
             int danoProvocado = (ataque * efectividad - defensa) / constanteAjuste;
 
+             // Asegurarse de que el daño no exceda 80
+              danoProvocado = Math.Min(80, Math.Max(0, danoProvocado));
+
             // Aplicar daño
             defensor.Caracteristicas.Salud -= danoProvocado;
 
             // Muestro mensajes 
             // Mostrar mensaje de ataque
             Inicio.CentrarTexto("____________________________________________________");
+            Console.WriteLine("");
            Inicio.CentrarTexto($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre}.");
+           Console.WriteLine("");
            Inicio.CentrarTexto($"{atacante.Datos.Nombre} inflige {danoProvocado} de daño a {defensor.Datos.Nombre}.");
+           Console.WriteLine("");
            Inicio.CentrarTexto("____________________________________________________");
             Thread.Sleep(2000); // Esperar 2 segundos para que el jugador lea el mensaje
 
@@ -334,51 +340,25 @@ namespace Proyecto
         // FUNCION PARA IR MOSTRANDO LA SALUD DE MI PERSONAJE
         private  void MostrarSalud(Personaje jugador, Personaje rival, int cantRonda, int nro)
          {
-               // Muestra la salud de cada personaje alineada
-              int nombreLength = 20; // Ajusta este valor según el largo máximo de los nombres
-             int saludLength = 10;  // Ajusta este valor según el largo máximo de los valores de salud
-    
-              // Espacios entre columnas para alineación
-            string espacioNombre = new string(' ', nombreLength);
-              string espacioSalud = new string(' ', saludLength);
-             Console.Clear(); // Limpiar consola
-            // Muestra encabezado de la pelea
-            
-        //  Inicio. CentrarTexto("_____________________    .    ______________________");
-        //   Console.WriteLine("");
-        //   Console.ForegroundColor = ConsoleColor.DarkYellow;
-        //   Inicio.CentrarTexto($"RONDA NRO {nro}/ {cantRonda}");
-        //   Console.WriteLine("");
-        //   Console.ResetColor();
-        //   Inicio. CentrarTexto("_____________________    .    ______________________");
-         
-          // Console.WriteLine("");
-          //  Inicio.CentrarTexto($"--- { jugador.Datos.Nombre}         VS         {rival.Datos.Nombre} ---");
-          //  Console.WriteLine("");
-          //   Inicio. CentrarTexto("_____________________    .    ______________________");
-           
-    // Encabezado de la tabla
-    Console.WriteLine("");
-    Console.WriteLine("");
-    Console.WriteLine("");
+            Console.Clear(); // Limpiar consola
 
-    Inicio.CentrarTexto("SALUD");
-    Inicio. CentrarTexto("_____________________    .    ______________________");
-   
+    // Encabezado
     Console.WriteLine("");
-    Inicio.CentrarTexto($"     {jugador.Datos.Nombre,-20}  (Tu)   |         {rival.Datos.Nombre,-20}");
-    Inicio.CentrarTexto(new string('-', nombreLength + 3 + nombreLength));
-      //Inicio. CentrarTexto("___________________________________________");
-    // Valores de salud
-    Inicio.CentrarTexto($"       {jugador.Caracteristicas.Salud,-20} | {rival.Caracteristicas.Salud,-20}");
-            
-           /* Console.Clear(); // Limpiar consola
-            Console.WriteLine($"{"Nombre", -20} | {"Salud", -10}");
-            Console.WriteLine(new string('-', 30));
-            Console.WriteLine($"{jugador.Datos.Nombre, -20}(Tú) | {jugador.Caracteristicas.Salud, -10}");
-            Console.WriteLine($"{rival.Datos.Nombre, -20} | {rival.Caracteristicas.Salud, -10}");*/
-            Console.WriteLine("");
-            Console.WriteLine("");
+    Console.WriteLine("");
+    
+    Inicio.CentrarTexto($"  {jugador.Datos.Nombre,-20}  (Tu)     VS          {rival.Datos.Nombre,-20}");
+    Inicio.CentrarTexto("_____________________    .    ______________________");
+    Console.WriteLine("");
+   // Inicio.CentrarTexto(new string('-', 50)); // Línea divisoria
+
+
+    // Mostrar las barras de salud
+    Inicio.CentrarTexto($"  [{DiseñoCombate.MostrarBarraDeSalud(jugador.Caracteristicas.Salud)}]  [{jugador.Caracteristicas.Salud}]  |      [ {DiseñoCombate.MostrarBarraDeSalud(rival.Caracteristicas.Salud)}]      [{rival.Caracteristicas.Salud}]");
+    
+
+    Console.WriteLine("");
+    Console.WriteLine("");
+       
          }
 
          // FUNCION QUE REALIZA TODO EL COMBATE DE UNA RONDA- UNO SALE VICTORIOSO
@@ -467,7 +447,7 @@ namespace Proyecto
              Inicio. CentrarTexto("_____________________    .    ______________________");
               Console.WriteLine("");
                Console.WriteLine("");
-              Inicio.CentrarTexto("-------CARACTERISTICAS DE PERSONAJES --------");
+              Inicio.CentrarTexto("CARACTERISTICAS DE PERSONAJES ");
               Console.WriteLine("");
             MostrarComparacionPersonajes(jugadorElegido, enemigo);
             Thread.Sleep(7000);
@@ -520,7 +500,7 @@ namespace Proyecto
         
           Console.WriteLine("");
           Console.ForegroundColor = ConsoleColor.DarkRed;
-          Inicio.CentrarTexto("-------CARACTERISTICAS DE PERSONAJES MODIFICADAS--------");
+          Inicio.CentrarTexto("CARACTERISTICAS DE PERSONAJES MODIFICADAS");
              Console.ResetColor();
             
 
@@ -550,16 +530,18 @@ namespace Proyecto
             Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} ha ganado la ronda!");
              Console.WriteLine("");
             Inicio. CentrarTexto("_____________________    .    ______________________");
+              Thread.Sleep(3000);
 
             if( cantidadRondas!=i) //siempre que no sea su ultima ronda
             {
               RestaurarSalud(jugadorElegido); // Se restauara siempre que no sea su ultima ronda jugada
              Console.WriteLine("");
-            Inicio. CentrarTexto(".....................................................");
+             Console.Clear();
+            Inicio. CentrarTexto("✬  ✬  ✬  ✬  ✬  ✬   ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬");
              Console.WriteLine("");
             Inicio.CentrarTexto("TU MAGIA HA EVOLUCIONADO. ¡Estás preparado para enfrentarte a tu próximo oponente con habilidades mejoradas!");
              Console.WriteLine("");
-            Inicio. CentrarTexto(".....................................................");
+            Inicio. CentrarTexto("✬  ✬  ✬  ✬  ✬  ✬   ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬");
             }
             Thread.Sleep(6000); // Esperar para que el jugador lea el mensaje
             Console.ResetColor();
