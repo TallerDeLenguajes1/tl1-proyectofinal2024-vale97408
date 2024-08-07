@@ -122,124 +122,129 @@ namespace Proyecto
         }
 
            // Modifica caracteristicas de acuerdo al planeta seleccionado en la ronda-chat
-          public static void ModificarCaracteristicasPorPlaneta(Result planeta, Personaje personaje)
-          {
-          // Ajustes basados en el clima del planeta
-            if (planeta.Climate.Contains("arid") || planeta.Climate.Contains("desert"))
-             {
-            // Clima árido o desértico
-            switch (personaje.Datos.Tipo)
-            {  
+           public static void ModificarCaracteristicasPorPlaneta(Result planeta, Personaje personaje)
+{
+    // Definir valores mínimos y máximos para las características para evitar daños negativos o valores no deseados.
+    const int MIN_SALUD = 2; // Salud mínima para evitar 0 o valores negativos
+    const int MIN_FUERZA = 2; // Fuerza mínima para evitar 0 o valores negativos
+    const int MIN_VELOCIDAD = 2; // Velocidad mínima para evitar 0 o valores negativos
+    const int MIN_PROTECCION = 2; // Protección mínima para evitar 0 o valores negativos
+    const int MIN_DESTREZA = 2; // Destreza mínima para evitar 0 o valores negativos
+
+    // Ajustes basados en el clima del planeta
+    if (planeta.Climate.Contains("arid") || planeta.Climate.Contains("desert"))
+    {
+        // Clima árido o desértico
+        switch (personaje.Datos.Tipo)
+        {
             case TipoPersonaje.HechiceroDeFuego:
-                personaje.Caracteristicas.Fuerza += 10; // Ejemplo de aumento
+                personaje.Caracteristicas.Fuerza = Math.Max(MIN_FUERZA, personaje.Caracteristicas.Fuerza + 10); // Aumento
                 break;
             case TipoPersonaje.HechiceroDeHielo:
-                personaje.Caracteristicas.Salud -= 10; // Ejemplo de decremento
+                personaje.Caracteristicas.Salud = Math.Max(MIN_SALUD, personaje.Caracteristicas.Salud - 10); // Decremento
                 break;
             case TipoPersonaje.HechiceroDeLaNaturaleza:
-                personaje.Caracteristicas.Velocidad -= 5; // Ejemplo de decremento
+                personaje.Caracteristicas.Velocidad = Math.Max(MIN_VELOCIDAD, personaje.Caracteristicas.Velocidad - 5); // Decremento
                 break;
             case TipoPersonaje.HechiceroDeLasSombras:
-                personaje.Caracteristicas.Proteccion -= 5; // Ejemplo de decremento
+                personaje.Caracteristicas.Proteccion = Math.Max(MIN_PROTECCION, personaje.Caracteristicas.Proteccion - 5); // Decremento
                 break;
             case TipoPersonaje.HechiceroDeLuz:
-                personaje.Caracteristicas.Destreza += 5; // Ejemplo de aumento
+                personaje.Caracteristicas.Destreza = Math.Max(MIN_DESTREZA, personaje.Caracteristicas.Destreza + 5); // Aumento
                 break;
-            }
-           }
-              else if (planeta.Climate.Contains("temperate") || planeta.Climate.Contains("tropical"))
-                 {
-                  // Clima templado o tropical
-                  switch (personaje.Datos.Tipo)
-                 {
-                 case TipoPersonaje.HechiceroDeFuego:
-                 personaje.Caracteristicas.Salud -= 10; // Ejemplo de decremento
-                  break;
-                 case TipoPersonaje.HechiceroDeHielo:
-                 personaje.Caracteristicas.Fuerza += 10; // Ejemplo de aumento
-                  break;
-                 case TipoPersonaje.HechiceroDeLaNaturaleza:
-                  personaje.Caracteristicas.Destreza += 5; // Ejemplo de aumento
-                  break;
-                 case TipoPersonaje.HechiceroDeLasSombras:
-                  personaje.Caracteristicas.Velocidad += 5; // Ejemplo de aumento
-                 break;
-                 case TipoPersonaje.HechiceroDeLuz:
-                 personaje.Caracteristicas.Proteccion += 10; // Ejemplo de aumento
-                 break;
-                  }
-                }
-                else if (planeta.Climate.Contains("frozen") || planeta.Climate.Contains("murky"))
-                  {
-                    // Clima congelado o turbio
-                   switch (personaje.Datos.Tipo)
-                  {
-                  case TipoPersonaje.HechiceroDeFuego:
-                   personaje.Caracteristicas.Fuerza -= 10; // Ejemplo de decremento
-                   break;
-                  case TipoPersonaje.HechiceroDeHielo:
-                    personaje.Caracteristicas.Salud += 10; // Ejemplo de aumento
-                   break;
-                   case TipoPersonaje.HechiceroDeLaNaturaleza:
-                   personaje.Caracteristicas.Proteccion += 5; // Ejemplo de aumento
-                   break;
-                   case TipoPersonaje.HechiceroDeLasSombras:
-                    personaje.Caracteristicas.Velocidad -= 5; // Ejemplo de decremento
-                    break;
-                   case TipoPersonaje.HechiceroDeLuz:
-                    personaje.Caracteristicas.Destreza -= 5; // Ejemplo de decremento
-                     break;
-                }
-                 }
-    
-                // Ajustes basados en el terreno del planeta
-                if (planeta.Terrain.Contains("desert") || planeta.Terrain.Contains("tundra"))
-                   {
-                      // Terreno desértico o tundra
-                       switch (personaje.Datos.Tipo)
-                      {
-                          case TipoPersonaje.HechiceroDeFuego:
-                          personaje.Caracteristicas.Velocidad += 5; // Ejemplo de aumento
-                          break;
-                          case TipoPersonaje.HechiceroDeHielo:
-                          personaje.Caracteristicas.Fuerza -= 5; // Ejemplo de decremento
-                          break;
-                          case TipoPersonaje.HechiceroDeLaNaturaleza:
-                           personaje.Caracteristicas.Salud -= 5; // Ejemplo de decremento
-                           break;
-                          case TipoPersonaje.HechiceroDeLasSombras:
-                           personaje.Caracteristicas.Destreza -= 5; // Ejemplo de decremento
-                          break;
-                          case TipoPersonaje.HechiceroDeLuz:
-                            personaje.Caracteristicas.Proteccion += 5; // Ejemplo de aumento
-                           break;
-                        }
-                         }
-                             else if (planeta.Terrain.Contains("jungle") || planeta.Terrain.Contains("swamp"))
-                                {
-                                    // Terreno de jungla o pantano
-                                    switch (personaje.Datos.Tipo)
-                                    {
-                                        case TipoPersonaje.HechiceroDeFuego:
-                                         personaje.Caracteristicas.Proteccion -= 5; // Ejemplo de decremento
-                                         break;
-                                      case TipoPersonaje.HechiceroDeHielo:
-                                          personaje.Caracteristicas.Velocidad += 5; // Ejemplo de aumento
-                                          break;
-                                      case TipoPersonaje.HechiceroDeLaNaturaleza:
-                                          personaje.Caracteristicas.Fuerza += 5; // Ejemplo de aumento
-                                          break;
-                                      case TipoPersonaje.HechiceroDeLasSombras:
-                                          personaje.Caracteristicas.Salud += 5; // Ejemplo de aumento
-                                          break;
-                                      case TipoPersonaje.HechiceroDeLuz:
-                                          personaje.Caracteristicas.Destreza += 5; // Ejemplo de aumento
-                                          break;
-                                      }
-                                     }
+        }
+    }
+    else if (planeta.Climate.Contains("temperate") || planeta.Climate.Contains("tropical"))
+    {
+        // Clima templado o tropical
+        switch (personaje.Datos.Tipo)
+        {
+            case TipoPersonaje.HechiceroDeFuego:
+                personaje.Caracteristicas.Salud = Math.Max(MIN_SALUD, personaje.Caracteristicas.Salud - 10); // Decremento
+                break;
+            case TipoPersonaje.HechiceroDeHielo:
+                personaje.Caracteristicas.Fuerza = Math.Max(MIN_FUERZA, personaje.Caracteristicas.Fuerza + 10); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLaNaturaleza:
+                personaje.Caracteristicas.Destreza = Math.Max(MIN_DESTREZA, personaje.Caracteristicas.Destreza + 5); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLasSombras:
+                personaje.Caracteristicas.Velocidad = Math.Max(MIN_VELOCIDAD, personaje.Caracteristicas.Velocidad + 5); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLuz:
+                personaje.Caracteristicas.Proteccion = Math.Max(MIN_PROTECCION, personaje.Caracteristicas.Proteccion + 10); // Aumento
+                break;
+        }
+    }
+    else if (planeta.Climate.Contains("frozen") || planeta.Climate.Contains("murky"))
+    {
+        // Clima congelado o turbio
+        switch (personaje.Datos.Tipo)
+        {
+            case TipoPersonaje.HechiceroDeFuego:
+                personaje.Caracteristicas.Fuerza = Math.Max(MIN_FUERZA, personaje.Caracteristicas.Fuerza - 10); // Decremento
+                break;
+            case TipoPersonaje.HechiceroDeHielo:
+                personaje.Caracteristicas.Salud = Math.Max(MIN_SALUD, personaje.Caracteristicas.Salud + 10); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLaNaturaleza:
+                personaje.Caracteristicas.Proteccion = Math.Max(MIN_PROTECCION, personaje.Caracteristicas.Proteccion + 5); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLasSombras:
+                personaje.Caracteristicas.Velocidad = Math.Max(MIN_VELOCIDAD, personaje.Caracteristicas.Velocidad - 5); // Decremento
+                break;
+            case TipoPersonaje.HechiceroDeLuz:
+                personaje.Caracteristicas.Destreza = Math.Max(MIN_DESTREZA, personaje.Caracteristicas.Destreza - 5); // Decremento
+                break;
+        }
+    }
 
-    
-           }
+    // Ajustes basados en el terreno del planeta
+    if (planeta.Terrain.Contains("desert") || planeta.Terrain.Contains("tundra"))
+    {
+        // Terreno desértico o tundra
+        switch (personaje.Datos.Tipo)
+        {
+            case TipoPersonaje.HechiceroDeFuego:
+                personaje.Caracteristicas.Velocidad = Math.Max(MIN_VELOCIDAD, personaje.Caracteristicas.Velocidad + 5); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeHielo:
+                personaje.Caracteristicas.Fuerza = Math.Max(MIN_FUERZA, personaje.Caracteristicas.Fuerza - 5); // Decremento
+                break;
+            case TipoPersonaje.HechiceroDeLaNaturaleza:
+                personaje.Caracteristicas.Salud = Math.Max(MIN_SALUD, personaje.Caracteristicas.Salud - 5); // Decremento
+                break;
+            case TipoPersonaje.HechiceroDeLasSombras:
+                personaje.Caracteristicas.Destreza = Math.Max(MIN_DESTREZA, personaje.Caracteristicas.Destreza - 5); // Decremento
+                break;
+            case TipoPersonaje.HechiceroDeLuz:
+                personaje.Caracteristicas.Proteccion = Math.Max(MIN_PROTECCION, personaje.Caracteristicas.Proteccion + 5); // Aumento
+                break;
+        }
+    }
+    else if (planeta.Terrain.Contains("jungle") || planeta.Terrain.Contains("swamp"))
+    {
+        // Terreno de jungla o pantano
+        switch (personaje.Datos.Tipo)
+        {
+            case TipoPersonaje.HechiceroDeFuego:
+                personaje.Caracteristicas.Proteccion = Math.Max(MIN_PROTECCION, personaje.Caracteristicas.Proteccion - 5); // Decremento
+                break;
+            case TipoPersonaje.HechiceroDeHielo:
+                personaje.Caracteristicas.Velocidad = Math.Max(MIN_VELOCIDAD, personaje.Caracteristicas.Velocidad + 5); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLaNaturaleza:
+                personaje.Caracteristicas.Fuerza = Math.Max(MIN_FUERZA, personaje.Caracteristicas.Fuerza + 5); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLasSombras:
+                personaje.Caracteristicas.Salud = Math.Max(MIN_SALUD, personaje.Caracteristicas.Salud + 5); // Aumento
+                break;
+            case TipoPersonaje.HechiceroDeLuz:
+                personaje.Caracteristicas.Destreza = Math.Max(MIN_DESTREZA, personaje.Caracteristicas.Destreza + 5); // Aumento
+                break;
+        }
+    }
+}
 
            // FUNCION QUE MUESTRA LAS CARACTERISTICAS MODIFICADAS, comparando al jugador y al rival
          
@@ -354,11 +359,12 @@ namespace Proyecto
            
     // Encabezado de la tabla
     Console.WriteLine("");
-      Console.WriteLine("");
-        Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
 
     Inicio.CentrarTexto("SALUD");
     Inicio. CentrarTexto("_____________________    .    ______________________");
+    Console.WriteLine("");
     Inicio.CentrarTexto($"       {jugador.Datos.Nombre,-20} | {rival.Datos.Nombre,-20}");
     Inicio.CentrarTexto(new string('-', nombreLength + 3 + nombreLength));
       //Inicio. CentrarTexto("___________________________________________");
