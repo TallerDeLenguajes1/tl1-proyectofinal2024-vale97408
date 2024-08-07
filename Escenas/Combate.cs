@@ -341,7 +341,7 @@ namespace Proyecto
             Console.WriteLine("");
             Console.WriteLine("");
 
-            Inicio.CentrarTexto($"  {jugador.Datos.Nombre,-10}  (Tu)     VS          {rival.Datos.Nombre,-20}");
+            Inicio.CentrarTexto($"{jugador.Datos.Nombre,-20}  (Tu)    VS    {rival.Datos.Nombre,-20}");
             Inicio.CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
             // Inicio.CentrarTexto(new string('-', 50)); // Línea divisoria
@@ -428,7 +428,7 @@ namespace Proyecto
             {
                 i++;
                 Console.Clear();
-                Inicio.CentrarTexto("_____________________    .    ______________________");
+               // Inicio.CentrarTexto("_____________________    .    ______________________");
                 Console.WriteLine("");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
@@ -441,7 +441,9 @@ namespace Proyecto
                 Inicio.CentrarTexto("_____________________    .    ______________________");
                 Console.WriteLine("");
                 Console.WriteLine("");
-                Inicio.CentrarTexto("CARACTERISTICAS DE PERSONAJES ");
+                 Console.ForegroundColor = ConsoleColor.Blue;
+                Inicio.CentrarTexto("CARACTERISTICAS DE PERSONAJES A COMPETIR ");
+                Console.ResetColor();
                 Console.WriteLine("");
                 MostrarComparacionPersonajes(jugadorElegido, enemigo);
                 Thread.Sleep(7000);
@@ -452,7 +454,7 @@ namespace Proyecto
 
                 // Limpio consola 
                 Console.Clear();
-                Inicio.CentrarTexto("_____________________    .    ______________________");
+               // Inicio.CentrarTexto("_____________________    .    ______________________");
                 Console.WriteLine("");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
@@ -467,6 +469,7 @@ namespace Proyecto
 
                 Inicio.CentrarTexto(" Cargando el planeta de combate... ¡Prepárate para descubrir el escenario de tu próximo enfrentamiento!");
                 Console.WriteLine("");
+                Console.WriteLine("");
                 Thread.Sleep(1000);
 
                 // Obtener un planeta aleatorio y mostrar sus características
@@ -479,7 +482,7 @@ namespace Proyecto
                 Console.ReadKey();
 
                 Console.Clear();
-                Inicio.CentrarTexto("_____________________    .    ______________________");
+               // Inicio.CentrarTexto("_____________________    .    ______________________");
                 Console.WriteLine("");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");

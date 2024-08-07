@@ -131,7 +131,7 @@ namespace Proyecto
             Inicio.CentrarTexto(new string('-', anchoTotal + 10));
 
             // Encabezados
-            Inicio.CentrarTexto($"{"Característica".PadRight(anchoCaracteristica)} | {personajeMejorado.Datos.Nombre.PadRight(anchoValor)} | {"Cambio".PadRight(anchoCambio)}");
+            Inicio.CentrarTexto($"{"Característica".PadRight(anchoCaracteristica)} | {personajeMejorado.Datos.Nombre.PadRight(anchoValor)} | {"Mejora ".PadRight(anchoCambio)}");
             Inicio.CentrarTexto(new string('-', anchoTotal + 10));
 
             // Mostrar características con mejoras para el personaje

@@ -28,8 +28,10 @@ namespace Proyecto
             CentrarTexto("______________________   .    _____________________");
             Console.WriteLine("");
             Thread.Sleep(500);
-            CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
+            CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. ");
+            CentrarTexto("Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
             Thread.Sleep(1000);
+            CentrarTexto("");
             CentrarTexto("  ★ ⡀ . • ☆ • . ★  ¿Estás al nivel de este desafío interplanetario?  ★ ⡀ . • ☆ • . ★ ");
 
             Thread.Sleep(1000);
@@ -46,7 +48,7 @@ namespace Proyecto
 
             // Nombre del archivo de personajes
             string nombreArchivoPersonajes = "personajes.json";
-            string nombreArchivoGanadores = "ganadores.json";
+            string nombreArchivoGanadores = "historialGanadores.json";
 
             List<Personaje> personajes; // Lista ya generada de la FABRICA DE PERSONAJES
 
@@ -115,7 +117,7 @@ namespace Proyecto
                                 if (opcionJuego == 1)
                                 {
                                     Console.Clear();
-                                    Juego(personajes);
+                                    Juego(personajes, nombreJugador);
                                 }
                                 else
                                 {
@@ -126,7 +128,7 @@ namespace Proyecto
                                         personajes = GenerarPersonajes(fabrica);
                                         persistPerJson.GuardarPersonajes(personajes, nombreArchivoPersonajes);
                                         Console.Clear();
-                                        Juego(personajes);
+                                        Juego(personajes,nombreJugador);
                                     }
                                 }
 
@@ -140,29 +142,23 @@ namespace Proyecto
 
                     case 1:
                         // Historial Json
-                        if (persistHistJson.Existe(nombreArchivoGanadores))
-                        {
-                            // Leer los ganadores del archivo
-                            //  MostrarGanadores(persistHistJson.LeerGanadores(nombreArchivoGanadores));
-                        }
-                        else
-                        {
-                            Console.WriteLine("No hay ganadores registrados.");
-                        }
-                        //InicioJuego();
+                        persistHistJson.MostrarListadoGanadores(nombreArchivoGanadores);
+                        Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
+                        Console.ReadKey();
                         break;
                     case 2:
                         // Info personajes
                         MostrarPersonajes(personajes);
                         Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
                         Console.ReadKey();
+                        
                         //InicioJuego();
                         break;
                     case 3:
                         // salir
                         continuar = false;
-                        Console.Clear();
-                       Titulo.TextoDespedida();
+                        
+                        Titulo.TextoDespedida();
                         //Console.ResetColor();
                         break;
                     default:
@@ -190,25 +186,32 @@ namespace Proyecto
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            CentrarTexto($"----------- HECHICEROS PRECARGADOS -----------");
+            CentrarTexto($"HECHICEROS PRECARGADOS");
+            Console.ResetColor();
+            CentrarTexto("________________________________________________");
             Console.WriteLine("");
             foreach (var personaje in personajes)
             {
                 // Mostrar características del personaje
-                CentrarTexto($"----------------HECHICERO {personaje.Datos.Nombre} -------------------");
+                 Console.ForegroundColor = ConsoleColor.Blue;
+                CentrarTexto($"HECHICERO {personaje.Datos.Nombre}");
+                 Console.ResetColor();
+                 Console.WriteLine("");
+                  Console.ForegroundColor = ConsoleColor.Blue;
                 CentrarTexto($"Apodo: {personaje.Datos.Apodo}");
                 CentrarTexto($"Fecha de Nacimiento: {personaje.Datos.FechaDeNacimiento.ToShortDateString()}");
                 CentrarTexto($"Edad: {personaje.Datos.Edad}");
                 CentrarTexto($"Tipo: {personaje.Datos.Tipo}");
                 Console.WriteLine("");
-                CentrarTexto($"------Características------");
+                CentrarTexto($"  .......Características.......");
                 CentrarTexto($"Salud: {personaje.Caracteristicas.Salud}");
                 CentrarTexto($"Velocidad: {personaje.Caracteristicas.Velocidad}");
                 CentrarTexto($"Destreza: {personaje.Caracteristicas.Destreza}");
                 CentrarTexto($"Fuerza: {personaje.Caracteristicas.Fuerza}");
                 CentrarTexto($"Nivel: {personaje.Caracteristicas.Nivel}");
                 CentrarTexto($"Protección: {personaje.Caracteristicas.Proteccion}");
-                CentrarTexto($"-------------------------------------------------------");
+                Console.ResetColor();
+                CentrarTexto($"________________ . _________________");
                 Console.WriteLine();
                 Thread.Sleep(1000);
             }
@@ -272,7 +275,7 @@ namespace Proyecto
         }
 
 
-        public void Juego(List<Personaje> personajes)
+        public void Juego(List<Personaje> personajes, string NombreJugador)
         {
             CentrarTexto("---SELECCIONE UN PERSONAJE---");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -376,6 +379,8 @@ namespace Proyecto
             // Crear una instancia de la clase Combate
             Combate combate = new Combate();
             Personaje ganadorFinal;
+             HistorialJson persistHistJson = new HistorialJson();
+            string nombreArchivoGanadores = "historialGanadores.json";
             switch (dificultad)
             {
                 case 1:// FÁCIL
@@ -394,6 +399,10 @@ namespace Proyecto
                     Console.Write("\nPresiona cualquier tecla para CONTINUAR");
                     Console.ReadKey();
                     ganadorFinal = combate.desarrolloCombate(jugadorElegido, listaEnemigos);
+                    
+                    //-------------- Guardo al ganador en el Json       
+                      persistHistJson.AgregoGanador(ganadorFinal,nombreArchivoGanadores, NombreJugador, dificultad);
+                    
                     Console.Write("\nPresiona cualquier tecla para CONTINUAR");
                     Console.ReadKey();
 
@@ -421,6 +430,13 @@ namespace Proyecto
                     Console.Write("\nPresiona cualquier tecla para CONTINUAR");
                     Console.ReadKey();
                     ganadorFinal = combate.desarrolloCombate(jugadorElegido, listaEnemigos);
+                    
+                    //-------------- Guardo al ganador en el Json (si es que gane )
+                    if(jugadorElegido.Datos.Nombre== ganadorFinal.Datos.Nombre)
+                    {
+                      persistHistJson.AgregoGanador(ganadorFinal,nombreArchivoGanadores, NombreJugador, dificultad);
+                    }
+                     
                     Console.Write("\nPresiona cualquier tecla para CONTINUAR");
                     Console.ReadKey();
 
@@ -448,6 +464,11 @@ namespace Proyecto
                     Console.ReadKey();
                     // Desarrollo de combate
                     ganadorFinal = combate.desarrolloCombate(jugadorElegido, listaEnemigos);
+
+                    //-------------- Guardo al ganador en el Json
+                
+                      persistHistJson.AgregoGanador(ganadorFinal,nombreArchivoGanadores, NombreJugador, dificultad);
+                   
                     Console.Write("\nPresiona cualquier tecla para CONTINUAR");
                     Console.ReadKey();
 
@@ -459,9 +480,6 @@ namespace Proyecto
                     break;
             }
 
-            // Se disputa la pelea aleatoriamente , trabajo con las funciones de COMBATE
-
-
             // De acuerdo a los resultados obtenidos Si es ganador, lo guardo en el archivo de ganadores del Json
 
             // Vuelvo al menu principal
@@ -469,31 +487,6 @@ namespace Proyecto
 
         }
 
-        // Falta trabajar con la opcion del json del historil de ganadores
-        /*private static void MostrarGanadores(HistorialJson persistHistJson, string nombreArchivoGanadores )
-        {
-             //Leo la lista de gandores desde el archivo Json.
-        List<Personaje> ganadoresjson = persistHistJson.LeerGanadores(nombreArchivoGanadores);
-
-        if (ganadoresjson.Count == 0 || ganadoresjson == null)
-        {
-            Console.WriteLine("\nNo hay ganadores registrados aun.\n");
-        }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            CentrarTexto("\n-----HISTORIAL DE GANADORES-------:\n");
-            Console.ResetColor();
-        
-             
-            foreach (var ganador in ganadoresjson)
-            {
-                Console.WriteLine("NOMBRE | TIPO | VELOCIDAD| PROTECCION| DESTREZA | FUERZA ");
-                Console.WriteLine($" {ganadoresjson.Datos.Nombre}| {ganadoresjson.Datos.Tipo}| {ganadoresjson.Caracteristicas.Velocidad}|{ganadoresjson.Caracteristicas.Proteccion}| {ganadoresjson.Caracteristicas.Destreza}|{ganadoresjson.Caracteristicas.Fuerza}");
-                Console.WriteLine("\n--------------------\n");
-            }
-          }
-
-        }*/
+      
     }
 }

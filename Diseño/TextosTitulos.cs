@@ -83,7 +83,7 @@ namespace Proyecto
     
 ";
       Inicio.CentrarTexto(tituloGanador);
-      Thread.Sleep(3000);
+      Thread.Sleep(2000);
 
       string textoTrono = @"
   _____   _                                   _     _____                                 _         _ 
@@ -229,7 +229,7 @@ namespace Proyecto
 
     public static void TextoDespedida()
     {
-     
+     Console.Clear();
       Inicio.CentrarTexto("_____________________       .        _________________________");
       Console.WriteLine("");
       
