@@ -1,8 +1,5 @@
 # *Proyecto : Juego de Rol*
 
-**Alumna** : Cano Arce, María Valentina.
-**Carrera** : Ingeniería en Informática.
-
 # ARCANUM: TORNEO DE MAGIA
 
 #### En el legendario Torneo Arcanum hechiceros compiten en duelos mágicos llenos de misterio y desafíos, con un giro cósmico único ¿Quién dominará el arte arcano y ganará el trono del Gran Hechicero?
@@ -100,5 +97,8 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 ```
 
 
+
+**Alumna** : Cano Arce, María Valentina.
+**Carrera** : Ingeniería en Informática.
 
 
