@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.Text.Json;
 using Personajes;
-using Proyecto;
 
-namespace Juego
+
+namespace Proyecto
 {
     public class HistorialJson
     {

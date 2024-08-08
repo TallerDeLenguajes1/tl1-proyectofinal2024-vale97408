@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.Json;
 using Personajes;
 
-namespace Juego
+namespace Proyecto
 {
     public class PersonajesJson
     {

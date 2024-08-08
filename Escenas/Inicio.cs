@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Fabrica;
-using Juego;
 using Personajes;
 
 
@@ -13,12 +12,14 @@ namespace Proyecto
     {
         public void InicioJuego()
         {
+            //Sonido.ReproducirSonidoLargoBucle(Sonido.SonidoInicio);
             // Mostrar la pantalla de inicio
             Titulo.MostrarTituloDelJuego();
 
             // Solicitar nombre del jugador
             Console.WriteLine("Por favor, ingrese su nombre:");
             string nombreJugador = Console.ReadLine();
+            
 
 
             Console.Clear();
@@ -79,11 +80,6 @@ namespace Proyecto
                 persistPerJson.GuardarPersonajes(personajes, nombreArchivoPersonajes);
             }
 
-            // Mostrar los datos y características de los personajes cargados
-            //MostrarPersonajes(personajes);
-
-            // Mostrar información del planeta
-            //await MostrarPlanetas();
 
             // ------------------MENU DEL JUEGO--------------------
             bool continuar = true;
@@ -96,6 +92,8 @@ namespace Proyecto
 
                 MenuPrincipal menu = new MenuPrincipal(opciones);
                 int opcionElegida = menu.Display();
+                //Sonido.ReproducirSonido(Sonido.EleccionRealizada);
+
                 switch (opcionElegida)
                 {
                     case 0:
@@ -398,6 +396,7 @@ namespace Proyecto
                     listaEnemigos = Combate.GenerarEnemigosYMostrar(2, personajes, jugadorElegido);
                     Console.Write("\nPresiona cualquier tecla para CONTINUAR");
                     Console.ReadKey();
+                    
                     ganadorFinal = combate.desarrolloCombate(jugadorElegido, listaEnemigos);
                     
                     //-------------- Guardo al ganador en el Json       
