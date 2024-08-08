@@ -99,6 +99,7 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 
 
 **Alumna** : Cano Arce, María Valentina.
+
 **Carrera** : Ingeniería en Informática.
 
 
