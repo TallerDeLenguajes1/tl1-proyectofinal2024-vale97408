@@ -334,7 +334,7 @@ namespace Proyecto
             Console.WriteLine("");
             Console.WriteLine("");
 
-            Inicio.CentrarTexto($"{jugador.Datos.Nombre,-20}  (Tu)    VS    {rival.Datos.Nombre,-20}");
+            Inicio.CentrarTexto($"{jugador.Datos.Nombre,-20}  (Tú)    VS    {rival.Datos.Nombre,-20}");
             Inicio.CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
             // Inicio.CentrarTexto(new string('-', 50)); // Línea divisoria

@@ -18,7 +18,8 @@ namespace Proyecto
             Titulo.MostrarTituloDelJuego();
 
             // Solicitar nombre del jugador
-            Console.WriteLine("POR FAVOR, INGRESE SU NOMBRE:");
+            //Console.WriteLine("POR FAVOR, INGRESE SU NOMBRE:");
+            Titulo.MostrarTextoProgresivo("POR FAVOR, INGRESE SU NOMBRE:",10);
             string nombreJugador = Console.ReadLine();
             Console.Clear();
 

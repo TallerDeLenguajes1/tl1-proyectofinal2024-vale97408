@@ -14,14 +14,18 @@ namespace Proyecto
       Inicio.CentrarTexto("______________________   .    _____________________");
       Console.WriteLine("");
       Thread.Sleep(500);
-      Inicio.CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. ");
+
+      Inicio.CentrarTexto(" Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. ");
+      Thread.Sleep(300);
       Inicio.CentrarTexto("Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
       Thread.Sleep(1000);
       Inicio.CentrarTexto("");
+      Thread.Sleep(300);
       Inicio.CentrarTexto("  ★ ⡀ . • ☆ • . ★  ¿Estás al nivel de este desafío interplanetario?  ★ ⡀ . • ☆ • . ★ ");
 
       Thread.Sleep(1000);
-      Console.Write("\nPresiona cualquier tecla para empezar");
+      MostrarTextoProgresivo("\nPRESIONA CUALQUIER TECLA PARA COMENZAR.", 10);
+      //Console.Write("\nPresiona cualquier tecla para empezar");
       Console.ReadKey();
     }
 
@@ -304,12 +308,14 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
     public static void PresionaParaContinuar()
     {
-      Console.Write("\nPRESIONE CUALQUIER TECLA PARA CONTINUAR.");
+      MostrarTextoProgresivo("\nPRESIONE CUALQUIER TECLA PARA CONTINUAR.", 10);
+      //Console.Write("\nPRESIONE CUALQUIER TECLA PARA CONTINUAR.");
       Console.ReadKey();
     }
     public static void PresionaParaMenuPrincipal()
     {
-      Console.Write("\nPresiona cualquier tecla para REGRESAR AL MENU PRINCIPAL");
+      //Console.Write("\nPresiona cualquier tecla para REGRESAR AL MENU PRINCIPAL");
+      MostrarTextoProgresivo("\nPresiona cualquier tecla para REGRESAR AL MENU PRINCIPAL", 10);
       Console.ReadKey();
     }
 
@@ -339,6 +345,27 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
       Inicio.CentrarTexto("_____________________    .    ______________________");
     }
 
+    public static void MostrarTextoProgresivo(string texto, int retraso = 50)
+    {
+      // Obtén el tamaño de la consola
+      int anchoConsola = Console.WindowWidth;
+
+      // Alinea el texto en el centro de la consola
+      int espacioIzquierda = (anchoConsola - texto.Length) / 2;
+
+      // Configura la posición del cursor
+      Console.SetCursorPosition(espacioIzquierda, Console.CursorTop);
+
+      // Muestra el texto caracter por caracter
+      foreach (char c in texto)
+      {
+        Console.Write(c);
+        Thread.Sleep(retraso); // Retraso en milisegundos
+      }
+
+      // Mueve el cursor a la siguiente línea después de terminar
+      Console.WriteLine();
+    }
 
 
   }

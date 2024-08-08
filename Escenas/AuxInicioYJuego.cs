@@ -78,7 +78,7 @@ namespace Proyecto
             Console.Clear();
             Inicio.CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
-            Inicio.CentrarTexto($"SELECCIONASTE EL NIVEL DE DIFICULTAD [{dificultad}]");
+            Inicio.CentrarTexto($"SELECCIONASTE EL NIVEL DE DIFICULTAD [{TextoDificultad}]");
             Inicio.CentrarTexto($" {enemigos} ENEMIGOS A DERROTAR");
             Console.WriteLine("");
             Inicio.CentrarTexto("_____________________    .    ______________________");
@@ -92,7 +92,7 @@ namespace Proyecto
 
             ganadorFinal = CombateDesarrollo.DesarrolloCombate(jugadorElegido, listaEnemigos);
 
-            //-------------- Guardo al ganador en el Json (si es que gane )
+            //-------------- Guardo al ganador en el Json (si es que el jugador gana )
             if (jugadorElegido.Datos.Nombre == ganadorFinal.Datos.Nombre)
             {
                 persistHistJson.AgregoGanador(ganadorFinal, nombreArchivoGanadores, NombreJugador, dificultad);
