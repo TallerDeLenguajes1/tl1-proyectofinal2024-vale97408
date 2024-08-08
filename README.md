@@ -1,7 +1,6 @@
 # *Proyecto : Juego de Rol*
 
 **Alumna** : Cano Arce, María Valentina.
-
 **Carrera** : Ingeniería en Informática.
 
 # ARCANUM: TORNEO DE MAGIA
@@ -25,6 +24,7 @@ Se basa en un juego de rol por turnos donde al comenzar el jugador puede selecci
 
 ### Funcionamiento del juego
 En este juego, el jugador solo selecciona su personaje y el nivel de dificultad. El resto del programa se desarrolla de manera totalmente aleatoria: la generación de personajes con la asignación de características, los enemigos a combatir, el desarrolo de las batallas y los planetas en los que se lleva a cabo cada combate se determinan al azar. Además, proporciona una dificultad de jugabilidad en tres niveles y otorga  navegación eficiente y flexible en el juego con las opciones del menú *Jugar*, *Historial de Ganadores*, *Info de Personajes* y *Salir*.
+
 Cabe destacar el sistema de persistencia de datos que asegura que la información de los personajes del juego se mantenga entre sesiones, tanto para la carga de personajes como para el historial de ganadores. De igual modo, el elemento de sorpresa y variabilidad en cada batalla que ofrece la API empleada es crucial debido a que crea un entorno dinámico que cambia en cada duelo, influyendo directamente en el desarrollo de las batallas.
 
 
@@ -84,6 +84,7 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 - **Sonidos**: Guarda todos los archivos de audios en formato .wav que se implementan en el juego.
 
 - **Archivo Program.cs**: Punto de entrada del juego. Gestiona el inicio y la ejecución del mismo.
+
 
 ### ¿Cómo ejecutar el juego?
  - En la terminal o consola del sistema operativo que estés usando debes clonar el repositorio:
