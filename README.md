@@ -2,7 +2,7 @@
 **Alumna** : Cano Arce, María Valentina.
 **Carrera** : Ingeniería en Informática.
 
-# ----------ARCANUM: TORNEO DE MAGIA-------------
+# ARCANUM: TORNEO DE MAGIA
 
 #### En el legendario Torneo Arcanum hechiceros compiten en duelos mágicos llenos de misterio y desafíos, con un giro cósmico único ¿Quién dominará el arte arcano y ganará el trono del Gran Hechicero?
 
@@ -56,7 +56,7 @@ Cabe destacar el sistema de persistencia de datos que asegura que la informació
  Para mejorar la experiencia del jugador, agregué diferentes sonidos para momentos específicos de la partida y algunos también  vinculados a la tématica de magia del juego, estos aparecerán a lo largo de toda la partida. 
  Para la descarga de los sonidos en formato MP3 hice uso de la página: [https://pixabay.com/es/sound-effects/search/magia/]
  Con la finalidad de agregar los archivos de audios a mi juego, empleé la clase SoundPlayer contenida en el namespace System.Media. Este sólo trabaja con el formato de audio (.WAV) en aplicaciones .NET y sólo es admitidos en sistemas Windows, resaltando tras esto varias adventencias en el código y algunas veces al compilar el juego.
- Convertí los archivos de audio de formato MP3 a .WAV con la página: [https://convertio.co/es/mp3-wav/]
+ Convertí los archivos de audio de formato MP3 a .WAV con las páginas: [https://convertio.co/es/mp3-wav/] y [https://www.freeconvert.com/es/mp3-to-wav]
  Asimismo recorté y modifiqué algunos audios en el sitio: [https://vocalremover.org/es/cutter]
 
  #### Inteligencia Artificial
@@ -70,7 +70,7 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 
 - **API**: Almacena dos archivos para el manejo de la misma, *PlanetasAPi* contiene la copia de la API tras su conversión de formato JSON a C#,es decir cuenta con las clases necesarias para deserializar los datos de una API que proporciona información sobre planetas. Además contiene a *ConsumoAPI*, el código necesario  para realizar solicitudes a la API y procesar la respuesta, obteniendo una lista de planetas y sus características, que luego se deserializa para su uso en el juego.
 
-- **Persistencia Data**: Maneja la persistencia del juego con sus archivos *PersonajeJson* y *HistorialJSon*. Ambas clases cuentan con tres métodos importantes para el manejo de Json: Guadar, Leer y Existe, utilizando así la serialización y deserialización de JSON para almacenar y recuperar información, asegurando que los datos del juego se mantengan entre sesiones
+- **Persistencia Data**: Maneja la persistencia del juego con sus archivos *PersonajeJson* y *HistorialJSon*. Ambas clases cuentan con tres métodos importantes para el manejo de Json: [Guadar] datos en un archivo JSON, [Leer] datos desde un archivo JSON y [Existe] para verificar si el archivo JSON dado existe y tiene datos, utilizando así la serialización y deserialización de JSON para almacenar y recuperar información, asegurando que los datos del juego se mantengan entre sesiones
 
 - **Data**: Contiene los archivos resultado del haber trabajado la persistencia de los datos entre sesiones del juego, *historialGanadores.json* contiene la información de las victorias de los jugadores y *personajes.json* el resultado de serializar los datos de los personajes del juego. Ambos sirven para registrar y recuperan la información. 
 
