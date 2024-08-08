@@ -7,9 +7,6 @@ namespace Proyecto
 {
     public class DiseñoCombate
     {
-
-
-
         public static string MostrarBarraDeSalud(int salud)
         {
 
@@ -81,7 +78,8 @@ namespace Proyecto
             }
 
         }
-
+         
+         // TABLA
         public static void MostrarComparacionPersonajesCambios(Personaje jugadorOriginal, Personaje jugadorModificado, Personaje rivalOriginal, Personaje rivalModificado)
         {
             // Definir los anchos fijos para las columnas
@@ -116,7 +114,6 @@ namespace Proyecto
             Inicio.CentrarTexto(new string('-', anchoTotal + 10));
         }
 
-
         public static void MostrarMejoraPersonaje(Personaje personajeOriginal, Personaje personajeMejorado)
         {
             // Definir los anchos fijos para las columnas
@@ -149,12 +146,5 @@ namespace Proyecto
             // Imprimir línea divisoria final
             Inicio.CentrarTexto(new string('-', anchoTotal + 10));
         }
-
-
-
-
-
-
-
     }
 }

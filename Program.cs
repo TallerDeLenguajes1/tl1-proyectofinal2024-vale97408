@@ -1,9 +1,5 @@
-﻿
-using Proyecto; // Clase de inicio
+﻿using Proyecto;
 
- // Método para comenzar el juego
- // Creo instancia
- // Crear una instancia de la clase Inicio
-    Inicio Comienzo = new Inicio();
- Comienzo.InicioJuego();
-        
+// Crear una instancia de la clase Inicio. Comienza el juego
+Inicio Comienzo = new Inicio();
+Comienzo.InicioJuego();

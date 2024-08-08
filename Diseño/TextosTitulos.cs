@@ -7,6 +7,24 @@ namespace Proyecto
 {
   public class Titulo
   {
+    public static void TextoBienvenida(string nombreJugador)
+    {
+      Inicio.CentrarTexto($"\n¡Bienvenido, {nombreJugador}, a ARCANUM: TORNEO DE MAGIA!");
+      Thread.Sleep(500);
+      Inicio.CentrarTexto("______________________   .    _____________________");
+      Console.WriteLine("");
+      Thread.Sleep(500);
+      Inicio.CentrarTexto("     Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. ");
+      Inicio.CentrarTexto("Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
+      Thread.Sleep(1000);
+      Inicio.CentrarTexto("");
+      Inicio.CentrarTexto("  ★ ⡀ . • ☆ • . ★  ¿Estás al nivel de este desafío interplanetario?  ★ ⡀ . • ☆ • . ★ ");
+
+      Thread.Sleep(1000);
+      Console.Write("\nPresiona cualquier tecla para empezar");
+      Console.ReadKey();
+    }
+
     public static void MostrarTituloDelJuego()
     {
       Console.Clear();
@@ -38,10 +56,6 @@ namespace Proyecto
                                            *                *               *                *              *                *
  ";
 
-      //Inicio.CentrarTexto(titulo);
-      // Console.WriteLine(titulo);
-
-
       int titilarDuracion = 700; // Tiempo en milisegundos para titilar
       int totalTitilaciones = 10; // Cantidad de veces que se titilará
 
@@ -52,18 +66,12 @@ namespace Proyecto
         Console.WriteLine(titulo);
         Thread.Sleep(titilarDuracion); // Espera antes de cambiar el estado
       }
-
       // Restablecer el color de la consola y mostrar el título de forma estática
-
       Console.Clear();
       Console.ForegroundColor = ConsoleColor.Cyan;
       Console.WriteLine(titulo);
-
-
-
       Console.ResetColor();
-      //Console.WriteLine("\n ----PRESIONE UNA TECLA PARA COMENZAR------");
-      // Console.ReadKey();
+
     }
 
     public static void TituloGanador()
@@ -181,12 +189,10 @@ namespace Proyecto
 
     public static void ContadorPelea()
     {
-
       for (int i = 3; i > 0; i--)
       {
         Console.Clear();
         Console.WriteLine("");
-
         Inicio.CentrarTexto("_____________________    .    ______________________");
         Console.WriteLine("");
         Inicio.CentrarTexto("Que el poder se acumule y la magia se despierte. PREPARATE!");
@@ -196,13 +202,12 @@ namespace Proyecto
         Inicio.CentrarTexto($" La batalla comienza en {i}");
         Thread.Sleep(1500);
         Console.ResetColor();
-
       }
 
       Console.Clear();
       Inicio.CentrarTexto("_____________________    .    ______________________");
       Console.WriteLine("");
-      Inicio.CentrarTexto("Que los hechizos hablen ¡COMIENZA LA BATALLA!");
+      Inicio.CentrarTexto("QUE LOS HECHIZOS HABLEN ¡COMIENZA LA BATALLA!");
       Console.WriteLine("");
       Inicio.CentrarTexto("_____________________    .    ______________________");
       Thread.Sleep(1500);
@@ -211,9 +216,8 @@ namespace Proyecto
 
     public static void MostrarResultadoLetras(Personaje jugador, Personaje ganador)
     {
-      Console.WriteLine($"Nombre del Jugador: {jugador.Datos.Nombre}");
-      Console.WriteLine($"Nombre del Ganador: {ganador.Datos.Nombre}");
-
+      //Console.WriteLine($"Nombre del Jugador: {jugador.Datos.Nombre}");
+      //Console.WriteLine($"Nombre del Ganador: {ganador.Datos.Nombre}");
       Console.Clear();
       if (jugador.Datos.Nombre == ganador.Datos.Nombre)
       {
@@ -224,19 +228,18 @@ namespace Proyecto
         TituloPerdedor();
       }
       Thread.Sleep(2000);
-
     }
 
     public static void TextoDespedida()
     {
-     Console.Clear();
+      Console.Clear();
       Inicio.CentrarTexto("_____________________       .        _________________________");
       Console.WriteLine("");
-      
+
       Inicio.CentrarTexto("  ★ ¸ . • ☆ • . ¸ ★    Te despedimos con gratitud por haber sido parte del Torneo Arcanum. ¡Que tus futuros caminos estén llenos de magia y éxito!     ★ ¸ . • ☆ • . ¸ ★ ");
       Console.WriteLine("");
       Inicio.CentrarTexto("_____________________       .        _________________________");
-       Thread.Sleep(2000);
+      Thread.Sleep(2000);
 
       Console.ForegroundColor = ConsoleColor.Cyan;
       Inicio.CentrarTexto(" •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆  •   ☆   ★ ⡀   .  •  ☆ ");
@@ -280,9 +283,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
       Console.WriteLine(dibujoMago);
       Inicio.CentrarTexto(" •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆ •   ☆   ★ ⡀   .  •  ☆  ");
       Thread.Sleep(3000);
-
-
-      
+      // Efecto para titilar
       int titilarDuracion = 700; // Tiempo en milisegundos para titilar
       int totalTitilaciones = 10; // Cantidad de veces que se titilará
 
@@ -295,17 +296,51 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
       }
 
       // Restablecer el color de la consola y mostrar el título de forma estática
-
       Console.Clear();
       Console.ForegroundColor = ConsoleColor.Cyan;
       Console.WriteLine(dibujoMago);
-
       Console.ResetColor();
-
-
-
-
     }
+
+    public static void PresionaParaContinuar()
+    {
+      Console.Write("\nPRESIONE CUALQUIER TECLA PARA CONTINUAR.");
+      Console.ReadKey();
+    }
+    public static void PresionaParaMenuPrincipal()
+    {
+      Console.Write("\nPresiona cualquier tecla para REGRESAR AL MENU PRINCIPAL");
+      Console.ReadKey();
+    }
+
+    public static void MensajeMejoraPersonaje()
+    {
+      Console.Clear();
+      Console.WriteLine("");
+      Console.WriteLine("");
+      Console.WriteLine("");
+      Inicio.CentrarTexto("✬  ✬  ✬  ✬  ✬  ✬   ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬");
+      Console.WriteLine("");
+      Inicio.CentrarTexto("TU MAGIA HA EVOLUCIONADO. ¡Estás preparado para enfrentarte a tu próximo oponente con habilidades mejoradas!");
+      Console.WriteLine("");
+      Inicio.CentrarTexto("✬  ✬  ✬  ✬  ✬  ✬   ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬  ✬");
+      Console.WriteLine("");
+      Console.WriteLine("");
+    }
+
+    public static void EncabezadoArriba()
+    {
+      Inicio.CentrarTexto("_____________________    .    ______________________");
+      Console.WriteLine("");
+    }
+    public static void EncabezadoAbajo()
+    {
+      Console.WriteLine("");
+      Inicio.CentrarTexto("_____________________    .    ______________________");
+    }
+
+
+
   }
 }
 

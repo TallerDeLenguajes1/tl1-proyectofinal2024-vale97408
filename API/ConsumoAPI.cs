@@ -7,9 +7,7 @@ namespace Proyecto
     {
         public static async Task<Planetas> GetWeatherAsync()
         {
-
             var url = "https://swapi.dev/api/planets/";
-
               try
             {
                 HttpClient Client = new HttpClient();
@@ -26,15 +24,6 @@ namespace Proyecto
                 Console.WriteLine("Message: {0}", e.Message);
                 return null;
             }
-
         }
-
-        // public static Planetas PlanetaObtenidoDeApi()
-        // {
-        //     var planeta= GetWeatherAsync().Result;
-        //     return planeta;
-        // }
     }     
-
-
 }
