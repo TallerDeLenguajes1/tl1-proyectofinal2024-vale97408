@@ -13,6 +13,7 @@ Se basa en un juego de rol por turnos donde al comenzar el jugador puede selecci
 ## Sistema de competencia
  - **Combate:** Es por turnos donde un hechicero ataca con un hechizo y el otro defiende con contramagia.El daño puede traducirse en pérdida  de salud mágica.
  - **Eliminacion Directa:**  Los duelos son uno a uno, el ganador avanza a la siguiente ronda y el perdedor es eliminado del torneo, poniéndole  fin al juego.
+ - **Dificultad Duelos:** Los jugadores tienen la opción de elegir tres tipos de jugabilidad, Fácil (Vencer a 2 enemigos), Medio (Vencer a 4 enemigos) y Dificil (Vencer a 6 enemigos).
  - **Dificultad Aleatoria:**  El jugador puede elegir el personaje con el que desee comenzar a jugar pero antes de cada duelo, se selecciona aleatoriamente un tipo de planeta que en cada ronda puede beneficiarlo o perjudicarlo.
  - **Modificaciones Planetarias:** Cada planeta tiene caracteristicas únicas. Por ejemplo, en un  planeta de fuego, los hechizos de fuego son más poderosos, pero los de hielo pierden efectividad.
  - **Personajes:** Cada personaje tendrá en sus caracteristicas valores aleatorios que se iran modificando a medida de que vayan ganando los duelos, incrementándose, o de acuerdo a la dificultad del planeta, creciendo o decreciendo.
@@ -21,7 +22,7 @@ Se basa en un juego de rol por turnos donde al comenzar el jugador puede selecci
 ## Implementación
 
 ### Funcionamiento del juego
-En este juego, el jugador solo selecciona su personaje y el nivel de dificultad. El resto del programa se desarrolla de manera totalmente aleatoria: la generación de personajes con la asignación de características, los enemigos a combatir, el desarrolo de las batallas y los planetas en los que se lleva a cabo cada combate se determinan al azar.
+En este juego, el jugador solo selecciona su personaje y el nivel de dificultad. El resto del programa se desarrolla de manera totalmente aleatoria: la generación de personajes con la asignación de características, los enemigos a combatir, el desarrolo de las batallas y los planetas en los que se lleva a cabo cada combate se determinan al azar. Además, proporciona una dificultad de jugabilidad en tres niveles y otorga  navegación eficiente y flexible en el juego con las opciones del menú *Jugar*, *Historial de Ganadores*, *Info de Personajes* y *Salir*.
 Cabe destacar el sistema de persistencia de datos que asegura que la información de los personajes del juego se mantenga entre sesiones, tanto para la carga de personajes como para el historial de ganadores. De igual modo, el elemento de sorpresa y variabilidad en cada batalla que ofrece la API empleada es crucial debido a que crea un entorno dinámico que cambia en cada duelo, influyendo directamente en el desarrollo de las batallas.
 
 
@@ -82,7 +83,18 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 
 - **Archivo Program.cs**: Punto de entrada del juego. Gestiona el inicio y la ejecución del mismo.
 
+### ¿Cómo ejecutar el juego?
+ - En la terminal o consola del sistema operativo que estés usando debes clonar el repositorio:
 
+  ```bash
+  git clone https://github.com/TallerDeLenguajes1/tl1-proyectofinal2024-vale97408.git
+  ```
+
+ - Para ejecutar el juego, usa la terminal o consola del sistema operativo. Navega a la carpeta del proyecto y ejecuta el siguiente comando adecuado para el entorno .NET Core:
+
+ ```bash
+  dotnet run
+```
 
 
 
