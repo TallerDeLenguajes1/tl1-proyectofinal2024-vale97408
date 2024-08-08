@@ -1,5 +1,7 @@
 # *Proyecto : Juego de Rol*
+
 **Alumna** : Cano Arce, María Valentina.
+
 **Carrera** : Ingeniería en Informática.
 
 # ARCANUM: TORNEO DE MAGIA
