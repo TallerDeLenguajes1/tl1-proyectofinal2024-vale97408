@@ -6,6 +6,7 @@
 
 ## Descripción del juego 
 Se basa en un juego de rol por turnos donde al comenzar el jugador puede seleccionar un personaje, elige un nivel de dificultad de juego, basado en la cantidad de enemigos a los cuales debe combatir. El jugador se enfrentará a  desafiantes enemigos en duelos que se desarrollarán en distintos planetas del universo, donde cada uno de estos complejiza la partida ya que modifica las habilidades y estrategias de los competidores, añadiendo un elemento de sorpresa a cada batalla.
+
  Hechicero contra hechicero en una arena mágica, modificada según el planeta. El objetivo es  derrotar a todos los enemigos utilizando habilidades mágicas, y convertirse en el Gran Hechicero. ¿Estás listo para la batalla?
 
 ## Sistema de competencia
@@ -26,7 +27,7 @@ Cabe destacar el sistema de persistencia de datos que asegura que la informació
 
 
 ### Uso de API en el proyecto
- Este proyecto hace uso de la API [Planetas] (https://swapi.dev/api/planets/?format=api)  del sitio [SWAPI] (https://swapi.dev/api/) para crear entornos planetarios aleatorios que añaden una dimensión única a cada duelo. 
+ Este proyecto hace uso de la API [Planetas](https://swapi.dev/api/planets/?format=api)  del sitio [SWAPI](https://swapi.dev/api/) para crear entornos planetarios aleatorios que añaden una dimensión única a cada duelo. 
   La API elegida genera datos JSON detallados sobre diferentes planetas, proporcionando información  sobre sus características. Sin embargo,  aunque los datos que me proporciona son muy completos, trabajaremos principalmente con las propiedades del clima, terreno y gravedad para modificar las habilidades y estrategias de los hechiceros en cada duelo.
   Entre sus datos incluye: 
 
@@ -45,7 +46,7 @@ Cabe destacar el sistema de persistencia de datos que asegura que la informació
 
 ### Otros recursos utilizados
  #### Manejo de API
- Al momento de buscar la API para el proyecto, las páginas que usé para facilitarme la lectura del contenido de las mismas, así como para su conversión de Json a C# fueron:
+ Al momento de buscar la API para el proyecto, las páginas que usé para facilitarme la lectura del contenido de las mismas, así como para su conversión de JSON a C# fueron:
  [https://jsonviewer.stack.hu/] 
  [https://json2csharp.com/]
 
@@ -61,18 +62,18 @@ Cabe destacar el sistema de persistencia de datos que asegura que la informació
 
  #### Inteligencia Artificial
 Con este recurso logré implementar en mi juego diversos efectos de los cuales no tenía el conocimiento de su desarrollo. Asimismo, fue de gran inspiración para algunas frases y nombres que aparecen durante el juego, y para evitar el escribir códigos repetitivos en el programa.
-Los usos significativos fueron la presentación visual de tablas de comparaciones entre los personajes, efecto en la visualización de la salud  durante las batallas , el contador de tiempo antes de cada ronda, funciones para el centrado de textos , efectos de titilación en los mismos y la apariencia en la elección de opciones en el menú principal.  
+Los usos significativos fueron la presentación visual de tablas de comparaciones entre los personajes, efecto en la visualización de la salud  durante las batallas  , el contador de tiempo antes de cada ronda, funciones para el centrado de textos, su aparición progresiva , efectos de titilación en los mismos y la apariencia en la elección de opciones en el menú principal.  
 
 #### Estructura del Programa
 El programa consta en su organización de  varias carpetas, cada una de las cuales trata una parte diferente del programa general. La estructura es la siguiente:
 
-- **Personajes**: Contiene dos archivos, *Personajes* para agrupar todo lo relacionado a la definición y características de los mismos en el juego (Datos y Caracteríticas), y *Fábrica de Personajes* con una clase llamada de igual manera, la cuál contiene funciones para crear los competidores con todas sus características aleatorias.
+- **Personajes**: Contiene dos archivos, *Personajes* para agrupar todo lo relacionado a la definición y características de los mismos en el juego (Datos y Caracteríticas), y *Fábrica de Personajes* con una clase llamada de igual manera, la cuál contiene métodos para crear los competidores con todas sus características aleatorias.
 
 - **API**: Almacena dos archivos para el manejo de la misma, *PlanetasAPi* contiene la copia de la API tras su conversión de formato JSON a C#,es decir cuenta con las clases necesarias para deserializar los datos de una API que proporciona información sobre planetas. Además contiene a *ConsumoAPI*, el código necesario  para realizar solicitudes a la API y procesar la respuesta, obteniendo una lista de planetas y sus características, que luego se deserializa para su uso en el juego.
 
 - **Persistencia Data**: Maneja la persistencia del juego con sus archivos *PersonajeJson* y *HistorialJSon*. Ambas clases cuentan con tres métodos importantes para el manejo de Json: [Guadar] datos en un archivo JSON, [Leer] datos desde un archivo JSON y [Existe] para verificar si el archivo JSON dado existe y tiene datos, utilizando así la serialización y deserialización de JSON para almacenar y recuperar información, asegurando que los datos del juego se mantengan entre sesiones
 
-- **Data**: Contiene los archivos resultado del haber trabajado la persistencia de los datos entre sesiones del juego, *historialGanadores.json* contiene la información de las victorias de los jugadores y *personajes.json* el resultado de serializar los datos de los personajes del juego. Ambos sirven para registrar y recuperan la información. 
+- **Data**: Contiene los archivos resultado del haber trabajado la persistencia de los datos entre sesiones del juego, *historialGanadores.json* contiene la información de las victorias de los jugadores y *personajes.json* el resultado de serializar los datos de los personajes del juego. Ambos sirven para registrar y recuperar la información. 
 
 - **Diseño**: Guarda cuatro diferentes archivos que se encargan exclusivante de mejorar la estética del juego en diferentes aspectos. Incluye todos los textos empleados, dibujos , diseños en los títulos, tablas , menú y el archivo para la implementación del sonido. 
 
@@ -84,7 +85,7 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 
 
 ### ¿Cómo ejecutar el juego?
- - En la terminal o consola del sistema operativo que estés usando debes clonar el repositorio:
+ - Teniendo .NET versión 8.0 instalado en tu computadora, en la terminal o consola del sistema operativo que estés usando debes clonar el repositorio:
 
   ```bash
   git clone https://github.com/TallerDeLenguajes1/tl1-proyectofinal2024-vale97408.git
@@ -98,8 +99,9 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 
 
 
-**Alumna** : Cano Arce, María Valentina.
+### Datos Personales
+- **Alumna** : Cano Arce, María Valentina.
 
-**Carrera** : Ingeniería en Informática.
+- **Carrera** : Ingeniería en Informática.
 
 
