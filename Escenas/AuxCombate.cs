@@ -274,11 +274,11 @@ namespace Proyecto
             var caracteristicas = personaje.Caracteristicas;
 
             // Definir el aumento por nivel
-            int aumentoVelocidad = 2;
-            int aumentoDestreza = 2;
-            int aumentoFuerza = 2;
-            int aumentoNivel = 2;
-            int aumentoProteccion = 2;
+            int aumentoVelocidad = 1;
+            int aumentoDestreza = 1;
+            int aumentoFuerza = 1;
+            int aumentoNivel = 1;
+            int aumentoProteccion = 1;
             int aumentoSalud = 5;
 
             // Aumentar las características del personaje

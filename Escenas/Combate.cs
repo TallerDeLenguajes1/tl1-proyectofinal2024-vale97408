@@ -14,6 +14,7 @@ namespace Proyecto
 
             // Cada vez que le gane a un competidor pasara de ronda(peleara con el otro personaje de los que queden en la lista, no con el mismo ) y sus caracteristicas mejoraran.
             int i = 0;
+
             foreach (var enemigo in listaEnemigos)
             // Iterar a través de cada enemigo en la lista
             {
@@ -83,6 +84,12 @@ namespace Proyecto
                 Titulo.EncabezadoAbajo();
                 Console.WriteLine("");
 
+                ////
+                //-----------Copio el jugador sin modificaciones del planetas, para luego a este aumentarle el nivel si gana de ronda
+                Personaje jugadorSinModificacionesPlaneta = DiseñoCombate.CopiarPersonaje(jugadorSinModificaciones);
+                ///
+
+
                 // Modificar las características del jugador y el enemigo según el planeta
                 Combate.ModificarCaracteristicasPorPlaneta(planeta, jugadorElegido);
                 Combate.ModificarCaracteristicasPorPlaneta(planeta, enemigo);
@@ -107,6 +114,8 @@ namespace Proyecto
                 Thread.Sleep(1000);
                 Console.Clear();
 
+                //-->>>>>>>>>>>>>>>>>>------------------------COMBATE-----------------------------------<<<<<<<<<<<<<<<<<<<<
+
                 // Realizar el combate entre el jugador y el enemigo
                 bool jugadorGano = Combate.RealizarCombate(jugadorElegido, enemigo, cantidadRondas, i);
 
@@ -116,10 +125,11 @@ namespace Proyecto
                 if (jugadorGano) // Siempre que haya ganado 
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
+
                     Personaje jugadorFinRonda = DiseñoCombate.CopiarPersonaje(jugadorElegido);
-                    
+
                     // El jugador gana la ronda, aumenta su nivel
-                    jugadorElegido = Combate.AumentarNivel(jugadorElegido);
+                    jugadorElegido = Combate.AumentarNivel(jugadorSinModificacionesPlaneta);    // Mejora al jugador original, no se le suma la modificacion del planeta
                     Titulo.EncabezadoArriba();
                     Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} ha ganado la ronda!");
                     Titulo.EncabezadoAbajo();
@@ -127,9 +137,9 @@ namespace Proyecto
 
                     if (cantidadRondas != i) //siempre que no sea su ultima ronda
                     {
-                        Combate.RestaurarSalud(jugadorElegido); // Se restauara siempre que no sea su ultima ronda jugada
+                        Combate.RestaurarSalud(jugadorElegido); // Se restaurará siempre que no sea su ultima ronda jugada
                         Titulo.MensajeMejoraPersonaje();
-                        DiseñoCombate.MostrarMejoraPersonaje(jugadorFinRonda, jugadorElegido);
+                        DiseñoCombate.MostrarMejoraPersonaje(jugadorSinModificaciones, jugadorElegido);
                     }
                     Thread.Sleep(6000); // Esperar para que el jugador lea el mensaje
                     Console.ResetColor();
