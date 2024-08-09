@@ -301,7 +301,7 @@ namespace Proyecto
             Random random = new Random();
             // Calcular daño
             int ataque = atacante.Caracteristicas.Destreza * atacante.Caracteristicas.Fuerza * atacante.Caracteristicas.Nivel;
-            int efectividad = random.Next(1, 101); // Valor aleatorio entre 1 y 100-- al 1 lo cmabie por 6
+            int efectividad = random.Next(5, 101); // Valor aleatorio entre 1 y 100-- al 1 lo cmabie por 5Val
             int defensa = defensor.Caracteristicas.Proteccion * defensor.Caracteristicas.Velocidad;
             int constanteAjuste = 500;
             int danoProvocado = (ataque * efectividad - defensa) / constanteAjuste;

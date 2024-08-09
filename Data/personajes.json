@@ -2,66 +2,32 @@
   {
     "Datos": {
       "Nombre": "Aegis",
-      "Apodo": "El Sabio",
-      "FechaDeNacimiento": "1957-04-03T00:00:00",
-      "Edad": 43,
-      "Tipo": 0
+      "Apodo": "El Sombra",
+      "FechaDeNacimiento": "1798-07-04T00:00:00",
+      "Edad": 36,
+      "Tipo": 4
     },
     "Caracteristicas": {
-      "Velocidad": 10,
-      "Destreza": 3,
-      "Fuerza": 10,
-      "Nivel": 1,
-      "Proteccion": 4,
+      "Velocidad": 2,
+      "Destreza": 5,
+      "Fuerza": 6,
+      "Nivel": 4,
+      "Proteccion": 8,
       "Salud": 100
     }
   },
   {
     "Datos": {
       "Nombre": "Bran",
-      "Apodo": "El Fulgor",
-      "FechaDeNacimiento": "1944-06-07T00:00:00",
-      "Edad": 298,
-      "Tipo": 0
-    },
-    "Caracteristicas": {
-      "Velocidad": 9,
-      "Destreza": 3,
-      "Fuerza": 7,
-      "Nivel": 10,
-      "Proteccion": 7,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Eldric",
-      "Apodo": "El Sombra",
-      "FechaDeNacimiento": "1827-07-14T00:00:00",
-      "Edad": 146,
-      "Tipo": 2
+      "Apodo": "El Sabio",
+      "FechaDeNacimiento": "1839-01-18T00:00:00",
+      "Edad": 4,
+      "Tipo": 3
     },
     "Caracteristicas": {
       "Velocidad": 8,
-      "Destreza": 4,
-      "Fuerza": 4,
-      "Nivel": 10,
-      "Proteccion": 4,
-      "Salud": 100
-    }
-  },
-  {
-    "Datos": {
-      "Nombre": "Darius",
-      "Apodo": "El Fulgor",
-      "FechaDeNacimiento": "1930-01-19T00:00:00",
-      "Edad": 181,
-      "Tipo": 0
-    },
-    "Caracteristicas": {
-      "Velocidad": 4,
-      "Destreza": 1,
-      "Fuerza": 7,
+      "Destreza": 5,
+      "Fuerza": 5,
       "Nivel": 10,
       "Proteccion": 3,
       "Salud": 100
@@ -69,17 +35,51 @@
   },
   {
     "Datos": {
-      "Nombre": "Fenwick",
-      "Apodo": "El Destructor",
-      "FechaDeNacimiento": "1799-09-27T00:00:00",
-      "Edad": 15,
-      "Tipo": 1
+      "Nombre": "Eldric",
+      "Apodo": "El Sombra",
+      "FechaDeNacimiento": "1900-10-19T00:00:00",
+      "Edad": 20,
+      "Tipo": 0
     },
     "Caracteristicas": {
-      "Velocidad": 5,
+      "Velocidad": 2,
+      "Destreza": 3,
+      "Fuerza": 9,
+      "Nivel": 4,
+      "Proteccion": 3,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Darius",
+      "Apodo": "El Sombra",
+      "FechaDeNacimiento": "1939-03-31T00:00:00",
+      "Edad": 93,
+      "Tipo": 0
+    },
+    "Caracteristicas": {
+      "Velocidad": 9,
       "Destreza": 4,
-      "Fuerza": 5,
-      "Nivel": 1,
+      "Fuerza": 7,
+      "Nivel": 6,
+      "Proteccion": 7,
+      "Salud": 100
+    }
+  },
+  {
+    "Datos": {
+      "Nombre": "Fenwick",
+      "Apodo": "El Sanador",
+      "FechaDeNacimiento": "1775-05-05T00:00:00",
+      "Edad": 282,
+      "Tipo": 2
+    },
+    "Caracteristicas": {
+      "Velocidad": 3,
+      "Destreza": 2,
+      "Fuerza": 4,
+      "Nivel": 2,
       "Proteccion": 8,
       "Salud": 100
     }
@@ -88,84 +88,84 @@
     "Datos": {
       "Nombre": "Fionn",
       "Apodo": "El Sanador",
-      "FechaDeNacimiento": "1774-09-13T00:00:00",
-      "Edad": 162,
+      "FechaDeNacimiento": "1818-03-27T00:00:00",
+      "Edad": 229,
       "Tipo": 0
     },
     "Caracteristicas": {
-      "Velocidad": 10,
-      "Destreza": 1,
-      "Fuerza": 8,
-      "Nivel": 8,
-      "Proteccion": 7,
+      "Velocidad": 8,
+      "Destreza": 3,
+      "Fuerza": 9,
+      "Nivel": 7,
+      "Proteccion": 5,
       "Salud": 100
     }
   },
   {
     "Datos": {
       "Nombre": "Gwen",
-      "Apodo": "El Sabio",
-      "FechaDeNacimiento": "1768-11-06T00:00:00",
-      "Edad": 65,
-      "Tipo": 2
+      "Apodo": "El Sanador",
+      "FechaDeNacimiento": "1914-07-24T00:00:00",
+      "Edad": 171,
+      "Tipo": 3
     },
     "Caracteristicas": {
-      "Velocidad": 8,
-      "Destreza": 2,
-      "Fuerza": 8,
-      "Nivel": 10,
-      "Proteccion": 4,
+      "Velocidad": 9,
+      "Destreza": 4,
+      "Fuerza": 2,
+      "Nivel": 7,
+      "Proteccion": 7,
       "Salud": 100
     }
   },
   {
     "Datos": {
       "Nombre": "Thorne",
-      "Apodo": "El Destructor",
-      "FechaDeNacimiento": "1802-02-07T00:00:00",
-      "Edad": 78,
+      "Apodo": "El Fulgor",
+      "FechaDeNacimiento": "1922-07-26T00:00:00",
+      "Edad": 94,
       "Tipo": 1
     },
     "Caracteristicas": {
-      "Velocidad": 7,
+      "Velocidad": 4,
       "Destreza": 5,
-      "Fuerza": 3,
-      "Nivel": 10,
-      "Proteccion": 9,
+      "Fuerza": 6,
+      "Nivel": 6,
+      "Proteccion": 5,
       "Salud": 100
     }
   },
   {
     "Datos": {
       "Nombre": "Ivar",
-      "Apodo": "El Sabio",
-      "FechaDeNacimiento": "1889-11-02T00:00:00",
-      "Edad": 272,
-      "Tipo": 2
+      "Apodo": "El Fulgor",
+      "FechaDeNacimiento": "1970-03-24T00:00:00",
+      "Edad": 20,
+      "Tipo": 1
     },
     "Caracteristicas": {
-      "Velocidad": 3,
-      "Destreza": 3,
-      "Fuerza": 4,
-      "Nivel": 8,
-      "Proteccion": 6,
+      "Velocidad": 2,
+      "Destreza": 4,
+      "Fuerza": 3,
+      "Nivel": 5,
+      "Proteccion": 8,
       "Salud": 100
     }
   },
   {
     "Datos": {
       "Nombre": "Jasper",
-      "Apodo": "El Sombra",
-      "FechaDeNacimiento": "1821-02-16T00:00:00",
-      "Edad": 128,
-      "Tipo": 3
+      "Apodo": "El Fulgor",
+      "FechaDeNacimiento": "1904-02-16T00:00:00",
+      "Edad": 207,
+      "Tipo": 2
     },
     "Caracteristicas": {
-      "Velocidad": 7,
-      "Destreza": 5,
-      "Fuerza": 2,
-      "Nivel": 5,
-      "Proteccion": 6,
+      "Velocidad": 9,
+      "Destreza": 4,
+      "Fuerza": 6,
+      "Nivel": 6,
+      "Proteccion": 4,
       "Salud": 100
     }
   }
