@@ -306,8 +306,8 @@ namespace Proyecto
             int constanteAjuste = 500;
             int danoProvocado = (ataque * efectividad - defensa) / constanteAjuste;
 
-            // Asegurarse de que el daño no exceda 60
-            danoProvocado = Math.Min(60, Math.Max(0, danoProvocado));
+            // Asegurarse de que el daño no exceda 60 y minimamente siempre se realice un daño de 5
+            danoProvocado = Math.Min(60, Math.Max(5, danoProvocado));
 
             // Aplicar daño
             defensor.Caracteristicas.Salud -= danoProvocado;
