@@ -65,7 +65,7 @@ namespace Proyecto
                             CentrarTexto("¿DESEA JUGAR CON PERSONAJES PRECARGADOS O GENERAR NUEVOS?");
                             Console.WriteLine("1. Jugar con personajes precargados");
                             Console.WriteLine("2. Generar nuevos personajes");
-                            Console.WriteLine("- Cualquier otra tecla: Volver al MENU PRINCIPAL");
+                            Console.WriteLine("- Presiona cualquier otra tecla para: Volver al MENÚ PRINCIPAL");
 
                             string entrada = Console.ReadLine();
                             if (int.TryParse(entrada, out opcionJuego) && (opcionJuego == 1 || opcionJuego == 2))
@@ -100,14 +100,16 @@ namespace Proyecto
                     case 1:
                         // Historial Json
                         persistHistJson.MostrarListadoGanadores(nombreArchivoGanadores);
-                        Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
+                        Titulo.MostrarTextoProgresivo("Presiona cualquier tecla para volver al MENÚ PRINCIPAL.", 10);
+                        //Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
                         Console.ReadKey();
 
                         break;
                     case 2:
                         // Info personajes
                         InicioExtras.MostrarPersonajes(personajes);
-                        Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
+                        Titulo.MostrarTextoProgresivo("Presiona cualquier tecla para volver al MENÚ PRINCIPAL.", 10);
+                        //Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
                         Console.ReadKey();
 
                         break;

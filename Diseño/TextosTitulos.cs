@@ -17,7 +17,11 @@ namespace Proyecto
 
       Inicio.CentrarTexto(" Cada cuatro años, los hechiceros de la ciudad de Eldoria se enfrentan en el Torneo Arcanum, una competencia mágica por el trono del Gran Hechicero. ");
       Thread.Sleep(300);
-      Inicio.CentrarTexto("Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos. Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
+      Inicio.CentrarTexto("");
+      Inicio.CentrarTexto("Esta edición es especial: los duelos se llevan a cabo en planetas diversos, cada uno con sus propios desafíos únicos.");
+      Thread.Sleep(1000);
+      Inicio.CentrarTexto("");
+      Inicio.CentrarTexto(" Desde mundos ardientes hasta frías tierras heladas, los hechiceros deben adaptarse a condiciones cambiantes para demostrar su dominio en la magia.");
       Thread.Sleep(1000);
       Inicio.CentrarTexto("");
       Thread.Sleep(300);
@@ -35,29 +39,29 @@ namespace Proyecto
       //Console.ForegroundColor = ConsoleColor.Cyan;
       string titulo = @"
 
-                                           *                *               *                *              *                *
-                                         * * *            * * *           * * *            * * *          * * *            * * *
-                                           *                *               *                *              *                *
-                                *                                                                                                      *
-                              * * *             ___      .______        ______      ___      .__   __.  __    __  .___  ___.         * * * 
-                                *              /   \     |   _  \      /      |    /   \     |  \ |  | |  |  |  | |   \/   |           *
-                                              /  ^  \    |  |_)  |    |  ,----'   /  ^  \    |   \|  | |  |  |  | |  \  /  | 
-                                    *        /  /_\  \   |      /     |  |       /  /_\  \   |  . `  | |  |  |  | |  |\/|  |      *
-                                  * * *     /  _____  \  |  |\  \----.|  `----. /  _____  \  |  |\   | |  `--'  | |  |  |  |    * * * 
-                                    *      /__/     \__\ | _| `._____| \______|/__/     \__\ |__| \__|  \______/  |__|  |__|      *
-                                 
- 
-                                   *       _____                                   ______        ___  ___               _           *     
-                                 * * *    |_   _|                                  |  _  \       |  \/  |              (_)        * * *
-                                   *        | |    ___   _ __  _ __    ___   ___   | | | |  ___  | .  . |  __ _   __ _  _   __ _    *
-                               *            | |   / _ \ | '__|| '_ \  / _ \ / _ \  | | | | / _ \ | |\/| | / _` | / _` || | / _` |         *
-                             * * *          | |  | (_) || |   | | | ||  __/| (_) | | |/ / |  __/ | |  | || (_| || (_| || || (_| |       * * *
-                               *            \_/   \___/ |_|   |_| |_| \___| \___/  |___/   \___| \_|  |_/ \__,_| \__, ||_| \__,_|         *
-                                                                                                                  __/ |          
-                                                                                                                 |___/
-                                           *                *               *                *              *                *
-                                         * * *            * * *           * * *            * * *          * * *            * * *
-                                           *                *               *                *              *                *
+                                                   *                *               *                *              *                *
+                                                 * * *            * * *           * * *            * * *          * * *            * * *
+                                                   *                *               *                *              *                *
+                                        *                                                                                                      *
+                                      * * *             ___      .______        ______      ___      .__   __.  __    __  .___  ___.         * * * 
+                                        *              /   \     |   _  \      /      |    /   \     |  \ |  | |  |  |  | |   \/   |           *
+                                                      /  ^  \    |  |_)  |    |  ,----'   /  ^  \    |   \|  | |  |  |  | |  \  /  | 
+                                            *        /  /_\  \   |      /     |  |       /  /_\  \   |  . `  | |  |  |  | |  |\/|  |      *
+                                          * * *     /  _____  \  |  |\  \----.|  `----. /  _____  \  |  |\   | |  `--'  | |  |  |  |    * * * 
+                                            *      /__/     \__\ | _| `._____| \______|/__/     \__\ |__| \__|  \______/  |__|  |__|      *
+                                         
+         
+                                           *       _____                                   ______        ___  ___               _           *     
+                                         * * *    |_   _|                                  |  _  \       |  \/  |              (_)        * * *
+                                           *        | |    ___   _ __  _ __    ___   ___   | | | |  ___  | .  . |  __ _   __ _  _   __ _    *
+                                       *            | |   / _ \ | '__|| '_ \  / _ \ / _ \  | | | | / _ \ | |\/| | / _` | / _` || | / _` |         *
+                                     * * *          | |  | (_) || |   | | | ||  __/| (_) | | |/ / |  __/ | |  | || (_| || (_| || || (_| |       * * *
+                                       *            \_/   \___/ |_|   |_| |_| \___| \___/  |___/   \___| \_|  |_/ \__,_| \__, ||_| \__,_|         *
+                                                                                                                          __/ |          
+                                                                                                                         |___/
+                                                   *                *               *                *              *                *
+                                                 * * *            * * *           * * *            * * *          * * *            * * *
+                                                   *                *               *                *              *                *
  ";
 
       int titilarDuracion = 700; // Tiempo en milisegundos para titilar

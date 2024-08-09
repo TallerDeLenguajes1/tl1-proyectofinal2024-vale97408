@@ -49,7 +49,6 @@ namespace Proyecto
                 Titulo.EncabezadoAbajo();
                 Console.WriteLine("");
                 Inicio.CentrarTexto($"--- {jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
-                //Console.WriteLine("");
                 Titulo.EncabezadoAbajo();
                 Console.WriteLine("");
 

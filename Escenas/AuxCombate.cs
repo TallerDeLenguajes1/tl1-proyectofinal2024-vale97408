@@ -114,7 +114,7 @@ namespace Proyecto
             Console.WriteLine(); // Línea en blanco para separación
         }
 
-        // Modifica caracteristicas de acuerdo al planeta seleccionado en la ronda-chat
+        // Modifica caracteristicas de acuerdo al planeta seleccionado en la ronda- Hecho con IA
         public static void ModificarCaracteristicasPorPlaneta(Result planeta, Personaje personaje)
         {
             // Definir valores mínimos y máximos para las características para evitar daños negativos o valores no deseados.
@@ -276,7 +276,7 @@ namespace Proyecto
             // Definir el aumento por nivel
             int aumentoVelocidad = 2;
             int aumentoDestreza = 2;
-            int aumentoFuerza = 3;
+            int aumentoFuerza = 2;
             int aumentoNivel = 1;
             int aumentoProteccion = 2;
             int aumentoSalud = 5;
@@ -306,8 +306,8 @@ namespace Proyecto
             int constanteAjuste = 500;
             int danoProvocado = (ataque * efectividad - defensa) / constanteAjuste;
 
-            // Asegurarse de que el daño no exceda 80
-            danoProvocado = Math.Min(80, Math.Max(0, danoProvocado));
+            // Asegurarse de que el daño no exceda 70
+            danoProvocado = Math.Min(70, Math.Max(0, danoProvocado));
 
             // Aplicar daño
             defensor.Caracteristicas.Salud -= danoProvocado;
