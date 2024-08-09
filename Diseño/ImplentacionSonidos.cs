@@ -18,7 +18,7 @@ namespace Proyecto
         public static string EleccionRealizada = @"Sonidos\Eleccionrealizada.wav";
         public static string HechiceroDerrotado = @"Sonidos\HechiceroDerrotado.wav";
 
-       /*
+       
         private static SoundPlayer sonidoLargo = null; // control de sonido largo
 
         // Método para reproducir música de inicio en bucle
@@ -28,8 +28,7 @@ namespace Proyecto
             {
                 SoundPlayer sonido = new SoundPlayer(ruta);
                 sonido.PlayLooping(); // Reproduce en bucle
-                //sonido.Play();
-                Thread.Sleep(9000);
+                //Thread.Sleep(9000);
             }
         }
 
@@ -69,6 +68,6 @@ namespace Proyecto
             }
 
         }
-        */
+        
     }
 }

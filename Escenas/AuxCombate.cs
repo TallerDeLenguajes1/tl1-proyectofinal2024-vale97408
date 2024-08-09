@@ -277,7 +277,7 @@ namespace Proyecto
             int aumentoVelocidad = 2;
             int aumentoDestreza = 2;
             int aumentoFuerza = 2;
-            int aumentoNivel = 1;
+            int aumentoNivel = 2;
             int aumentoProteccion = 2;
             int aumentoSalud = 5;
 
@@ -301,13 +301,13 @@ namespace Proyecto
             Random random = new Random();
             // Calcular daño
             int ataque = atacante.Caracteristicas.Destreza * atacante.Caracteristicas.Fuerza * atacante.Caracteristicas.Nivel;
-            int efectividad = random.Next(6, 101); // Valor aleatorio entre 1 y 100-- al 1 lo cmabie por 6
+            int efectividad = random.Next(1, 101); // Valor aleatorio entre 1 y 100-- al 1 lo cmabie por 6
             int defensa = defensor.Caracteristicas.Proteccion * defensor.Caracteristicas.Velocidad;
             int constanteAjuste = 500;
             int danoProvocado = (ataque * efectividad - defensa) / constanteAjuste;
 
-            // Asegurarse de que el daño no exceda 70
-            danoProvocado = Math.Min(70, Math.Max(0, danoProvocado));
+            // Asegurarse de que el daño no exceda 60
+            danoProvocado = Math.Min(60, Math.Max(0, danoProvocado));
 
             // Aplicar daño
             defensor.Caracteristicas.Salud -= danoProvocado;
@@ -350,6 +350,9 @@ namespace Proyecto
         // FUNCION QUE REALIZA TODO EL COMBATE DE UNA RONDA- UNO SALE VICTORIOSO
         public static bool RealizarCombate(Personaje jugador, Personaje rival, int cantRonda, int nro)
         {
+            // -------Implemento SONIDO 
+            Sonido.ReproducirSonidoLargoBucle(Sonido.SonidoAmbientalPelea);
+
             Inicio.CentrarTexto("_____________________    .    ______________________");
             Console.WriteLine("");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -394,7 +397,6 @@ namespace Proyecto
                     return false;
                 }
             }
-
             return false;
         }
         // FUNCION PARA RESTAURAR LA SALUD DEL JUGADOR DESPUES DE CADA RONDA 

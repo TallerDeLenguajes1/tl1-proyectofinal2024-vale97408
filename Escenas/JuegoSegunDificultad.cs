@@ -65,6 +65,10 @@ namespace Proyecto
             {
                 if (int.TryParse(Console.ReadLine(), out opcionD) && opcionD >= 1 && opcionD <= 3)
                 {
+                    // -------Implemento SONIDO 
+                    Sonido.DetenerSonidoLargo(Sonido.SonidoInicio);
+                    Sonido.ReproducirSonido(Sonido.EleccionRealizada);
+
                     // Guardo el valor de dificultad  en la variable dificultad
                     dificultad = opcionD;
                 }

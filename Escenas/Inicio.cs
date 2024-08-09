@@ -13,13 +13,14 @@ namespace Proyecto
     {
         public void InicioJuego()
         {
-            //Sonido.ReproducirSonidoLargoBucle(Sonido.SonidoInicio);
 
+            // -------Implemento SONIDO 
+            Sonido.ReproducirSonidoLargoBucle(Sonido.SonidoInicio);
+            
             // Mostrar la pantalla de inicio
             Titulo.MostrarTituloDelJuego();
 
             // Solicitar nombre del jugador
-            //Console.WriteLine("POR FAVOR, INGRESE SU NOMBRE:");
             Titulo.MostrarTextoProgresivo("POR FAVOR, INGRESE SU NOMBRE:",10);
             string nombreJugador = Console.ReadLine();
             Console.Clear();
@@ -39,7 +40,7 @@ namespace Proyecto
             string nombreArchivoGanadores = "historialGanadores.json";
 
 
-            List<Personaje> personajes = PersonajesJson.PersitenciaPersonajes(); // Lista ya generada de la FABRICA DE PERSONAJEScon el debido control
+            List<Personaje> personajes = PersonajesJson.PersitenciaPersonajes(); // Lista ya generada de la FABRICA DE PERSONAJES con el debido control
 
 
             // ------------------MENU DEL JUEGO--------------------
@@ -51,7 +52,9 @@ namespace Proyecto
                 string[] opciones = ["Jugar", "Historial de Ganadores", "Info Personajes", "Salir"];
                 MenuPrincipal menu = new MenuPrincipal(opciones);
                 int opcionElegida = menu.Display();
-                //Sonido.ReproducirSonido(Sonido.EleccionRealizada);
+
+                // -------Implemento SONIDO 
+               // Sonido.ReproducirSonido(Sonido.EleccionRealizada);
 
                 switch (opcionElegida)
                 {
@@ -101,7 +104,6 @@ namespace Proyecto
                         // Historial Json
                         persistHistJson.MostrarListadoGanadores(nombreArchivoGanadores);
                         Titulo.MostrarTextoProgresivo("Presiona cualquier tecla para volver al MENÚ PRINCIPAL.", 10);
-                        //Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
                         Console.ReadKey();
 
                         break;
@@ -109,7 +111,6 @@ namespace Proyecto
                         // Info personajes
                         InicioExtras.MostrarPersonajes(personajes);
                         Titulo.MostrarTextoProgresivo("Presiona cualquier tecla para volver al MENÚ PRINCIPAL.", 10);
-                        //Console.Write("\nPresiona cualquier tecla para volver al MENU PRINCIPAL");
                         Console.ReadKey();
 
                         break;

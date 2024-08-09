@@ -84,7 +84,8 @@ namespace Proyecto
 
     public static void TituloGanador()
     {
-
+      // -------Implemento SONIDO 
+      Sonido.ReproducirSonido(Sonido.SonidoMensajeGanador);
       Console.ForegroundColor = ConsoleColor.Cyan;
       string tituloGanador = @"
 
@@ -149,6 +150,9 @@ namespace Proyecto
     }
     public static void TituloPerdedor()
     {
+      // -------Implemento SONIDO 
+      Sonido.ReproducirSonido(Sonido.SonidoMensajePerdedor);
+
       Console.ForegroundColor = ConsoleColor.Red;
       string tituloPerdedor = @"
  •   ☆   ★ ⡀   .  •  ☆  •  .  ★   ★  ⡀  .  •  ☆   •  .   ★  .  ★  ⡀  .  •   ☆  •  .     ★     ★ ⡀  •   ☆ 
@@ -197,6 +201,9 @@ namespace Proyecto
 
     public static void ContadorPelea()
     {
+      // -------Implemento SONIDO 
+      Sonido.ReproducirSonido(Sonido.CuentaRegresiva);
+
       for (int i = 3; i > 0; i--)
       {
         Console.Clear();
@@ -240,6 +247,9 @@ namespace Proyecto
 
     public static void TextoDespedida()
     {
+      // -------Implemento SONIDO 
+      Sonido.ReproducirSonido(Sonido.MejorasRealizadas);
+
       Console.Clear();
       Inicio.CentrarTexto("_____________________       .        _________________________");
       Console.WriteLine("");
@@ -325,6 +335,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
     public static void MensajeMejoraPersonaje()
     {
+      // -------Implemento SONIDO 
+      Sonido.ReproducirSonido(Sonido.MejorasRealizadas);
+
       Console.Clear();
       Console.WriteLine("");
       Console.WriteLine("");

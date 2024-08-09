@@ -4,7 +4,7 @@ namespace Proyecto
 {
     public class CombateDesarrollo
     {
-        
+
         // Funcion que recibe el jugador elegido y la lista de enemigos para trabajar la pelea con las rondas, maneja el control de toda la partida
         public static Personaje DesarrolloCombate(Personaje jugadorElegido, List<Personaje> listaEnemigos)
         {
@@ -24,15 +24,19 @@ namespace Proyecto
                 Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
                 Console.ResetColor();
                 Console.WriteLine("");
-                 Titulo.EncabezadoArriba();
+                Titulo.EncabezadoArriba();
                 Inicio.CentrarTexto($"--- {jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
-                
-               Titulo.EncabezadoArriba();
+
+                Titulo.EncabezadoArriba();
                 Console.WriteLine("");
-                 Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Inicio.CentrarTexto("CARACTERISTICAS DE PERSONAJES A COMPETIR ");
                 Console.ResetColor();
                 Console.WriteLine("");
+
+                // -------Implemento SONIDO 
+                Sonido.ReproducirSonido(Sonido.PasoDeMensaje);
+
                 Combate.MostrarComparacionPersonajes(jugadorElegido, enemigo);
                 Thread.Sleep(7000);
 
@@ -57,11 +61,14 @@ namespace Proyecto
                 Console.WriteLine("");
                 Thread.Sleep(1000);
 
+
                 // Obtener un planeta aleatorio y mostrar sus características
                 Result planeta = Combate.ObtenerYMostrarPlanetaAsync().Result;
-                // Muestro el planeta 
-                //MostrarCaracteristicasPlaneta(planeta);
-                Thread.Sleep(2000);
+
+                // -------Implemento SONIDO 
+                Sonido.ReproducirSonido(Sonido.PasoDeMensaje);
+
+                Thread.Sleep(1500);
                 Titulo.PresionaParaContinuar();
 
                 Console.Clear();
@@ -70,7 +77,7 @@ namespace Proyecto
                 Inicio.CentrarTexto($"RONDA NRO {i}/ {cantidadRondas}");
                 Console.ResetColor();
                 Titulo.EncabezadoAbajo();
-            
+
                 Console.WriteLine("");
                 Inicio.CentrarTexto($"--- {jugadorElegido.Datos.Nombre}         VS         {enemigo.Datos.Nombre} ---");
                 Titulo.EncabezadoAbajo();
@@ -85,12 +92,15 @@ namespace Proyecto
                 Inicio.CentrarTexto("CARACTERISTICAS DE PERSONAJES MODIFICADAS");
                 Console.ResetColor();
 
+                // -------Implemento SONIDO 
+                Sonido.ReproducirSonido(Sonido.PasoDeMensaje);
+
 
                 DiseñoCombate.MostrarComparacionPersonajesCambios(jugadorSinModificaciones, jugadorElegido, enemigoSinModificaciones, enemigo);
                 Console.WriteLine("");
                 Thread.Sleep(4000); // Esperar para que el jugador lea el mensaje
                 Titulo.PresionaParaContinuar();
-                
+
                 //EFECTO CONTADOR DE PELEA
                 Console.Clear();
                 Titulo.ContadorPelea();
@@ -100,16 +110,20 @@ namespace Proyecto
                 // Realizar el combate entre el jugador y el enemigo
                 bool jugadorGano = Combate.RealizarCombate(jugadorElegido, enemigo, cantidadRondas, i);
 
+                // -------Implemento SONIDO - detener
+                Sonido.DetenerSonidoLargo(Sonido.SonidoAmbientalPelea);
+
                 if (jugadorGano) // Siempre que haya ganado 
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Personaje jugadorFinRonda = DiseñoCombate.CopiarPersonaje(jugadorElegido);
+                    
                     // El jugador gana la ronda, aumenta su nivel
                     jugadorElegido = Combate.AumentarNivel(jugadorElegido);
                     Titulo.EncabezadoArriba();
                     Inicio.CentrarTexto($"{jugadorElegido.Datos.Nombre} ha ganado la ronda!");
                     Titulo.EncabezadoAbajo();
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
 
                     if (cantidadRondas != i) //siempre que no sea su ultima ronda
                     {
@@ -122,7 +136,10 @@ namespace Proyecto
                 }
                 else
                 {
-                    // El jugador pierde la ronda
+                    // El jugador pierde la batalla
+                    // -------Implemento SONIDO 
+                    Sonido.ReproducirSonido(Sonido.HechiceroDerrotado);
+
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine($"{enemigo.Datos.Nombre} ha ganado la ronda. Fin del combate.");
                     Console.ResetColor();
