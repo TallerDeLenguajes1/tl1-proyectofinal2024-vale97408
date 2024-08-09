@@ -44,6 +44,7 @@ namespace Proyecto
             historialGanadores.Add(infoGanador);
 
             // Guardo la lista de ganadores en el archivo Json, serializo, muestro mensajes de si se guardo o no
+            
             string historialG = JsonSerializer.Serialize(historialGanadores);
 
             try
@@ -190,12 +191,9 @@ namespace Proyecto
         public int Salud { get => salud; set => salud = value; }
         public int Dificultad { get => dificultad; set => dificultad = value; }
 
-         // Constructor predeterminado
-        public InfoGanadores()
-         {
-           }
 
 
+        // Establezco valores en las propiedades.  
         public InfoGanadores(Personaje ganador, string nombreJugador, int dificultad)
         {
             NombreJugador = nombreJugador;
@@ -205,7 +203,8 @@ namespace Proyecto
             Salud = ganador.Caracteristicas.Salud;
             Dificultad = dificultad;
         }
-
+        
+        // Proporciono todos los valores necesarios.
         public InfoGanadores(string nombreJugador, string nombrePersonaje, TipoPersonaje tipo, string apodo, int salud, int dificultad)
         {
             this.nombreJugador = nombreJugador;
@@ -215,5 +214,9 @@ namespace Proyecto
             this.salud = salud;
             this.dificultad = dificultad;
         }
+         // Constructor predeterminado para crear una instancia de InfoGanadores sin inicializar sus campos
+        public InfoGanadores()
+         {
+           }
     }
 }
