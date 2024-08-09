@@ -28,7 +28,7 @@ Cabe destacar el sistema de persistencia de datos que asegura que la informació
 
 ### Uso de API en el proyecto
  Este proyecto hace uso de la API [Planetas](https://swapi.dev/api/planets/?format=api)  del sitio [SWAPI](https://swapi.dev/api/) para crear entornos planetarios aleatorios que añaden una dimensión única a cada duelo. 
-  La API elegida genera datos JSON detallados sobre diferentes planetas, proporcionando información  sobre sus características. Sin embargo,  aunque los datos que me proporciona son muy completos, trabajaremos principalmente con las propiedades del clima, terreno y gravedad para modificar las habilidades y estrategias de los hechiceros en cada duelo.
+  La API elegida genera datos JSON detallados sobre diferentes planetas, proporcionando información  sobre sus características. Sin embargo,  aunque los datos que me proporciona son muy completos, trabajaremos principalmente con las propiedades del clima y terreno para modificar las habilidades y estrategias de los hechiceros en cada duelo.
   Entre sus datos incluye: 
 
   - Nombre del planeta: La denominación única del planeta.
@@ -46,19 +46,17 @@ Cabe destacar el sistema de persistencia de datos que asegura que la informació
 
 ### Otros recursos utilizados
  #### Manejo de API
- Al momento de buscar la API para el proyecto, las páginas que usé para facilitarme la lectura del contenido de las mismas, así como para su conversión de JSON a C# fueron:
- [https://jsonviewer.stack.hu/] 
- [https://json2csharp.com/]
+ Al momento de buscar la API para el proyecto, las páginas que usé para facilitarme la lectura del contenido de las mismas, así como para su conversión de JSON a C# fueron: [JSONVIEWER](https://jsonviewer.stack.hu/) y [JSON2CSHARP](https://json2csharp.com/), respectivamente.
 
  #### Presentación Visual
- Para mejorar la presentación del proyecto agregué títulos con texto ASCII que aparecen en momentos específicos del juego , todos ellos realizados en la página: [https://www.topster.es/texto-ascii/]. También, añadí detalles relacionados al contexto del juego, la magia, mediante la utilización de símbolos obtenidos en: [https://www.letrasbonitas.art/p/star-decorated-letras-bonitas.html] y en [https://www.caracteresespeciales.com/l%C3%ADnea-caracteres-especiales.html]
+ Para mejorar la presentación del proyecto agregué títulos con texto ASCII que aparecen en momentos específicos del juego , todos ellos realizados en la página:[TOPSTER](https://www.topster.es/texto-ascii/). También, añadí detalles relacionados al contexto del juego, la magia, mediante la utilización de símbolos obtenidos en: [LetrasBonitas](https://www.letrasbonitas.art/p/star-decorated-letras-bonitas.html) y en [CaracteresEspeciales](https://www.caracteresespeciales.com/l%C3%ADnea-caracteres-especiales.html)
 
  #### Sonido
- Para mejorar la experiencia del jugador, agregué diferentes sonidos para momentos específicos de la partida y algunos también  vinculados a la tématica de magia del juego, estos aparecerán a lo largo de toda la partida. 
- Para la descarga de los sonidos en formato MP3 hice uso de la página: [https://pixabay.com/es/sound-effects/search/magia/]
+ Para mejorar la experiencia del jugador, agregué diferentes sonidos para momentos específicos de la partida y algunos también  vinculados a la tématica de magia del juego.
+ Para la descarga de los sonidos en formato MP3 hice uso de la página: [PIXABAY](https://pixabay.com/es/sound-effects/search/magia/).
  Con la finalidad de agregar los archivos de audios a mi juego, empleé la clase SoundPlayer contenida en el namespace System.Media. Este sólo trabaja con el formato de audio (.WAV) en aplicaciones .NET y sólo es admitidos en sistemas Windows, resaltando tras esto varias adventencias en el código y algunas veces al compilar el juego.
- Convertí los archivos de audio de formato MP3 a .WAV con las páginas: [https://convertio.co/es/mp3-wav/] y [https://www.freeconvert.com/es/mp3-to-wav]
- Asimismo recorté y modifiqué algunos audios en el sitio: [https://vocalremover.org/es/cutter]
+ Convertí los archivos de audio de formato MP3 a .WAV con las páginas: [CONVERTIO.CO](https://convertio.co/es/mp3-wav/) y [FREECONVERTER](https://www.freeconvert.com/es/mp3-to-wav)
+ Asimismo recorté y modifiqué algunos audios en el sitio: [VocalRemover](https://vocalremover.org/es/cutter)
 
  #### Inteligencia Artificial
 Con este recurso logré implementar en mi juego diversos efectos de los cuales no tenía el conocimiento de su desarrollo. Asimismo, fue de gran inspiración para algunas frases y nombres que aparecen durante el juego, y para evitar el escribir códigos repetitivos en el programa.
