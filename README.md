@@ -14,8 +14,8 @@ Se basa en un juego de rol por turnos donde al comenzar el jugador puede selecci
  - **Eliminacion Directa:**  Los duelos son uno a uno, el ganador avanza a la siguiente ronda y el perdedor es eliminado del torneo, poniéndole  fin al juego.
  - **Dificultad Duelos:** Los jugadores tienen la opción de elegir tres tipos de jugabilidad, Fácil (Vencer a 2 enemigos), Medio (Vencer a 4 enemigos) y Dificil (Vencer a 6 enemigos).
  - **Dificultad Aleatoria:**  El jugador puede elegir el personaje con el que desee comenzar a jugar pero antes de cada duelo, se selecciona aleatoriamente un tipo de planeta que en cada ronda puede beneficiarlo o perjudicarlo.
- - **Modificaciones Planetarias:** Cada planeta tiene caracteristicas únicas. Por ejemplo, en un  planeta de fuego, los hechizos de fuego son más poderosos, pero los de hielo pierden efectividad.
- - **Personajes:** Cada personaje tendrá en sus caracteristicas valores aleatorios que se iran modificando a medida de que vayan ganando los duelos, incrementándose, o de acuerdo a la dificultad del planeta, creciendo o decreciendo.
+ - **Modificaciones Planetarias:** Cada planeta tiene características únicas. Por ejemplo, en un  planeta de fuego, los hechizos de fuego son más poderosos, pero los de hielo pierden efectividad.
+ - **Personajes:** Cada personaje tendrá en sus caracteristicas valores aleatorios que se irán modificando a medida de que vayan ganando los duelos, incrementándose, o de acuerdo a la dificultad del planeta, creciendo o decreciendo. Sólo las modificaciones realizadas por los planetas no se acumulan a medida que avanza de ronda.
 
 
 ## Implementación
@@ -99,7 +99,10 @@ El programa consta en su organización de  varias carpetas, cada una de las cual
 
 
 
+
+
 ### Datos Personales
+
 - **Alumna** : Cano Arce, María Valentina.
 
 - **Carrera** : Ingeniería en Informática.
